@@ -23,7 +23,10 @@ function Organize() {
         </div>
 
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-slate-800">
-          <h1 className="text-2xl pb-4 border-b text-teal-600"><i onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="fa fa-align-right mr-1 dark:text-slate-200 text-slate-900 lg:hidden"></i> # <span className="title">Stuctures</span> <span className="text-slate-800 text-xl font-thin"> {'>'} <span className="sub">Presidents</span></span></h1>
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl pb-4 border-b text-teal-600 w-full"># <span className="title">Stuctures</span> <span className="text-slate-800 text-xl font-thin"> {'>'} <span className="sub">Presidents</span></span></h1>
+            <i onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="fa fa-align-right mr-1 dark:text-slate-200 text-slate-900 lg:hidden text-2xl -mt-4 hover:text-teal-600"></i>
+          </div>
 
           <Outlet />
         </div>

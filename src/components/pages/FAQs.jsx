@@ -4,7 +4,7 @@ import Mailing from "../templates/Mailing";
 function FAQs() {
   return (
     <>
-      <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto my-10">
+      <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max pb-8 dark:bg-slate-800">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># FAQs</h1>
           <div className="flex flex-col mt-8">

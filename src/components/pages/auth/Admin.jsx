@@ -83,7 +83,7 @@ function Admin() {
                   <input required type="file" className="bg-transparent py-2 pl-3 rounded-xl text-lg my-4 border outline-none border-teal-600 w-[100%]" />
                   <div className="border border-teal-600 rounded-xl">
                     <input required type="text" placeholder="President Name..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
-                    <input required type="text" placeholder="Province Institute..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
+                    <input required type="text" placeholder="Institute..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
                     <input required type="text" placeholder="University..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
                     <input required type="text" placeholder="Major of College..." className="bg-transparent py-2 pl-3 text-lg outline-none w-[100%]" />
                   </div>
@@ -98,7 +98,7 @@ function Admin() {
                   <input required type="file" className="bg-transparent py-2 pl-3 rounded-xl text-lg my-4 border outline-none border-teal-600 w-[100%]" />
                   <div className="border border-teal-600 rounded-xl">
                     <input required type="text" placeholder="Co President Name..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
-                    <input required type="text" placeholder="Province Institute..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
+                    <input required type="text" placeholder="Institute..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
                     <input required type="text" placeholder="University..." className="bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
                     <input required type="text" placeholder="Major of College..." className="bg-transparent py-2 pl-3 text-lg outline-none w-[100%]" />
                   </div>
@@ -121,7 +121,7 @@ function Admin() {
                     <select required type="text" id="authorpost" className="bg-transparent p-3 text-lg outline-none w-[100%]" >
                       <option value="Structures">Structures</option>
                       <option value="Autonomous">Autonomous</option>
-                      <option value="Province Institutes">Province Institutes</option>
+                      <option value="Institutes">Institutes</option>
                     </select>
                   </div>
                   <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo :</label>

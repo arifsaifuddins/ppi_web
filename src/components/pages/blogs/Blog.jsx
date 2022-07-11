@@ -7,19 +7,21 @@ function Blog() {
 
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-      <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max  dark:bg-slate-800">
-        <Link to={'/blogs'} className="text-2xl pb-4 border-b text-teal-700"># Blogs<span className="text-slate-800 text-xl font-thin"> {'>'} Ini Judul Postnya</span></Link>
+      <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max  dark:bg-slate-800">
+        <Link to={'/blogs'} className="text-2xl p-4 md:px-0 border-b text-teal-700"># Blogs<span className="text-slate-800 text-xl font-thin"> {'>'} Ini Judul Postnya</span></Link>
 
         <div className="flex flex-col">
-          <h1 className="md:text-4xl text-3xl font-bold mt-10">Ini Judul Postnya</h1>
-          <div className="flex md:gap-4 gap-2 text-slate-500 py-5 border-b mb-8">
-            <p>News</p>
-            <p><i className="fa mr-1 fa-user"></i> Arief Saifuddien</p>
-            <p><i className="fa mr-1 fa-calendar-days"></i> 22 May 2022</p>
-            <p><i className="fa mr-1 fa-eye"></i> 0</p>
+          <div className="px-4 md:px-0">
+            <h1 className="md:text-4xl text-3xl font-bold mt-10 text-teal-600">Ini Judul Postnya</h1>
+            <div className="flex md:gap-4 gap-2 text-slate-500 py-5 border-b mb-8">
+              <p>News</p>
+              <p><i className="fa mr-1 fa-user"></i> Arief Saifuddien</p>
+              <p><i className="fa mr-1 fa-calendar-days"></i> 22 May 2022</p>
+              <p><i className="fa mr-1 fa-eye"></i> 0</p>
+            </div>
           </div>
           <img src="/assets/img/default.jpg" alt="banner-post" className="mb-8" />
-          <article>
+          <article className="px-4 md:px-0">
             {
               data.map(o => {
                 return (

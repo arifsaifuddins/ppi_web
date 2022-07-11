@@ -21,15 +21,19 @@ function Home() {
           <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-20 lg:-mb-52" />
         </div>
       </div>
-      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full px-4 mt-28">
-        <h3 className="text-teal-600">UPDATED POSTS</h3>
-        <h1 className="md:text-4xl text-3xl font-bold my-3">Whats News in PPI Sudan?</h1>
-        <p className="text-md">Read 6 latest post, and make you relaxed.</p>
+      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28">
+        <div className="px-4 md:px-0">
+          <h3 className="text-teal-600">UPDATED POSTS</h3>
+          <h1 className="md:text-4xl text-3xl font-bold my-3">Whats News in PPI Sudan?</h1>
+          <p className="text-md">Read 6 latest post, and make you relaxed.</p>
+        </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-10">
           {
             data.map(o => {
               return (
-                <BlogPost data={o} key={o} />
+                <div className="dark:bg-slate-800 rounded-xl">
+                  <BlogPost data={o} key={o} />
+                </div>
               )
             })
           }
@@ -39,10 +43,12 @@ function Home() {
         <path fill="#1E293B" fillOpacity="1" d="M0,192L1440,288L1440,320L0,320Z"></path>
       </svg>
       <div className="flex bg-slate-800">
-        <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full px-4 mt-10">
-          <h3 className="text-teal-600">PPI PRESIDENT</h3>
-          <h1 className="md:text-4xl text-3xl font-bold my-3 text-white">Do you know who is PPI Sudan president?</h1>
-          <p className="text-md text-slate-200">Here is the chosen president.</p>
+        <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-10">
+          <div className="px-4 md:px-0">
+            <h3 className="text-teal-600">PPI PRESIDENT</h3>
+            <h1 className="md:text-4xl text-3xl font-bold my-3 text-white">Do you know who is PPI Sudan president?</h1>
+            <p className="text-md text-slate-200">Here is the chosen president.</p>
+          </div>
           <div className="mx-auto pt-20 pb-28 gap-10 md:flex-row flex flex-col">
             <div className="lg:flex-row flex flex-col gap-6 p-4 rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
               <img src="/assets/img/default.jpg" alt="president" className="lg:h-52 lg:w-52 w-full object-cover" />
@@ -67,10 +73,12 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full px-4 my-28">
-        <h3 className="text-teal-600">MARS PPI</h3>
-        <h1 className="md:text-4xl text-3xl font-bold my-3">Whats the PPI Sudan Mars?</h1>
-        <p className="text-md">Hear and Memorize you'll be relaxed with it.</p>
+      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full sm:px-4 my-28">
+        <div className="px-4 md:px-0">
+          <h3 className="text-teal-600">MARS PPI</h3>
+          <h1 className="md:text-4xl text-3xl font-bold my-3">Whats the PPI Sudan Mars?</h1>
+          <p className="text-md">Hear and Memorize you'll be relaxed with it.</p>
+        </div>
         <div className="flex flex-col-reverse md:flex-row justify-between gap-20 md:gap-0 items-center mt-10">
           <div className="lg:p-4">
             <Mars />
