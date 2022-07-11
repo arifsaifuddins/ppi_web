@@ -21,12 +21,12 @@ function Options() {
         <i onClick={(e) => dropDown(e)} className="fa fa-angle-down cursor-pointer"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
-        <Link onClick={(e) => titleChange(e)} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:border-teal-600 hover:border">Presidents</Link>
-        <Link onClick={(e) => titleChange(e)} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:border-teal-600 hover:border">Vision & Mission</Link>
+        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Presidents</Link>
+        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
         {
           data.map(o => {
             return (
-              <Link onClick={(e) => titleChange(e)} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:border-teal-600 hover:border">Kemenkes</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Kemenkes</Link>
             )
           })
         }
@@ -39,7 +39,7 @@ function Options() {
         {
           data.map(o => {
             return (
-              <Link onClick={(e) => titleChange(e)} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:border-teal-600 hover:border">Vision & Mission</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
             )
           })
         }
@@ -52,7 +52,7 @@ function Options() {
         {
           data.map(o => {
             return (
-              <Link onClick={(e) => titleChange(e)} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:border-teal-600 hover:border">Vision & Mission</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
             )
           })
         }
