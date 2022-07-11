@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="shortcut icon" href="/assets/img/ppisudan.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="/css/trix.css">
+  <script type="text/javascript" src="/js/trix.js"></script>
+  <title>PPI Sudan</title>
+</head>
+
+<body>
+  <div id="root" class="text-slate-900 dark:text-slate-200 bg-slate-50 dark:bg-slate-900"></div>
+  <script type="module" src="./src/main.jsx"></script>
+  <script>
+    window.addEventListener("scroll", function () {
+      const toTop = document.querySelector(".topscroll")
+
+      if (window.pageYOffset >= 300) {
+        toTop.classList.remove('hidden')
+        toTop.classList.add('block')
+      } else {
+        toTop.classList.remove('block')
+        toTop.classList.add('hidden')
+      }
+    })
+
+    document.addEventListener('trix-file-acept', (e) => {
+      e.preventDefault()
+    })
+  </script>
+</body>
+
+</html>
