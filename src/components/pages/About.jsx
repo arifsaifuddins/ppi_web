@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FindUs from "../templates/FindUs";
 import Mailing from "../templates/Mailing";
 import Mars from "../templates/Mars";
@@ -9,8 +10,8 @@ function About() {
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-slate-800">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># About</h1>
           <div className="flex flex-col items-center mt-20">
-            <img src="/assets/img/ppisudan.png" alt="logo" className="w-40 h-40" />
-            <h1 className="text-5xl mb-8 text-green-600 font-semibold mt-6">PPISUDAN</h1>
+            <img src="/assets/img/ppisudan.png" alt="logo" className="w-40" />
+            <h1 className="text-5xl mb-8 text-[#51A274] font-semibold mt-6">PPISUDAN</h1>
             <p className="text-xl font-thin text-black">اتحاد الطلبة الإندونيسيين بالسودان</p>
             <p className="text-xl font-thin">Indonesian Students Association in Sudan</p>
             <p className="text-xl">Persatuan Pelajar Indonesia Sudan</p>
@@ -25,11 +26,11 @@ function About() {
             <p className="mb-8 first-letter:ml-10">Organisasi mahasiswa yang sudah berumur 39 tahun ini, kian hari kian dirasakan manfaatnya terutama yang berhubungan dengan kelancaran akademis mahasiswa Indonesia di Sudan. Selain itu PPI Sudan telah menjadi jembatan birokrasi antara mahasiswa Indonesia dengan berbagai instansi, baik swasta atau pemerintahan setempat. Kedutaan Besar Republik Indonesia  (KBRI) Khartoum dan PPI Sudan saling bahu membahu untuk mempromosikan dan memperjuangkan nama baik Indonesia. Di bidang pendidikan banyaknya para mahasiswa yang mendapatkan nilai dengan predikat memuaskan di berbagai universitas internasional adalah bukti bahwa putra tanah air dapat bersaing di kancah internasional. Dibidang sosial dan budaya telah beberapa kali para mahasiswa diundang untuk mengadakan tampilan seni, Tari Rantak Sumatera Barat, Tari Saman Aceh, Pencak Silat dan Angklung telah ditampilkan dalam berbagai acara. Usaha-usaha mahasiswa tak hanya berhenti sampai disini, kini kerjasama antara KBRI Khartoum terus mengalami peningkatan antara Sudan dan Indonesia yang berdampak sangat baik bagi para pelajar Indonesia di Sudan.</p>
             <p className="mb-8 first-letter:ml-10">Saat ini usaha dan perjuangan organisasi PPI Sudan mulai dirasakan lewat peran para alumni-alumninya. Dahulu, ketika mendengar nama Sudan, yang ada di benak banyak orang adalah negara yang tertinggal dan menyeramkan. Kini sudah lebih dari 1200 orang mahasiswa Indonesia sedang menempuh studi di Negara bagian utara Afrika yang juga masih masuk wilayah Negara Arab. Saat ini ada sekitar 2000 orang lebih penduduk Indonesia yang berdomisili di sini. Kurang lebih tahun kemarin ada 1500 orang lebih pendaftar seleksi ujian masuk International University of Africa Khartoum Sudan. Peningkatan ini sangat pesat, dikarenakan tahun-tahun sebelumnya hanya berkisar 500-600 orang pendaftar.</p>
           </div>
-          <div className="flex flex-col pt-28 pb-16">
+          <div className="flex flex-col pt-28">
             <h3 className="text-teal-600">LOGO PPI SUDAN</h3>
             <h1 className="text-4xl font-bold my-3">Phylosophy of Logo</h1>
-            <ul className="mt-8">
-              <img src="/assets/img/ppisudan.png" alt="logo" className="w-52 h-52 mx-auto mb-10" />
+            <ul className="mt-12">
+              <img src="/assets/img/ppisudan.png" alt="logo" className="w-52 h-52 mx-auto mb-16" />
               <li>1. Pena berwarna hitam dan bermata keemasan bermakna pendidikan dan keilmuan.</li>
               <li>2. Bulan sabit berwarna kuning interpretasi kemuliaan nilai-nilai Islam.</li>
               <li>3. Bendera merah putih interpretasi nasionalisme dan nilai kebangsaan Indonesia.</li>
@@ -37,6 +38,20 @@ function About() {
               <li>5. Dasar hijau berbentuk lingkaran interpretasi nilai universal Islam yang sesuai untuk semua golongan, suku, ras lintas tempat dan waktu.</li>
               <li>6. Tulisan "Persatuan Pelajar Indonesia" di bagian atas, dan "PPI Sudan" di bagian bawah sebagai identitas organisasi.</li>
             </ul>
+          </div>
+          <div className="flex flex-col pt-28 pb-16">
+            <h3 className="text-teal-600">OTHER LOGO</h3>
+            <h1 className="text-4xl font-bold my-3">Autonomous</h1>
+            <div className="mt-12 flex-col gap-10 flex md:flex-row justify-around md:items-end">
+              <div className="flex flex-col items-center gap-10 pb-10 md:pb-0 md:border-0 border-b">
+                <img src="/assets/img/pppisudan.png" alt="logo" className="md:w-36 w-48 mx-auto" />
+                <Link to="/blogs/category/pppi"><h3 className="text-teal-600 font-bold text-2xl hover:underline">PPPI Sudan</h3></Link>
+              </div>
+              <div className="flex flex-col items-center gap-10">
+                <img src="/assets/img/elnilein.png" alt="logo" className="md:w-36 w-48 mx-auto" />
+                <a target="_blank" href="https://www.majalahelnilein.com/"><h3 className="text-teal-600 font-bold text-2xl hover:underline">El Nilein</h3></a>
+              </div>
+            </div>
           </div>
         </div>
 

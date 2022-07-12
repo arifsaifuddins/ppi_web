@@ -63,8 +63,8 @@ function Admin() {
               </div>
               <div className="w-full mt-10">
                 <label htmlFor="x" className="my-2 block font-bold text-lg text-teal-600">Body :</label>
+                <input id="x" type="hidden" required name="content" className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
                 <trix-editor input="x"></trix-editor>
-                <input id="x" type="hidden" required name="content" />
               </div>
               <div className="flex justify-around items-center gap-8 md:flex-row flex-col mt-8">
                 <input type="date" className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
@@ -129,7 +129,7 @@ function Admin() {
                 </div>
                 <div className="w-full">
                   <label className="my-2 block font-bold text-lg text-teal-600">Description :</label>
-                  <textarea required placeholder="Description of Section..." className="bg-transparent p-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+                  <textarea required placeholder="Description of Section..." className="bg-transparent p-3 h-24 mb-2 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
                   <button type="submit" className="text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%] mt-8">Add Section</button>
                 </div>
               </div>
@@ -143,10 +143,10 @@ function Admin() {
           <div className="p-4 bg-white shadow rounded-xl dark:bg-slate-800">
             <h1 className="text-2xl pb-4 font-bold border-b">Add an Admin</h1>
             <form method="post">
-              <input required type="text" placeholder="Your Name..." className="mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-              <input required type="email" placeholder="Your Email..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-              <input required type="password" placeholder="Your Password..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-              <input required type="password" placeholder="Confirm Your Password..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+              <input required type="text" placeholder="Admin Name..." className="mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+              <input required type="email" placeholder="Admin Email..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+              <input required type="password" placeholder="Admin Password..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+              <input required type="password" placeholder="Confirm Admin Password..." className="email mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
               <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]">Add an Admin</p>
             </form>
           </div>
@@ -172,6 +172,14 @@ function Admin() {
               <input required type="text" name="question" placeholder="Type the Question..." className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
               <textarea required name="answer" placeholder="Type the Answer..." className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
               <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]">Add an FAQs</p>
+            </form>
+          </div>
+
+          <div className="p-4 bg-white shadow rounded-xl dark:bg-slate-800">
+            <h1 className="text-2xl pb-4 font-bold border-b">Add Post Category</h1>
+            <form method="post">
+              <input required type="text" name="category" placeholder="Type the Category..." className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+              <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]">Add Post Category</p>
             </form>
           </div>
         </div>

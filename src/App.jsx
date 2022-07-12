@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 
 import { Routes, Route } from "react-router-dom";
@@ -21,18 +21,30 @@ import ToTop from "./components/templates/ToTop";
 
 function App() {
   const name = true
+  const [visitor, setVisitor] = useState('')
 
   useEffect(() => {
+
     if (localStorage.key("mode")) {
       document.querySelector("html").classList.add("dark");
       document.querySelector(".mode").classList.remove("text-teal-800");
       document.querySelector(".mode").classList.add("text-yellow-200");
     }
+
+    getVisitor()
+
   }, [])
+
+  const getVisitor = async () => {
+    return await fetch('http://127.0.0.1:2000/api/visit/get')
+      .then(k => k.json())
+      .then(a => setVisitor(a.data))
+  }
 
   return (
     <div>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
@@ -51,7 +63,7 @@ function App() {
 
       <ToTop />
 
-      <Footer />
+      <Footer visit={visitor} />
     </div>
   );
 }

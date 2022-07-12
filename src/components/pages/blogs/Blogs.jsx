@@ -9,7 +9,7 @@ function Blogs() {
   const text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati animi tempore, eius nesciunt facilis exercitationem.'
 
   const searchBox = (e) => {
-    e.target.nextElementSibling.classList.toggle('hidden')
+    e.target.nextElementSibling.classList.toggle('scale-0')
   }
 
   return (
@@ -28,8 +28,8 @@ function Blogs() {
                 <Link to="/about"><p className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">Others</p></Link>
               </div>
               <i onClick={(e) => searchBox(e)} className="fa fa-search searchicon text-teal-600 font-bold cursor-pointer hover:text-teal-600 rounded-full p-2 border"></i>
-              <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 hidden last:  dark:bg-slate-800">
-                <input autoFocus type="text" placeholder="Search Blog..." className="subject bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" />
+              <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 scale-0 transition duration-500 dark:bg-slate-800">
+                <input type="text" placeholder="Search Blog..." className="bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" />
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@ function Blogs() {
               <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl  overflow-hidden bg-white dark:bg-slate-900">
                 <Link to="/blogs/id">
                   <div className="flex justify-end bg-cover pt-60 text-white bg-[url(/assets/img/default.jpg)] flex-col">
-                    <h1 className="text-4xl font-bold p-4 bg-opacity-25 bg-slate-700 text-teal-600">Ini Judul Poster</h1>
+                    <h1 className="text-4xl font-bold p-4 bg-opacity-25 bg-slate-700 text-teal-600 hover:underline hover:text-teal-700">Ini Judul Poster</h1>
                     <p className="font-light text-xl pb-4 px-4 bg-slate-700 bg-opacity-25">{text.slice(0, 100)}...</p>
                   </div>
                 </Link>
@@ -60,8 +60,8 @@ function Blogs() {
                 {
                   data.map(o => {
                     return (
-                      <div className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
-                        <BlogPost data={o} key={o} />
+                      <div key={o} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+                        <BlogPost data={o} />
                       </div>
                     )
                   })

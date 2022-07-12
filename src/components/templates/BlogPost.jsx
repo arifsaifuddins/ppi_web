@@ -6,7 +6,7 @@ function BlogPost({ o }) {
   return (
     <div className="flex flex-col p-4 rounded-xl shadow-lg hover:shadow-xl bg-white dark:bg-transparent">
       <img src="/assets/img/default.jpg" alt="poster" className="h-52 object-cover" />
-      <Link to="/blogs/id" ><h1 className="text-2xl text-teal-600 font-bold my-4">Ini Judul Poster</h1>
+      <Link to="/blogs/id" ><h1 className="text-2xl text-teal-600 font-bold my-4 hover:underline">Ini Judul Poster</h1>
         <p className="font-light mb-4">{text.slice(0, 100)}...</p></Link>
       <div className="flex justify-between items-center text-slate-500 pt-2 text-sm border-t">
         <p><i className="fa mr-1 fa-user"></i> Arief Saifuddien</p>

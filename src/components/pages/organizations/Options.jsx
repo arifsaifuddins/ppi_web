@@ -33,9 +33,9 @@ function Options() {
 
   return (
     <>
-      <div onClick={() => structure()} className="p-4 gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => structure()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Structures</h1>
-        <i ref={structures} className="fa fa-angle-down cursor-pointer"></i>
+        <i ref={structures} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Presidents</Link>
@@ -49,9 +49,9 @@ function Options() {
         }
       </div>
 
-      <div onClick={() => autonomou()} className="p-4 gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => autonomou()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Autonomous</h1>
-        <i ref={autonomous} className="fa fa-angle-down cursor-pointer"></i>
+        <i ref={autonomous} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         {
@@ -63,9 +63,9 @@ function Options() {
         }
       </div>
 
-      <div onClick={() => institute()} className="p-4 gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => institute()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Institutes</h1>
-        <i ref={institutes} className="fa fa-angle-down cursor-pointer"></i>
+        <i ref={institutes} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         {

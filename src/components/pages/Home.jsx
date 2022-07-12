@@ -9,7 +9,7 @@ function Home() {
     <div className="flex flex-col">
       <div className="bg-slate-800 text-slate-200">
         <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
-          <div className="flex flex-col py-20 lg:w-[45%] items-center lg:items-start">
+          <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">
             <h1 className="md:text-7xl text-6xl font-bold">PPI <span className="text-teal-600">Sudan</span></h1>
             <p className="text-lg font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
             <p className="text-xl my-5 text-center lg:text-left lg:ml-1">PPI Sudan is an organization for Indonesian students in Sudan, To make stucturely relationship.</p>
@@ -18,7 +18,7 @@ function Home() {
               <Link to="/contact"><p className="py-2 px-3 hover:border-teal-600 border border-teal-700 rounded-lg"><i className="fa fa-mobile-screen-button mr-1"></i> Contact</p></Link>
             </div>
           </div>
-          <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-20 lg:-mb-52" />
+          <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-10 lg:-mb-52" />
         </div>
       </div>
       <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28">
@@ -31,8 +31,8 @@ function Home() {
           {
             data.map(o => {
               return (
-                <div className="dark:bg-slate-800 rounded-xl">
-                  <BlogPost data={o} key={o} />
+                <div className="dark:bg-slate-800 rounded-xl dark:hover:bg-slate-700" key={o}>
+                  <BlogPost data={o} />
                 </div>
               )
             })
@@ -49,8 +49,8 @@ function Home() {
             <h1 className="md:text-4xl text-3xl font-bold my-3 text-white">Do you know who is PPI Sudan president?</h1>
             <p className="text-md text-slate-200">Here is the chosen president.</p>
           </div>
-          <div className="mx-auto pt-20 pb-28 gap-10 md:flex-row flex flex-col">
-            <div className="lg:flex-row flex flex-col gap-6 p-4 rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
+          <div className="mx-auto pt-20 pb-28 md:gap-8 gap-4 md:flex-row flex flex-col">
+            <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
               <img src="/assets/img/default.jpg" alt="president" className="lg:h-52 lg:w-52 w-full object-cover" />
               <div className="flex flex-col">
                 <h1 className="font-bold text-2xl mb-8 text-white">President</h1>
@@ -60,7 +60,7 @@ function Home() {
                 <p><i className="fa mr-1 fa-book"></i> Sharia</p>
               </div>
             </div>
-            <div className="lg:flex-row flex flex-col gap-6 p-4 rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
+            <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
               <img src="/assets/img/default.jpg" alt="president" className="lg:h-52 lg:w-52 w-full object-cover" />
               <div className="flex flex-col">
                 <h1 className="font-bold text-2xl mb-8 text-white">Co President</h1>
