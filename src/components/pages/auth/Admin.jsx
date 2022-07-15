@@ -1,6 +1,12 @@
 import Profile from "../../templates/Profile"
 
 function Admin() {
+
+  const date = new Date()
+  const y = date.getFullYear().toString()
+  const m = date.getMonth().toString()
+  const d = date.getDay().toString()
+
   const addInput = (a) => {
 
     const div = document.createElement('div')
@@ -43,7 +49,7 @@ function Admin() {
                 </div>
                 <div className="w-full">
                   <label htmlFor="authorpost" className="my-2 block font-bold text-lg text-teal-600">Author :</label>
-                  <input required type="text" id="authorpost" placeholder="Author Name..." value="Admin PPI Sudan" className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+                  <input required type="text" id="authorpost" placeholder="Author Name..." defaultValue="Admin PPI Sudan" className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
                 </div>
               </div>
               <div className="flex justify-around items-center md:gap-8 md:flex-row flex-col">
@@ -67,7 +73,7 @@ function Admin() {
                 <trix-editor input="x"></trix-editor>
               </div>
               <div className="flex justify-around items-center gap-8 md:flex-row flex-col mt-8">
-                <input type="date" className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+                <input required type="date" dateformat="d-M-y" defaultValue={`${y}-${(m.length < 2) ? '0' : ''}${m}-${(d.length < 2) ? '0' : ''}${d}`} className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
                 <button type="submit" className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]">Add New Post</button>
               </div>
             </form>
@@ -122,6 +128,7 @@ function Admin() {
                       <option value="Structures">Structures</option>
                       <option value="Autonomous">Autonomous</option>
                       <option value="Institutes">Institutes</option>
+                      <option value="Universities">Universities</option>
                     </select>
                   </div>
                   <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo :</label>

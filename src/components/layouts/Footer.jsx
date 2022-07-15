@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer({ visit }) {
 
   return (
-    <div className="bg-slate-800 text-slate-200 pb-16 md:pb-0 border-t-8 border-teal-600">
+    <div className="bg-slate-800 text-slate-200 pb-16 md:pb-0 border-t-8 border-teal-600 mt-20">
       <div className="lg:flex-row flex flex-col py-16 items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4 border-b">
         <div className="flex flex-col items-center">
           <Link to='/' className="flex flex-col items-center">

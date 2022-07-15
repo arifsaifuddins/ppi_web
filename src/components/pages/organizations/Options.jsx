@@ -7,6 +7,7 @@ function Options() {
   const structures = useRef()
   const autonomous = useRef()
   const institutes = useRef()
+  const universities = useRef()
 
   const structure = () => {
     structures.current.classList.toggle("-rotate-180");
@@ -24,6 +25,12 @@ function Options() {
     institutes.current.classList.toggle("-rotate-180");
     institutes.current.parentElement.nextElementSibling.classList.toggle("flex");
     institutes.current.parentElement.nextElementSibling.classList.toggle("hidden");
+  }
+
+  const universitie = () => {
+    universities.current.classList.toggle("-rotate-180");
+    universities.current.parentElement.nextElementSibling.classList.toggle("flex");
+    universities.current.parentElement.nextElementSibling.classList.toggle("hidden");
   }
 
   const titleChange = (e) => {
@@ -66,6 +73,20 @@ function Options() {
       <div onClick={() => institute()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Institutes</h1>
         <i ref={institutes} className="fa fa-angle-down"></i>
+      </div>
+      <div className="hidden flex-col p-4 gap-4 border-t">
+        {
+          data.map(o => {
+            return (
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/section/kemenkes" data={o} key={o} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
+            )
+          })
+        }
+      </div>
+
+      <div onClick={() => universitie()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-slate-700 flex justify-between items-center text-xl font-bold text-teal-600 ">
+        <h1>Universities</h1>
+        <i ref={universities} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         {

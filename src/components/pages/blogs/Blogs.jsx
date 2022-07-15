@@ -39,7 +39,7 @@ function Blogs() {
               <h3 className="text-teal-600">All Posts</h3>
               <h1 className="text-4xl font-bold my-3">Read All of Our Post.</h1>
             </div>
-            <div className="flex flex-col mt-8">
+            <div className="flex flex-col mt-10">
               <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl  overflow-hidden bg-white dark:bg-slate-900">
                 <Link to="/blogs/id">
                   <div className="flex justify-end bg-cover pt-60 text-white bg-[url(/assets/img/default.jpg)] flex-col">
@@ -56,7 +56,7 @@ function Blogs() {
                   <p><i className="fa mr-1 fa-eye"></i> 0</p>
                 </div>
               </div>
-              <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 my-8">
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-20">
                 {
                   data.map(o => {
                     return (

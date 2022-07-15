@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import TopBarProgress from "react-topbar-progress-indicator"
 
-import { Routes, Route } from "react-router-dom";
 import Page404 from "./components/layouts/404";
 import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/Header";
@@ -23,6 +23,22 @@ function App() {
   const name = true
   const [visitor, setVisitor] = useState('')
 
+  const [progress, setProgress] = useState(false)
+  const [prevLoc, setPrevLoc] = useState("")
+  const location = useLocation()
+
+  useEffect(() => {
+    setPrevLoc(location.pathname)
+    setProgress(true)
+    if (location.pathname === prevLoc) {
+      setPrevLoc('')
+    }
+  }, [location])
+
+  useEffect(() => {
+    setProgress(false)
+  }, [prevLoc])
+
   useEffect(() => {
 
     if (localStorage.key("mode")) {
@@ -43,6 +59,8 @@ function App() {
 
   return (
     <div>
+      {progress && <TopBarProgress />}
+
       <Header />
 
       <Routes>

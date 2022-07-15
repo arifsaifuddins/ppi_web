@@ -9,17 +9,25 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="/css/trix.css">
+  <link rel="stylesheet" href="/src/index.pcss">
   <script type="text/javascript" src="/js/trix.js"></script>
+  <title>PPI Sudan</title>
   <style>
     span.trix-button-group--file-tools {
       display: none !important;
     }
   </style>
-  <title>PPI Sudan</title>
 </head>
 
-<body>
-  <div id="root" class="text-slate-900 dark:text-slate-200 bg-slate-50 dark:bg-slate-900"></div>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200">
+  <div id="root">
+    <div class="flex h-[100vh] w-full">
+      <div class="m-auto animate-spin duration-700 w-12 h-12 rounded-full p-1" id="spin-loader">
+        <span class="w-full h-full bg-white inline-block rounded-full"></span>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="./src/main.jsx"></script>
   <script>
 

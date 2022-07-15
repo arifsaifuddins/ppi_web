@@ -21,13 +21,13 @@ function Home() {
           <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-10 lg:-mb-52" />
         </div>
       </div>
-      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28">
+      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28 mb-28 lg:mb-10">
         <div className="px-4 md:px-0">
           <h3 className="text-teal-600">UPDATED POSTS</h3>
           <h1 className="md:text-4xl text-3xl font-bold my-3">Whats News in PPI Sudan?</h1>
           <p className="text-md">Read 6 latest post, and make you relaxed.</p>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-10">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
           {
             data.map(o => {
               return (
@@ -49,7 +49,7 @@ function Home() {
             <h1 className="md:text-4xl text-3xl font-bold my-3 text-white">Do you know who is PPI Sudan president?</h1>
             <p className="text-md text-slate-200">Here is the chosen president.</p>
           </div>
-          <div className="mx-auto pt-20 pb-28 md:gap-8 gap-4 md:flex-row flex flex-col">
+          <div className="mx-auto py-20 md:gap-8 gap-4 md:flex-row flex flex-col">
             <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
               <img src="/assets/img/default.jpg" alt="president" className="lg:h-52 lg:w-52 w-full object-cover" />
               <div className="flex flex-col">
@@ -73,7 +73,11 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full sm:px-4 my-28">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#1E293B" fillOpacity="1" d="M0,224L120,208C240,192,480,160,720,144C960,128,1200,128,1320,128L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+      </svg>
+
+      <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full sm:px-4 mt-28 mb-28 lg:mt-10">
         <div className="px-4 md:px-0">
           <h3 className="text-teal-600">MARS PPI</h3>
           <h1 className="md:text-4xl text-3xl font-bold my-3">Whats the PPI Sudan Mars?</h1>

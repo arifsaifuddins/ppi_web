@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-	  scroll-behavior: smooth;
+    scroll-behavior: smooth;
   }
 
   *::selection {
@@ -29,5 +29,14 @@
   *::-moz-scrollbar-thumb:hover,
   *::-webkit-scrollbar-thumb:hover {
     @apply bg-none
+  }
+
+  #spin-loader {
+    background: conic-gradient(#0000 10%,
+        #0D9488);
+
+    -webkit-mask: radial-gradient(farthest-side,
+        #0000 calc(100% - 10px),
+        0);
   }
 }
