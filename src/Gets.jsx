@@ -95,8 +95,8 @@ export const blogsFav = async (favorite) => {
     .then(k => k.json())
 }
 
-export const blogsDis = async (display) => {
-  return await fetch(`${phpurl}/gets.php/?display=${display}`)
+export const blogsDis = async (dis) => {
+  return await fetch(`${phpurl}/gets.php/?display=${dis}`)
     .then(k => k.json())
 }
 

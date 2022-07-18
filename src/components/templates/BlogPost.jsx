@@ -6,9 +6,9 @@ function BlogPost({ data }) {
   const body = data.body.replace(/<[^>]+>/g, '').trim()
 
   return (
-    <div className="flex flex-col p-4 rounded-xl shadow-lg hover:shadow-xl bg-white dark:bg-transparent">
+    <div className="flex flex-col p-4 rounded-xl w-full shadow-lg hover:shadow-xl bg-white dark:bg-transparent">
       <img src={phpurl + '/images/' + data.blog_poster} alt="poster" className="h-52 object-cover" />
-      <Link to={`/blog/${data.slug}`} ><h1 className="text-2xl text-teal-600 font-bold my-4 hover:underline">{data.title.slice(0, 40)}...</h1>
+      <Link to={`/blog/${data.slug}`} ><h1 className="text-2xl text-teal-600 font-bold my-4 hover:text-teal-700 hover:underline">{data.title.slice(0, 25)}...</h1>
         <p className="font-light mb-4">{body.replaceAll('&nbsp;', '').trim().slice(0, 70)}...</p></Link>
       <div className="flex justify-between items-center text-slate-500 pt-2 text-sm border-t">
         <Link to={`/blogs/author/${data.author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {data.author}</p></Link>

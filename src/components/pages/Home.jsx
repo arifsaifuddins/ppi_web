@@ -4,7 +4,6 @@ import Mars from "../templates/Mars";
 import TypeAnimation from 'react-type-animation';
 import { useEffect, useState } from "react";
 import { blogsDis, getcoPres, getPres } from "../../Gets";
-import Empty from "../layouts/Empty";
 
 function Home() {
   const nodeurl = import.meta.env.VITE_NODEURL
@@ -57,16 +56,13 @@ function Home() {
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
           {
-            Blogs != null ? Blogs.map((o, i) => {
-              return (
-                <div key={i} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
-                  <BlogPost data={o} />
-                </div>
-              )
-            }) : (
-              <Empty empty={Blogs.msg} />
+            (Blogs != null) && (
+              Blogs.map((o, i) => <div key={i} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+                <BlogPost data={o} />
+              </div>)
             )
           }
+
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="-mb-3">
