@@ -30,16 +30,12 @@ function Footer({ visit }) {
           <Link to="/organizations" className="mb-2 hover:text-teal-600">Organizations</Link>
           <Link to="/about" className="mb-2 hover:text-teal-600">About</Link>
         </div>
-        {
-          (category != null) && (
-            <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
-              <h1 className="font-semibold mb-4 text-xl text-white">Post Categories</h1>
-              {
-                category.map((a, i) => (<Link to={`/blogs/category/${a.name}`} key={i} className="mb-2 hover:text-teal-600">{a.name}</Link>))
-              }
-            </div>
-          )
-        }
+        <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
+          <h1 className="font-semibold mb-4 text-xl text-white">Post Categories</h1>
+          {
+            (category != null) && category.map((a, i) => (<Link to={`/blogs/category/${a.name}`} key={i} className="mb-2 hover:text-teal-600">{a.name}</Link>))
+          }
+        </div>
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
           <h1 className="font-semibold mb-4 text-xl text-white">Social Medias</h1>
           <a className="hover:text-teal-600 mb-2" href="https://facebook.com/ppi.sudan" target="_blank"><i className="fab mr-1 fa-facebook text-blue-800"></i> Facebook</a>
