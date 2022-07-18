@@ -41,12 +41,12 @@ function PostField({ name, category }) {
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
         window.location.assign('/blogs')
       }).catch(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
       })
