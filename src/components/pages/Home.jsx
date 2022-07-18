@@ -3,10 +3,10 @@ import BlogPost from "../templates/BlogPost";
 import Mars from "../templates/Mars";
 import TypeAnimation from 'react-type-animation';
 import { useEffect, useState } from "react";
-import { getBlogs, getcoPres, getPres } from "../../Gets";
+import { blogsDis, getcoPres, getPres } from "../../Gets";
+import Empty from "../layouts/Empty";
 
 function Home() {
-  const data = [1, 2, 3, 4, 5, 6]
   const nodeurl = import.meta.env.VITE_NODEURL
 
   const [Pres, setPres] = useState(null)
@@ -14,7 +14,7 @@ function Home() {
   const [Blogs, setBlogs] = useState(null)
 
   useEffect(() => {
-    getBlogs().then(a => setBlogs(a.data))
+    blogsDis(6).then(a => setBlogs(a.data))
   }, [])
 
   useEffect(() => {
@@ -57,13 +57,15 @@ function Home() {
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
           {
-            Blogs != null && Blogs.map(o => {
+            Blogs != null ? Blogs.map((o, i) => {
               return (
-                <div key={o.id} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+                <div key={i} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
                   <BlogPost data={o} />
                 </div>
               )
-            })
+            }) : (
+              <Empty empty={Blogs.msg} />
+            )
           }
         </div>
       </div>

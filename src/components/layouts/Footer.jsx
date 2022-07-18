@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getCategories } from "../../Gets";
+import { getCategoriesLim } from "../../Gets";
 
 function Footer({ visit }) {
 
-  const num = [1, 2, 3, 4, 5]
   const [category, setCategory] = useState(null)
 
   useEffect(() => {
-    getCategories().then(a => setCategory(a.data))
+    getCategoriesLim(5).then(a => setCategory(a.data))
   }, [])
 
   return (
@@ -36,7 +35,7 @@ function Footer({ visit }) {
             <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
               <h1 className="font-semibold mb-4 text-xl text-white">Post Categories</h1>
               {
-                num.map((a, i) => (<Link to="#" key={a} className="mb-2 hover:text-teal-600">{category[i].name}</Link>))
+                category.map((a, i) => (<Link to={`/blogs/category/${a.name}`} key={i} className="mb-2 hover:text-teal-600">{a.name}</Link>))
               }
             </div>
           )

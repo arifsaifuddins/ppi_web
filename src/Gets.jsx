@@ -11,6 +11,11 @@ export const getCategories = async () => {
     .then(k => k.json())
 }
 
+export const getCategoriesLim = async (limit) => {
+  return await fetch(`${nodeurl}/category/get/${limit}`)
+    .then(k => k.json())
+}
+
 export const delCategories = async (id) => {
   await fetch(`${nodeurl}/category/delete/${id}`, {
     method: 'DELETE'
@@ -87,6 +92,11 @@ export const searchBlogsAut = async (page = 0, s) => {
 
 export const blogsFav = async (favorite) => {
   return await fetch(`${phpurl}/gets.php/?favorite=${favorite}`)
+    .then(k => k.json())
+}
+
+export const blogsDis = async (display) => {
+  return await fetch(`${phpurl}/gets.php/?display=${display}`)
     .then(k => k.json())
 }
 
