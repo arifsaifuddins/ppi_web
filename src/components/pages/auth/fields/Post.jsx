@@ -52,8 +52,8 @@ function PostField({ name, category }) {
 
   const date = new Date()
   const y = date.getFullYear().toString()
-  const m = date.getMonth().toString()
-  const d = date.getDay().toString()
+  const m = (date.getMonth() + 1).toString()
+  const d = date.getDate().toString()
 
   return (
     <div className="my-10 pb-10 border-b">

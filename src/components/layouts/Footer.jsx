@@ -52,7 +52,7 @@ function Footer({ visit }) {
         </div>
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 w-full lg:w-max">
           <h1 className="font-semibold mb-4 text-xl text-white">Autonomous</h1>
-          <Link to="/blogs/category/pppi" className="mb-2 hover:text-teal-600 flex items-center"><img src="/assets/img/pppisudan.png" alt="pppi" className="h-5 inline mr-2" /> PPPI</Link>
+          <Link to="/blogs/category/PPPI" className="mb-2 hover:text-teal-600 flex items-center"><img src="/assets/img/pppisudan.png" alt="pppi" className="h-5 inline mr-2" /> PPPI</Link>
           <a target="_blank" href="https://www.majalahelnilein.com/" className="mb-2 hover:text-teal-600 flex items-center"><img src="/assets/img/elnilein.png" alt="elnilein" className="h-5 inline mr-2" /> El Nilein</a>
 
           <h1 className="font-semibold my-4 text-xl text-white">Company</h1>

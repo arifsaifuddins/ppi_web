@@ -39,7 +39,7 @@ function Blogs() {
               <div className="flex items-center py-4 gap-4 overflow-auto">
                 <NavLink to={`/blogs`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">All</NavLink>
                 {
-                  category != null && category.map(c => (<NavLink style={active} to={`/blogs/category/${c.name}`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">{c.name}</NavLink>))
+                  category != null && category.map(c => (<NavLink key={c._id} style={active} to={`/blogs/category/${c.name}`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">{c.name}</NavLink>))
                 }
               </div>
               <i onClick={(e) => searchBox(e)} className="fa fa-search searchicon text-teal-600 font-bold cursor-pointer hover:text-teal-600 rounded-full p-2 border"></i>

@@ -42,7 +42,7 @@ function Home() {
             <p className="text-lg font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
             <p className="text-xl mb-5 mt-3 text-center lg:text-left lg:ml-1">PPI Sudan is an organization for Indonesian students in Sudan, To make stucturely relationship.</p>
             <div className="flex lg:ml-1 gap-x-4 mt-4">
-              <Link to="/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> See PPPI Posts</p></Link>
+              <Link to="/blogs/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> See PPPI Posts</p></Link>
               <Link to="/contact"><p className="py-2 px-3 hover:border-teal-600 border border-teal-700 rounded-lg"><i className="fa fa-mobile-screen-button mr-1"></i> Contact</p></Link>
             </div>
           </div>
