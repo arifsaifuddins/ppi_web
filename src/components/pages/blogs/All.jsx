@@ -36,7 +36,7 @@ function All() {
                 <div className="flex flex-col mt-10">
                   <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:bg-slate-900">
                     <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
-                      <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[60vh] object-cover" />
+                      <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover" />
                       <div className="flex justify-end bg-cover text-white flex-col absolute right-0 top-0 left-0">
                         <h1 className="text-4xl font-bold p-4 bg-opacity-25 bg-slate-700 text-teal-400 hover:underline hover:text-teal-800">{Blogs.data[0].title.slice(0, 35)}...</h1>
                         <p className="font-light text-xl pb-4 px-4 bg-slate-700 bg-opacity-25">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
@@ -51,7 +51,7 @@ function All() {
                       <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
                     </div>
                   </div>
-                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-20">
+                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-10 pt-10 border-t">
                     {
                       Blogs.data.map(o => (
                         <div key={o.id} className="dark:bg-slate-900 rounded-xl dark:hover:bg-slate-700">
@@ -64,23 +64,23 @@ function All() {
                     {
                       Blogs.previouspage != 0 && (
                         <>
-                          <i onClick={() => setPageAll(1)} className=" my-10  cursor-pointer fa fa-arrow-left-long pl-1 border-l-2 border-l-black dark:border-l-slate-200"></i>
-                          <i onClick={() => setPageAll(Blogs.previouspage)} className=" my-10  cursor-pointer fa fa-arrow-left"></i>
-                          <p onClick={() => setPageAll(Blogs.previouspage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600">{Blogs.previouspage}</p>
+                          <a href="#"><i onClick={() => setPageAll(1)} className=" my-10  cursor-pointer fa fa-arrow-left-long pl-1 border-l-2 border-l-black dark:border-l-slate-200"></i></a>
+                          <a href="#"><i onClick={() => setPageAll(Blogs.previouspage)} className=" my-10  cursor-pointer fa fa-arrow-left"></i></a>
+                          <p onClick={() => setPageAll(Blogs.previouspage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600"><a href="#">{Blogs.previouspage}</a></p>
                         </>
                       )
                     }
                     {
-                      Blogs.currentpage >= 1 && Blogs.nextpage != 0 && (
-                        <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600">{Blogs.currentpage}</p>
+                      Blogs.currentpage >= 1 && Blogs.nextpage >= 0 && (
+                        <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600"><a href="#">{Blogs.currentpage}</a></p>
                       )
                     }
                     {
                       Blogs.nextpage != 0 && (
                         <>
-                          <p onClick={() => setPageAll(Blogs.nextpage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600">{Blogs.nextpage}</p>
-                          <i onClick={() => setPageAll(Blogs.nextpage)} className=" my-10  cursor-pointer fa fa-arrow-right"></i>
-                          <i className="  my-10 cursor-pointer fa fa-arrow-right-long pr-1 border-r-2 border-r-black dark:border-r-slate-200" onClick={() => setPageAll(Blogs.totalpage)}></i>
+                          <p onClick={() => setPageAll(Blogs.nextpage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600"><a href="#">{Blogs.nextpage}</a></p>
+                          <a href="#"><i onClick={() => setPageAll(Blogs.nextpage)} className=" my-10  cursor-pointer fa fa-arrow-right"></i></a>
+                          <a href="#"><i className="  my-10 cursor-pointer fa fa-arrow-right-long pr-1 border-r-2 border-r-black dark:border-r-slate-200" onClick={() => setPageAll(Blogs.totalpage)}></i></a>
                         </>
                       )
                     }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFAQs } from "../../Gets";
+import { delFaqs, getFAQs } from "../../Gets";
 import FindUs from "../templates/FindUs";
 import Mailing from "../templates/Mailing";
 
@@ -58,8 +58,15 @@ function FAQs() {
           {
             (FAQs != null) && FAQs.map((a, i) => {
               return (
-                <div key={i} className="flex flex-col mt-8">
-                  <h1 className="lg:text-3xl text-teal-600 text-2xl">{a.question}</h1>
+                <div key={i} className="flex flex-col mt-4 pt-4 border-t">
+                  <h1 className="lg:text-3xl text-teal-600 text-2xl flex justify-between">
+                    <p>{a.question}</p>
+                    {
+                      localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                        <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => delFaqs(a._id)}></i>
+                      )
+                    }
+                  </h1>
                   <p className="text-xl mt-6">{a.answer}</p>
                 </div>
               )

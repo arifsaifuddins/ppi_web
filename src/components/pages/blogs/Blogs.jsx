@@ -55,10 +55,12 @@ function Blogs() {
 
         <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
           <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-slate-800">
-            <h1 className="text-2xl p-4 font-bold border-b">Favorite Blogs</h1>
+            <h1 className="text-2xl p-4 font-bold">Favorite Blogs</h1>
             {
               (Fav == null) ? (
-                <Loader />
+                <div className="border-t">
+                  <Loader />
+                </div>
               ) : (
                 <>
                   {

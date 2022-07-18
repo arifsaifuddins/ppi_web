@@ -62,8 +62,8 @@ function Home() {
               </div>)
             )
           }
-
         </div>
+        <Link to="/blogs" className="text-teal-600 font-bold text-right mt-4 mr-2 hover:text-teal-500">See More Blogs &raquo;</Link>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="-mb-3">
         <path fill="#1E293B" fillOpacity="1" d="M0,192L1440,288L1440,320L0,320Z"></path>

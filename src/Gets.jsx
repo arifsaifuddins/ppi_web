@@ -118,3 +118,10 @@ export const delSecs = async (id) => {
   })
   window.location.assign('/organizations')
 }
+
+export const delFaqs = async (id) => {
+  await fetch(`${nodeurl}/faqs/delete/${id}`, {
+    method: 'DELETE'
+  })
+  window.location.assign('/faqs')
+}
