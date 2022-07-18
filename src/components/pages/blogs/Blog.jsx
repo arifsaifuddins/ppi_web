@@ -9,6 +9,8 @@ import Empty from "../../layouts/Empty";
 
 function Blog() {
 
+  const phpurl = import.meta.env.VITE_PHPURL
+
   const { slug } = useParams()
   const [Cate, setCate] = useState(null)
   const [Blogs, setBlogs] = useState(null)
