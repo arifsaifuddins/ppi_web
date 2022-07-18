@@ -47,18 +47,18 @@
       }
     })
 
-   // window.addEventListener('load', async () => {
-     // await fetch('https://ppi-server.vercel.app/api/visit/add', {
-       // method: 'POST',
-       // body: JSON.stringify({
-        //  count: '1'
-       // }),
-       // headers: {
-        //  'Accept': 'application/json',
-        //  'Content-Type': 'application/json',
-      //  }
-    //  })
-   // })
+    window.addEventListener('load', async () => {
+      await fetch('https://ppi-server.vercel.app/api/visit/add', {
+        method: 'POST',
+        body: JSON.stringify({
+          count: '1'
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      })
+    })
 
   </script>
 </body>
