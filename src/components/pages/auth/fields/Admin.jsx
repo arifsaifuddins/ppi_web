@@ -50,7 +50,7 @@ function AdminField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-
+        window.location.assign('/admin')
       }).catch(j => {
         setError(j.message)
         setCommited(true)
