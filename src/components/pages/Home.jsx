@@ -57,7 +57,7 @@ function Home() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
           {
             (Blogs != null) && (
-              Blogs.map((o, i) => <div key={i} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+              Blogs.map((o, i) => <div key={i} className="dark:bg-slate-800 rounded-xl dark:hover:bg-slate-700">
                 <BlogPost data={o} />
               </div>)
             )

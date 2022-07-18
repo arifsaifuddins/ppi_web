@@ -15,6 +15,7 @@ function All() {
     getBlogs(PageAll).then(a => setBlogs(a))
   }, [PageAll])
 
+
   return (
     <div className="flex flex-col mt-10">
       {
@@ -29,11 +30,11 @@ function All() {
             {
               Blogs.data != null ? (
                 <div className="flex flex-col mt-10">
-                  <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl  overflow-hidden bg-white dark:bg-slate-900">
+                  <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:bg-slate-900">
                     <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
                       <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[60vh] object-cover" />
                       <div className="flex justify-end bg-cover text-white flex-col absolute right-0 top-0 left-0">
-                        <h1 className="text-4xl font-bold p-4 bg-opacity-25 bg-slate-700 text-teal-600 hover:underline hover:text-teal-700">{Blogs.data[0].title.slice(0, 35)}...</h1>
+                        <h1 className="text-4xl font-bold p-4 bg-opacity-25 bg-slate-700 text-teal-400 hover:underline hover:text-teal-800">{Blogs.data[0].title.slice(0, 35)}...</h1>
                         <p className="font-light text-xl pb-4 px-4 bg-slate-700 bg-opacity-25">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
                       </div>
                     </Link>
@@ -49,7 +50,7 @@ function All() {
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-20">
                     {
                       Blogs.data.map(o => (
-                        <div key={o.id} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+                        <div key={o.id} className="dark:bg-slate-900 rounded-xl dark:hover:bg-slate-700">
                           <BlogPost data={o} />
                         </div>
                       ))
@@ -66,7 +67,7 @@ function All() {
                       )
                     }
                     {
-                      Blogs.previouspage != 0 && Blogs.currentpage != 1 && Blogs.nextpage != 0 && (
+                      Blogs.currentpage > 1 && (
                         <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600">{Blogs.currentpage}</p>
                       )
                     }

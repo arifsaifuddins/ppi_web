@@ -38,15 +38,15 @@ function Blog() {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
                     <div className="px-4 md:px-0">
-                      <h1 className="md:text-4xl text-3xl font-bold mt-10 text-teal-600">{Blogs.data[0].title}</h1>
+                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 underline mt-5 text-2xl">{Blogs.data[0].category}</p></Link>
+                      <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
-                        <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className="text-teal-600 font-bold hover:text-teal-700 hover:underline">{Blogs.data[0].category}</p></Link>
                         <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
                         <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date}</p>
                         <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
                         {
                           localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
-                            <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delBlogs(Blogs.data[0].id)}></i>
+                            <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer ml-4" onClick={() => delBlogs(Blogs.data[0].id)}></i>
                           )
                         }
                       </div>
@@ -69,7 +69,7 @@ function Blog() {
 
       <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
         <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-slate-800">
-          <h1 className="text-2xl p-4 font-bold">{Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Empty'} Category</h1>
+          <h1 className="text-2xl p-4 font-bold border-b">{Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Empty'} Category</h1>
           {
             (Cate == null) ? (
               <Loader />
@@ -89,7 +89,7 @@ function Blog() {
 
         <SendPost />
       </div>
-    </div>
+    </div >
   );
 }
 

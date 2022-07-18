@@ -70,7 +70,7 @@ export const getSection = async (id) => {
     .then(k => k.json())
 }
 
-export const getBlogs = async (page = 0) => {
+export const getBlogs = async (page) => {
   return await fetch(`${phpurl}/gets.php/?page=${page}`)
     .then(k => k.json())
 }

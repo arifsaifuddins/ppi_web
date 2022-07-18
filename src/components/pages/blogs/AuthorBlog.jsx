@@ -32,7 +32,7 @@ function AutBlog() {
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 ">
                     {
                       Blogs.data.map(o => (
-                        <div key={o.id} className="dark:bg-slate-900 rounded-xl transition duration-700 dark:hover:bg-slate-700">
+                        <div key={o.id} className="dark:bg-slate-900 rounded-xl dark:hover:bg-slate-700">
                           <BlogPost data={o} />
                         </div>
                       ))
@@ -49,7 +49,7 @@ function AutBlog() {
                       )
                     }
                     {
-                      Blogs.previouspage != 0 && Blogs.currentpage != 1 && Blogs.nextpage != 0 && (
+                      Blogs.currentpage > 1 && (
                         <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600">{Blogs.currentpage}</p>
                       )
                     }
