@@ -12,6 +12,8 @@ function PostField({ name, category }) {
   const [Dates, setDates] = useState(null)
   const [Poster, setPoster] = useState(null)
 
+  const phpurl = import.meta.env.VITE_PHPURL
+
   useEffect(() => {
 
     if (document.querySelector('.tit').value !== '') {
@@ -33,7 +35,7 @@ function PostField({ name, category }) {
     forms.append('date', Dates || document.querySelector('.dat').value)
     forms.append('poster', Poster)
 
-    return await fetch(`http://localhost/server-php/create_del.php`, {
+    return await fetch(`${phpurl}/create_del.php`, {
       method: 'POST',
       body: forms
     })
