@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getBlogs } from "../../../Gets";
 import Empty from "../../layouts/Empty";
 import Loader from "../../Loader";
@@ -10,9 +10,13 @@ function All() {
   const phpurl = import.meta.env.VITE_PHPURL
   const [Blogs, setBlogs] = useState(null)
   const [PageAll, setPageAll] = useState(0)
+  const nav = useNavigate()
 
   useEffect(() => {
-    getBlogs(PageAll).then(a => setBlogs(a))
+    getBlogs(PageAll).then(a => {
+      setBlogs(a)
+      nav('#')
+    })
   }, [PageAll])
 
 
@@ -67,7 +71,7 @@ function All() {
                       )
                     }
                     {
-                      Blogs.currentpage > 1 && (
+                      Blogs.currentpage >= 1 && Blogs.nextpage != 0 && (
                         <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600">{Blogs.currentpage}</p>
                       )
                     }

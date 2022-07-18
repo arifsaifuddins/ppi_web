@@ -49,7 +49,7 @@ function AutBlog() {
                       )
                     }
                     {
-                      Blogs.currentpage > 1 && (
+                      Blogs.currentpage >= 1 && Blogs.nextpage != 0 && (
                         <p onClick={() => setPageAll(Blogs.currentpage)} className=" my-11 px-3 cursor-pointer text-white rounded-full bg-teal-600 border border-teal-600">{Blogs.currentpage}</p>
                       )
                     }
