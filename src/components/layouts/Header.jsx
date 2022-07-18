@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Mailing from "../templates/Mailing";
 import Sosmeds from "../templates/Sosmeds";
@@ -9,12 +10,20 @@ function Header() {
     document.querySelector(".mode").classList.toggle("text-yellow-200");
     document.querySelector(".mode").classList.toggle("text-teal-800");
 
-    if (!localStorage.key("mode")) {
+    if (!localStorage.getItem("mode")) {
       localStorage.setItem("mode", "dark");
     } else {
       localStorage.removeItem("mode");
     }
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
+      document.querySelector('.admin').innerHTML = 'Admin'
+    } else if (!localStorage.getItem('admin')) {
+      document.querySelector('.admin').innerHTML = 'Login'
+    }
+  })
 
   const active = ({ isActive }) => {
     return {
@@ -24,15 +33,15 @@ function Header() {
 
   return (
     <>
-      <div className="text-sm p-1">
-        <div className="flex justify-between mx-auto md:w-[90%] md:px-0 w-full px-4 items-center">
+      <div className="text-sm bg-slate-800">
+        <div className="flex p-1 justify-between text-slate-100 mx-auto md:w-[90%] md:px-0 w-full px-4 items-center">
           <h3 className="font-bold">PPI Sudan <span className="hidden md:inline font-thin">| Indonesian Students Association in Sudan</span></h3>
           <div className="text-lg">
             <Sosmeds />
           </div>
         </div>
       </div>
-      <div className="flex sticky top-0 py-2 text-slate-100 bg-teal-600 z-20">
+      <div className="flex sticky top-0 py-2 text-slate-100 bg-teal-600 z-40">
         <div className="flex justify-between mx-auto md:w-[90%] md:px-0 relative w-full px-4">
           <Link to='/' className="flex items-center text-3xl font-bold"><img src="/assets/img/ppisudan.png" alt="ppi" className="w-10 h-10 mr-2 inline" />PPI <span className="text-teal-800 ml-1 hidden lg:block">Sudan</span></Link>
           <div className="md:flex gap-x-1 items-center hidden">
@@ -44,7 +53,7 @@ function Header() {
           <div className="flex gap-x-1 items-center">
             <i className="fa text-xl fa-comment-dots hover:text-teal-700 cursor-pointer" onClick={() => document.querySelector('.mail').classList.toggle('scale-0')}></i>
             <i className="mode fa md:mx-3 mx-6 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
-            <NavLink style={active} to="/admin" className="py-2 px-3 hover:bg-teal-700 bg-teal-500 rounded-lg"><i className="fa mr-1 fa-user"></i> Admin</NavLink>
+            <NavLink style={active} to="/admin" className="py-2 px-3 hover:bg-teal-700 bg-teal-500 rounded-lg"><i className="fa mr-1 fa-user"></i> <span className="admin">Admin</span></NavLink>
           </div>
           <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-slate-800 rounded-xl border dark:text-slate-100">
             <Mailing />

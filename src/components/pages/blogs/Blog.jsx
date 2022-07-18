@@ -1,53 +1,87 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { delBlogs, getBlog, getBlogsCat } from "../../../Gets";
 import BlogSide from "../../templates/BlogSide";
+import parse from 'html-react-parser';
 import SendPost from "../../templates/SendPost";
+import Loader from "../../Loader";
+import Empty from "../../layouts/Empty";
 
 function Blog() {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8]
+
+  const { slug } = useParams()
+  const [Cate, setCate] = useState(null)
+  const [Blogs, setBlogs] = useState(null)
+
+  const category = Blogs != null && Blogs.data != null ? Blogs.data[0].category : null
+
+  useEffect(() => {
+    getBlogsCat(0, category).then(a => setCate(a))
+  }, [category])
+
+  useEffect(() => {
+    getBlog(slug).then(a => setBlogs(a))
+  }, [slug])
 
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
       <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max  dark:bg-slate-800">
-        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Blogs<span className="text-slate-800 dark:text-slate-200 text-xl font-thin"> {'>'} Ini Judul Postnya</span></Link>
-
-        <div className="flex flex-col">
-          <div className="px-4 md:px-0">
-            <h1 className="md:text-4xl text-3xl font-bold mt-10 text-teal-600">Ini Judul Postnya</h1>
-            <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8">
-              <p>News</p>
-              <p><i className="fa mr-1 fa-user"></i> Arief Saifuddien</p>
-              <p><i className="fa mr-1 fa-calendar-days"></i> 22 May 2022</p>
-              <p><i className="fa mr-1 fa-eye"></i> 0</p>
-            </div>
-          </div>
-          <img src="/assets/img/default.jpg" alt="banner-post" className="mb-8" />
-          <article className="px-4 md:px-0">
-            {
-              data.map(o => {
-                return (
-                  <p data={o} key={o} >
-                    <h1 className="mb-8 font-bold text-xl">Sub title dari judul potsnya</h1>
-                    <p className="mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorum molestiae sequi obcaecati saepe magni quia dolor cumque. Delectus perspiciatis error laborum repellendus, numquam magnam. Deleniti, id, amet repellendus sequi non aspernatur facilis natus assumenda similique rem dolorum possimus officiis voluptatum aliquid consequatur ex cumque? Nesciunt corrupti harum recusandae ducimus?</p>
-                    <p className="mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorum molestiae sequi obcaecati saepe magni quia dolor cumque. Delectus perspiciatis error laborum repellendus, numquam magnam. Deleniti, id, amet repellendus sequi non aspernatur facilis natus assumenda similique rem dolorum possimus officiis voluptatum aliquid consequatur ex cumque? Nesciunt corrupti harum recusandae ducimus?</p>
-                  </p>
+        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Blogs<span className="text-slate-800 dark:text-slate-200 text-xl font-thin"> {'>'} {Blogs != null && Blogs.data != null ? Blogs.data[0].title.slice(0, 30) : 'Empty'}...</span></Link>
+        {
+          (Blogs == null) ? (
+            <Loader />
+          ) : (
+            <>
+              {
+                (Blogs.data != null) ? (
+                  <div className="flex flex-col">
+                    <div className="px-4 md:px-0">
+                      <h1 className="md:text-4xl text-3xl font-bold mt-10 text-teal-600">{Blogs.data[0].title}</h1>
+                      <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
+                        <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className="text-teal-600 font-bold hover:text-teal-700 hover:underline">{Blogs.data[0].category}</p></Link>
+                        <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
+                        <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date}</p>
+                        <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
+                        {
+                          localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                            <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delBlogs(Blogs.data[0].id)}></i>
+                          )
+                        }
+                      </div>
+                    </div>
+                    <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="banner-post" className="mb-8" />
+                    <article className="px-4 md:px-0">
+                      <p>{parse(Blogs.data[0].body)}</p>
+                    </article>
+                  </div>
+                ) : (
+                  <Empty empty={Blogs.msg} />
                 )
-              })
-            }
-          </article>
-        </div>
+              }
+            </>
+          )
+        }
       </div>
 
       {/* sidebar */}
 
       <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
         <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-slate-800">
-          <h1 className="text-2xl p-4 font-bold">News Category</h1>
+          <h1 className="text-2xl p-4 font-bold">{Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Empty'} Category</h1>
           {
-            data.map(o => {
-              return (
-                <BlogSide data={o} key={o} />
-              )
-            })
+            (Cate == null) ? (
+              <Loader />
+            ) : (
+              <>
+                {
+                  (Cate.data != null) ? (
+                    Cate.data.map(o => (<BlogSide data={o} key={o.id} />))
+                  ) : (
+                    <Empty empty={Cate.msg} />
+                  )
+                }
+              </>
+            )
           }
         </div>
 

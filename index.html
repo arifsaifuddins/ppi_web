@@ -31,7 +31,7 @@
   <script type="module" src="./src/main.jsx"></script>
   <script>
 
-    document.addEventListener('trix-file-acept', (e) => {
+    document.addEventListener('trix-file-accept', (e) => {
       e.preventDefault()
     })
 
@@ -47,18 +47,18 @@
       }
     })
 
-    window.addEventListener('load', async () => {
-      await fetch('http://127.0.0.1:2000/api/visit/add', {
-        method: 'POST',
-        body: JSON.stringify({
-          count: '1'
-        }),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }
-      })
-    })
+   // window.addEventListener('load', async () => {
+     // await fetch('https://ppi-server.vercel.app/api/visit/add', {
+       // method: 'POST',
+       // body: JSON.stringify({
+        //  count: '1'
+       // }),
+       // headers: {
+        //  'Accept': 'application/json',
+        //  'Content-Type': 'application/json',
+      //  }
+    //  })
+   // })
 
   </script>
 </body>

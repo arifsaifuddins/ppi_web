@@ -8,7 +8,7 @@ function Organize() {
     <>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col-reverse mx-auto lg:my-10 my-4 relative">
         <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
-          <div className="bg-white side shadow lg:rounded-xl lg:h-max overflow-y-auto transition-all duration-700 lg:overflow-hidden dark:bg-slate-800 fixed left-0 top-0 bottom-0 pt-16 mt-9 lg:mt-0 lg:pt-0 w-[100%] pb-20 lg:pb-0 md:w-[45%] lg:relative lg:w-full lg:block -translate-x-[100%] lg:translate-x-0">
+          <div className="bg-white z-20 side shadow lg:rounded-xl lg:h-max overflow-y-auto transition-all duration-700 lg:overflow-hidden dark:bg-slate-800 fixed left-0 top-0 bottom-0 pt-16 mt-9 lg:mt-0 lg:pt-0 w-[100%] pb-20 lg:pb-0 md:w-[45%] lg:relative lg:w-full lg:block -translate-x-[100%] lg:translate-x-0">
             <div className="flex justify-between items-center text-2xl p-4 font-bold">
               <h1><i className="fa fa-file-lines mr-1 hidden lg:inline"></i> Organizations</h1>
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="lg:hidden px-2 rounded-md border text-teal-600 cursor-pointer">&times;</p>

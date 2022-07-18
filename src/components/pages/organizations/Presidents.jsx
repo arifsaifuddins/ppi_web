@@ -1,33 +1,67 @@
+import { useEffect, useState } from "react"
+import { getcoPres, getPres } from "../../../Gets"
+import Loader from "../../Loader"
+
 function Presidents() {
+
+  const nodeurl = import.meta.env.VITE_NODEURL
+
+  const [Pres, setPres] = useState(null)
+  const [coPres, setcoPres] = useState(null)
+
+  useEffect(() => {
+    getPres().then(a => {
+      setPres(a.data)
+    })
+
+    getcoPres().then(a => {
+      setcoPres(a.data)
+    })
+  }, [])
+
   return (
     <div className="flex flex-col mt-10">
       <h3 className="text-teal-600">PRESIDENTS</h3>
-      <h1 className="md:text-4xl text-3xl font-bold my-3">Do you know, <br />who is PPI Sudan president?</h1>
-      <div>
-        <div className="my-10 flex gap-8 flex-col lg:flex-row">
-          <img src="/assets/img/default.jpg" alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
+      <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know, <br />who is PPI Sudan president?</h1>
+      {
+        (Pres == null && coPres == null) ? (
+          <Loader />
+        ) : (
           <div>
-            <h1 className="font-bold text-xl mb-4 text-teal-600">President</h1>
-            <h2 className="font-bold text-2xl my-4">Arya Kurniantoro</h2>
-            <p><i className="fa mr-1 fa-location-arrow"></i> Jakarta</p>
-            <p><i className="fa mr-1 fa-building"></i> International University of Africa</p>
-            <p><i className="fa mr-1 fa-book"></i> Sharia</p>
-            <p><i className="fa mr-1 fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor recusandae magnam dolores inventore molestiae fugiat aut aliquam non placeat unde.</p>
+            {
+              (Pres != null) && (
+                <div className="my-10 flex gap-8 flex-col lg:flex-row">
+                  <img src={nodeurl + '/../med/' + Pres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
+                  <div>
+                    <h1 className="font-bold text-xl mb-4 text-teal-600">President</h1>
+                    <h2 className="font-bold text-2xl my-4">{Pres[0].name}</h2>
+                    <p><i className="fa mr-1 fa-location-arrow"></i> {Pres[0].institute}</p>
+                    <p><i className="fa mr-1 fa-building"></i> {Pres[0].university}</p>
+                    <p><i className="fa mr-1 fa-book"></i> {Pres[0].major}</p>
+                    <p><i className="fa mr-1 fa-quote-left"></i> {Pres[0].quotes}</p>
+                  </div>
+                </div>
+              )
+            }
+            <hr />
+            {
+              (coPres != null) && (
+                <div className="my-10 flex gap-8 flex-col lg:flex-row">
+                  <img src={nodeurl + '/../med/' + coPres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
+                  <div>
+                    <h1 className="font-bold text-xl mb-4 text-teal-600">Co President</h1>
+                    <h2 className="font-bold text-2xl my-4">{coPres[0].name}</h2>
+                    <p><i className="fa mr-1 fa-location-arrow"></i> {coPres[0].institute}</p>
+                    <p><i className="fa mr-1 fa-building"></i> {coPres[0].university}</p>
+                    <p><i className="fa mr-1 fa-book"></i> {coPres[0].major}</p>
+                    <p><i className="fa mr-1 fa-quote-left"></i> {coPres[0].quotes}</p>
+                  </div>
+                </div>
+              )
+            }
           </div>
-        </div>
-        <hr />
-        <div className="my-10 flex gap-8 flex-col lg:flex-row">
-          <img src="/assets/img/default.jpg" alt="copresident" className="lg:w-60 lg:h-60 w-full object-cover" />
-          <div>
-            <h1 className="font-bold text-xl mb-4 text-teal-600">Co President</h1>
-            <h2 className="font-bold text-2xl my-4">Saifurrahman</h2>
-            <p><i className="fa mr-1 fa-location-arrow"></i> Yogyakarta</p>
-            <p><i className="fa mr-1 fa-building"></i> International University of Africa</p>
-            <p><i className="fa mr-1 fa-book"></i> Languages</p>
-            <p><i className="fa mr-1 fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor recusandae magnam dolores inventore molestiae fugiat aut aliquam non placeat unde.</p>
-          </div>
-        </div>
-      </div>
+        )
+      }
     </div>
   );
 }

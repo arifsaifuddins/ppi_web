@@ -1,16 +1,53 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getSection } from "../../../Gets";
+import parse from 'html-react-parser';
+import Loader from "../../Loader";
+import Empty from "../../layouts/Empty";
+
 function Section() {
+
+  const nodeurl = import.meta.env.VITE_NODEURL
+
+  const [Sections, setSections] = useState(null)
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    getSection(id).then(a => {
+      setSections(a)
+    })
+  }, [id])
+
   return (
-    <div className="flex flex-col mt-10">
-      <h3 className="text-teal-600">KEMENKES</h3>
-      <h1 className="md:text-4xl text-3xl font-bold my-3">Do you know, <br />what's the Kemenkes?</h1>
-      <div className="my-10">
-        <div className="w-max flex-col flex items-center gap-8 mx-auto mt-10">
-          <img src="/assets/img/default.jpg" alt="poster" className="h-52 w-52 rounded-full" />
-          <h3 className="text-teal-600 font-bold text-2xl">KEMENKES</h3>
-        </div>
-        <div className="mb-8 first-letter:ml-10 mt-20 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore facere, incidunt voluptatem ipsam, magni inventore qui maxime voluptas nesciunt expedita dolor, minus iure maiores eos facilis placeat pariatur voluptatum numquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis accusantium, dolorum deserunt inventore consectetur id repellat nostrum ea est officiis ad vitae ut, et quis assumenda, repudiandae omnis odit.</div>
-      </div>
-    </div>
+    <>
+      {
+        (Sections == null) ? (
+          <Loader />
+        ) : (
+          <>
+            {
+              (Sections.data != null) ? (
+                <div className="flex flex-col mt-10">
+                  <h3 className="text-teal-600">{Sections.data[0].title}</h3>
+                  <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know, <br />what's the {Sections.data[0].title}?</h1>
+                  <div className="my-10">
+                    <div className="w-max flex-col flex items-center gap-8 mx-auto mt-10">
+                      <img src={nodeurl + '/../med/' + Sections.data[0].section_logo} alt="poster" className="h-52" />
+                      <h3 className="text-teal-600 font-bold text-2xl">{Sections.data[0].title}</h3>
+                    </div>
+                    <div className="mb-8 first-letter:ml-10 mt-20 text-justify" >{parse(Sections.data[0].description)}</div>
+                    <img src={nodeurl + '/../med/' + Sections.data[0].section_poster} alt="poster" className="w-full mt-6" />
+                  </div>
+                </div>
+              ) : (
+                <Empty empty={Sections.message} />
+              )
+            }
+          </>
+        )
+      }
+    </>
   );
 }
 

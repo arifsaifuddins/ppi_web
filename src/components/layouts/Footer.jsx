@@ -1,6 +1,15 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getCategories } from "../../Gets";
 
 function Footer({ visit }) {
+
+  const num = [1, 2, 3, 4, 5]
+  const [category, setCategory] = useState(null)
+
+  useEffect(() => {
+    getCategories().then(a => setCategory(a.data))
+  }, [])
 
   return (
     <div className="bg-slate-800 text-slate-200 pb-16 md:pb-0 border-t-8 border-teal-600 mt-20">
@@ -22,14 +31,16 @@ function Footer({ visit }) {
           <Link to="/organizations" className="mb-2 hover:text-teal-600">Organizations</Link>
           <Link to="/about" className="mb-2 hover:text-teal-600">About</Link>
         </div>
-        <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
-          <h1 className="font-semibold mb-4 text-xl text-white">Post Categories</h1>
-          <Link to="#" className="mb-2 hover:text-teal-600">News</Link>
-          <Link to="#" className="mb-2 hover:text-teal-600">Islamic</Link>
-          <Link to="#" className="mb-2 hover:text-teal-600">Live</Link>
-          <Link to="#" className="mb-2 hover:text-teal-600">Common</Link>
-          <Link to="#" className="mb-2 hover:text-teal-600">Othes</Link>
-        </div>
+        {
+          (category != null) && (
+            <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
+              <h1 className="font-semibold mb-4 text-xl text-white">Post Categories</h1>
+              {
+                num.map((a, i) => (<Link to="#" key={a} className="mb-2 hover:text-teal-600">{category[i].name}</Link>))
+              }
+            </div>
+          )
+        }
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 pb-10 w-full lg:w-max border-b lg:border-0">
           <h1 className="font-semibold mb-4 text-xl text-white">Social Medias</h1>
           <a className="hover:text-teal-600 mb-2" href="https://facebook.com/ppi.sudan" target="_blank"><i className="fab mr-1 fa-facebook text-blue-800"></i> Facebook</a>
