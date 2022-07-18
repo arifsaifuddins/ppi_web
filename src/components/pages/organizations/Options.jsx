@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { getSections } from "../../../Gets";
+import { delSecs, getSections } from "../../../Gets";
 
 function Options() {
 
@@ -73,7 +73,14 @@ function Options() {
         {
           (Structures != null) && Structures.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">{c.title}</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+                <p>{c.title}</p>
+                {
+                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                  )
+                }
+              </Link>
             )
           })
         }
@@ -88,7 +95,14 @@ function Options() {
         {
           (Autonomous != null) && Autonomous.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">{c.title}</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+                <p>{c.title}</p>
+                {
+                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                  )
+                }
+              </Link>
             )
           })
         }
@@ -102,7 +116,14 @@ function Options() {
         {
           (Institutes != null) && Institutes.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">{c.title}</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+                <p>{c.title}</p>
+                {
+                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                  )
+                }
+              </Link>
             )
           })
         }
@@ -116,7 +137,14 @@ function Options() {
         {
           (Universities != null) && Universities.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 hover:bg-teal-600">{c.title}</Link>
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+                <p>{c.title}</p>
+                {
+                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                  )
+                }
+              </Link>
             )
           })
         }

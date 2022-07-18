@@ -36,7 +36,7 @@ function Section() {
                       <img src={nodeurl + '/../med/' + Sections.data[0].section_logo} alt="poster" className="h-52" />
                       <h3 className="text-teal-600 font-bold text-2xl">{Sections.data[0].title}</h3>
                     </div>
-                    <div className="mb-8 first-letter:ml-10 mt-20 text-justify" >{parse(Sections.data[0].description)}</div>
+                    <div className="my-20 text-justify" >{parse(Sections.data[0].description)}</div>
                     <img src={nodeurl + '/../med/' + Sections.data[0].section_poster} alt="poster" className="w-full mt-6" />
                   </div>
                 </div>
