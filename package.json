@@ -1,6 +1,7 @@
 {
   "name": "ppi_web",
   "private": true,
+  "homepage": "https://beta.ppisudan.com/",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
