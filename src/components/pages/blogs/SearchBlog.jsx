@@ -32,7 +32,7 @@ function SearchBlog() {
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 ">
                     {
                       Blogs.data.map(o => (
-                        <div key={o.id} className="dark:bg-slate-900 rounded-xl dark:hover:bg-slate-700">
+                        <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#222222] rounded-xl ">
                           <BlogPost data={o} />
                         </div>
                       ))

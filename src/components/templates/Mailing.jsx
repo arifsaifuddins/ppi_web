@@ -49,11 +49,11 @@ function Mailing() {
   }
 
   return (
-    <div className="p-4 bg-white shadow rounded-xl dark:bg-slate-800">
+    <div className="p-4 bg-white shadow rounded-xl dark:bg-[#111111]">
       <h1 className="text-2xl pb-4 font-bold border-b dark:text-slate-200">Mailig PPI Sudan</h1>
       <div>
         {
-          (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-slate-800 dark:text-slate-100 flex justify-between items-center">
+          (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
             <div>{Error}</div>
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
           </div>

@@ -32,7 +32,7 @@ function Blogs() {
   return (
     <>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-        <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-slate-800">
+        <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#111111]">
           <div className="px-4 md:px-0">
             <h1 className="text-2xl pb-4 border-b text-teal-600"># Blogs</h1>
             <div className="flex items-center justify-between gap-4 relative">
@@ -43,7 +43,7 @@ function Blogs() {
                 }
               </div>
               <i onClick={(e) => searchBox(e)} className="fa fa-search searchicon text-teal-600 font-bold cursor-pointer hover:text-teal-600 rounded-full p-2 border"></i>
-              <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 scale-0 transition duration-500 dark:bg-slate-800">
+              <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 scale-0 transition duration-500 dark:bg-[#111111]">
                 <input type="text" placeholder="Search Blog..." className="bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" onChange={(e) => navigate(`/blogs/${e.target.value}`)} />
               </div>
             </div>
@@ -54,7 +54,7 @@ function Blogs() {
         {/* sidebar */}
 
         <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
-          <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-slate-800">
+          <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#111111]">
             <h1 className="text-2xl p-4 font-bold">Favorite Blogs</h1>
             {
               (Fav == null) ? (

@@ -7,7 +7,7 @@ function About() {
   return (
     <>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-slate-800">
+        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#111111]">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># About</h1>
           <div className="flex flex-col items-center mt-20">
             <img src="/assets/img/ppisudan.png" alt="logo" className="w-40" />
@@ -61,7 +61,7 @@ function About() {
 
           <FindUs />
 
-          <div className="p-4 bg-white shadow rounded-xl dark:bg-slate-800">
+          <div className="p-4 bg-white shadow rounded-xl dark:bg-[#111111]">
             <h1 className="text-2xl pb-4 font-bold border-b">Mars PPI Sudan</h1>
             <p className="italic mt-4">Persatuan Pelajar Indonesia <br />
               Singsingkan lengan <br />

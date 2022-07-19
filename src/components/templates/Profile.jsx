@@ -1,7 +1,7 @@
 function Profile({ name, email }) {
 
   return (
-    <div className="p-4 dark:text-slate-200 bg-white shadow rounded-xl dark:bg-slate-800 w-max flex flex-col items-center border">
+    <div className="p-4 dark:text-slate-200 bg-white shadow rounded-xl dark:bg-[#111111] w-max flex flex-col items-center border">
       <img src="/assets/img/ppisudan.png" alt="ppi" className="w-20" />
       <h1 className="text-xl text-green-600 font-semibold mt-6">{name}</h1>
       <p className="text-lg">{email}</p>

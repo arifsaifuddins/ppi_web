@@ -3,7 +3,7 @@ import Sosmeds from "./Sosmeds";
 
 function FindUs() {
   return (
-    <div className="p-4 bg-white shadow rounded-xl dark:bg-slate-800">
+    <div className="p-4 bg-white shadow rounded-xl dark:bg-[#111111]">
       <h1 className="text-2xl pb-4 font-bold border-b">Find Us</h1>
       <p className="mt-4">Arkaweet Block 49 No.92, Khartoum - Sudan</p>
       <p className="my-4">

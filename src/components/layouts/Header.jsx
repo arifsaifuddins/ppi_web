@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <>
-      <div className="text-sm bg-slate-800">
+      <div className="text-sm bg-[#111111]">
         <div className="flex p-1 justify-between text-slate-100 mx-auto md:w-[90%] md:px-0 w-full px-4 items-center">
           <h3 className="font-bold">PPI Sudan <span className="hidden md:inline font-thin">| Indonesian Students Association in Sudan</span></h3>
           <div className="text-lg">
@@ -55,7 +55,7 @@ function Header() {
             <i className="mode fa md:mx-3 mx-6 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
             <NavLink style={active} to="/admin" className="py-2 px-3 hover:bg-teal-700 bg-teal-500 rounded-lg"><i className="fa mr-1 fa-user"></i> <span className="admin">Admin</span></NavLink>
           </div>
-          <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-slate-800 rounded-xl border dark:text-slate-100">
+          <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-[#111111] rounded-xl border dark:text-slate-100">
             <Mailing />
           </div>
         </div>

@@ -53,11 +53,11 @@ function Login() {
 
   return (
     <div className="md:w-[90%] md:px-0 w-full px-4 lg:flex-row flex-col-reverse gap-10 mt-20 lg:mt-0 mx-auto flex justify-evenly items-center">
-      <div className="p-4 bg-white my-32 shadow rounded-xl w-96 dark:bg-slate-800">
+      <div className="p-4 bg-white my-32 shadow rounded-xl w-96 dark:bg-[#111111]">
         <h1 className="text-2xl mb-4 pb-4 font-bold border-b">Login to PPI Sudan</h1>
         <div>
           {
-            (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mb-4 rounded-xl text-slate-800 dark:text-slate-100 flex justify-between items-center">
+            (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mb-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
               <div>{Error}</div>
               <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
             </div>

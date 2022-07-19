@@ -28,7 +28,7 @@ function Home() {
 
   return (
     <div className="flex flex-col">
-      <div className="bg-slate-800 text-slate-200">
+      <div className="dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
         <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
           <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">
             <h1 className="md:text-7xl text-5xl sm:text-6xl mb-5 font-bold">PPI <span className="text-teal-600"><TypeAnimation
@@ -45,7 +45,7 @@ function Home() {
               <Link to="/contact"><p className="py-2 px-3 hover:border-teal-600 border border-teal-700 rounded-lg"><i className="fa fa-mobile-screen-button mr-1"></i> Contact</p></Link>
             </div>
           </div>
-          <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-10 lg:-mb-52" />
+          <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-16 lg:-mb-52" />
         </div>
       </div>
       <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28 mb-28 lg:mb-10">
@@ -57,28 +57,25 @@ function Home() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
           {
             (Blogs != null) && (
-              Blogs.map((o, i) => <div key={i} className="dark:bg-slate-800 rounded-xl dark:hover:bg-slate-700">
+              Blogs.map((o, i) => <div key={i} className="dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 rounded-xl dark:hover:bg-[#222222]">
                 <BlogPost data={o} />
               </div>)
             )
           }
         </div>
-        <Link to="/blogs" className="text-teal-600 font-bold text-right mt-4 mr-2 hover:text-teal-500">See More Blogs &raquo;</Link>
+        <Link to="/blogs" className="text-teal-600 font-bold mt-4 ml-2 hover:text-teal-500 underline">See More Blogs &raquo;</Link>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="-mb-3">
-        <path fill="#1E293B" fillOpacity="1" d="M0,192L1440,288L1440,320L0,320Z"></path>
-      </svg>
-      <div className="flex bg-slate-800">
+      <div className="flex dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 py-20 my-20 shadow-lg">
         <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-10">
           <div className="px-4 md:px-0">
             <h3 className="text-teal-600">PPI PRESIDENT</h3>
-            <h1 className="md:text-3xl text-2xl font-bold my-3 text-white">Do you know who is PPI Sudan president?</h1>
-            <p className="text-md text-slate-200">Here is the chosen president.</p>
+            <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know who is PPI Sudan president?</h1>
+            <p className="text-md ">Here is the chosen president.</p>
           </div>
           <div className="mx-auto py-20 lg:px-4 md:gap-8 gap-4 md:flex-row flex flex-col">
             {
               (Pres != null) && (
-                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
+                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-black bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none">
                   <img src={nodeurl + '/../med/' + Pres.president_poster} alt="president" className="lg:w-52 lg:h-52 w-full object-cover" />
                   <div>
                     <h1 className="font-bold text-2xl mb-4 text-teal-600">President</h1>
@@ -93,7 +90,7 @@ function Home() {
             }
             {
               (coPres != null) && (
-                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl bg-slate-900 text-slate-200 shadow shadow-slate-700 hover:shadow-slate-700 hover:shadow-lg">
+                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-black bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none" >
                   <img src={nodeurl + '/../med/' + coPres.president_poster} alt="copresident" className="lg:w-52 lg:h-52 w-full object-cover" />
                   <div>
                     <h1 className="font-bold text-2xl mb-4 text-teal-600">Co President</h1>
@@ -109,9 +106,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#1E293B" fillOpacity="1" d="M0,224L120,208C240,192,480,160,720,144C960,128,1200,128,1320,128L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
-      </svg>
 
       <div className="flex flex-col mx-auto md:w-[90%] md:px-0 w-full sm:px-4 mt-28 mb-28 lg:mt-10">
         <div className="px-4 md:px-0">

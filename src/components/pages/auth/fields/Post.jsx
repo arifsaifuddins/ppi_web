@@ -62,7 +62,7 @@ function PostField({ name, category }) {
       <h3 className="text-teal-600">ADD POSTS</h3>
       <h1 className="md:text-4xl text-3xl font-bold mt-2 mb-8">Add post in PPI Sudan</h1>
       {
-        (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-slate-800 dark:text-slate-100 flex justify-between items-center">
+        (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
           <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
         </div>
