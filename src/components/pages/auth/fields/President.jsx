@@ -120,7 +120,7 @@ function PresidentField() {
       {
         (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
-          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
+          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
         </div>
       }
       <div className="flex justify-around items-center gap-8 md:flex-row flex-col">
@@ -137,9 +137,9 @@ function PresidentField() {
               <input required type="text" placeholder="University..." onChange={(e) => setUniv(e.target.value)} className="univp bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
               <input required type="text" placeholder="Major of College..." onChange={(e) => setMajor(e.target.value)} className="majorp bg-transparent py-2 pl-3 text-lg outline-none w-[100%]" />
             </div>
-            <textarea required placeholder="Quotes..." onChange={(e) => setQuotes(e.target.value)} className="quotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+            <textarea required placeholder="Quotes..." onChange={(e) => setQuotes(e.target.value)} onKeyUp={(e) => e.which === 13 && submitPresident()} className="quotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
             {
-              (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Change President</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitPresident()}>Change President</p>
+              (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Change President</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitPresident()} >Change President</p>
             }
           </div>
         </div>
@@ -157,9 +157,9 @@ function PresidentField() {
               <input required type="text" placeholder="University..." onChange={(e) => setcoUniv(e.target.value)} className="counivp bg-transparent py-2 pl-3 text-lg border-b outline-none border-teal-600 w-[100%]" />
               <input required type="text" placeholder="Major of College..." onChange={(e) => setcoMajor(e.target.value)} className="comajorp bg-transparent py-2 pl-3 text-lg outline-none w-[100%]" />
             </div>
-            <textarea required placeholder="Quotes..." onChange={(e) => setcoQuotes(e.target.value)} className="coquotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+            <textarea required placeholder="Quotes..." onChange={(e) => setcoQuotes(e.target.value)} onKeyUp={(e) => e.which === 13 && submitcoPresident()} className="coquotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
             {
-              (coCommited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Change President</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitcoPresident()}>Change President</p>
+              (coCommited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Change Co President</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitcoPresident()} >Change Co President</p>
             }
           </div>
         </div>

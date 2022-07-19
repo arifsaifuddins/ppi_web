@@ -57,7 +57,7 @@ function OrganizeField() {
       {
         (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
-          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
+          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
         </div>
       }
       <div>

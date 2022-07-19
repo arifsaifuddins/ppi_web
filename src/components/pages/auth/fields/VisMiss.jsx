@@ -86,7 +86,7 @@ function VisMissField() {
       {
         (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
-          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
+          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
         </div>
       }
       <label htmlFor="vision" className="my-2 block font-bold text-lg text-teal-600">Vision :</label>

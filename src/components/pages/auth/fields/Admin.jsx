@@ -64,13 +64,13 @@ function AdminField() {
       {
         (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
-          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl ">&times;</p>
+          <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
         </div>
       }
       <input required type="text" placeholder="Admin Name..." onChange={(e) => setName(e.target.value)} className="named mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       <input required type="email" placeholder="Admin Email..." onChange={(e) => setEmail(e.target.value)} className="mailed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       <input required type="password" placeholder="Admin Password..." onChange={(e) => setPass(e.target.value)} className="passed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-      <input required type="password" placeholder="Confirm Admin Password..." onChange={(e) => setConf(e.target.value)} className="confed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+      <input required type="password" placeholder="Confirm Admin Password..." onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setConf(e.target.value)} className="confed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       {
         (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Add Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Add Admin</p>
       }
