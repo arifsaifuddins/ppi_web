@@ -34,7 +34,7 @@ function All() {
             {
               Blogs.data != null ? (
                 <div className="flex flex-col mt-10">
-                  <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:shadow-black dark:shadow-lg dark:bg-transparent dark:hover:bg-[#222222]">
+                  <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:shadow-black dark:shadow-lg dark:bg-transparent dark:hover:bg-[#333333]">
                     <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
                       <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover hover:object-right-bottom transition-all duration-500" />
                       <div className="flex justify-end bg-cover text-white flex-col absolute right-0 top-0 left-0">
@@ -54,7 +54,7 @@ function All() {
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-10 pt-10 border-t">
                     {
                       Blogs.data.map(o => (
-                        <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#222222] rounded-xl ">
+                        <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#333333] rounded-xl ">
                           <BlogPost data={o} />
                         </div>
                       ))

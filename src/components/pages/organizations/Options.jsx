@@ -63,7 +63,7 @@ function Options() {
 
   return (
     <>
-      <div onClick={() => structure()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#222222] flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => structure()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Structures</h1>
         <i ref={structures} className="fa fa-angle-down"></i>
       </div>
@@ -86,7 +86,7 @@ function Options() {
         }
       </div>
 
-      <div onClick={() => autonomou()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#222222] flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => autonomou()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Autonomous</h1>
         <i ref={autonomous} className="fa fa-angle-down"></i>
       </div>
@@ -108,7 +108,7 @@ function Options() {
         }
       </div>
 
-      <div onClick={() => institute()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#222222] flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => institute()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Institutes</h1>
         <i ref={institutes} className="fa fa-angle-down"></i>
       </div>
@@ -129,7 +129,7 @@ function Options() {
         }
       </div>
 
-      <div onClick={() => universitie()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#222222] flex justify-between items-center text-xl font-bold text-teal-600 ">
+      <div onClick={() => universitie()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Universities</h1>
         <i ref={universities} className="fa fa-angle-down"></i>
       </div>

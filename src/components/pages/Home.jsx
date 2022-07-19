@@ -4,6 +4,7 @@ import Mars from "../templates/Mars";
 import TypeAnimation from 'react-type-animation';
 import { useEffect, useState } from "react";
 import { blogsDis, getcoPres, getPres } from "../../Gets";
+import Loader from "../Loader";
 
 function Home() {
   const nodeurl = import.meta.env.VITE_NODEURL
@@ -28,7 +29,7 @@ function Home() {
 
   return (
     <div className="flex flex-col">
-      <div className="dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
+      <div className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
         <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
           <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">
             <h1 className="md:text-7xl text-5xl sm:text-6xl mb-5 font-bold">PPI <span className="text-teal-600"><TypeAnimation
@@ -54,56 +55,70 @@ function Home() {
           <h1 className="md:text-3xl text-2xl font-bold my-3">Whats News in PPI Sudan?</h1>
           <p className="text-md">Read 6 latest post, and make you relaxed.</p>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
-          {
-            (Blogs != null) && (
-              Blogs.map((o, i) => <div key={i} className="dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 rounded-xl dark:hover:bg-[#222222]">
-                <BlogPost data={o} />
-              </div>)
-            )
-          }
-        </div>
-        <Link to="/blogs" className="text-teal-600 font-bold mt-4 ml-2 hover:text-teal-500 underline">See More Blogs &raquo;</Link>
+        {
+          Blogs == null ? (
+            <Loader />
+          ) : (
+            <>
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-20">
+                {
+                  (Blogs != null) && (
+                    Blogs.map((o, i) => <div key={i} className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 rounded-xl dark:hover:bg-[#333333]">
+                      <BlogPost data={o} />
+                    </div>)
+                  )
+                }
+              </div>
+              <Link to="/blogs" className="text-teal-600 font-bold mt-4 ml-2 hover:text-teal-500 underline">See More Blogs &raquo;</Link>
+            </>
+          )
+        }
       </div>
-      <div className="flex dark:bg-[#111111] bg-white text-slate-900 dark:text-slate-200 py-20 my-20 shadow-lg">
+      <div className="flex dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 py-20 my-20 shadow-lg">
         <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-10">
           <div className="px-4 md:px-0">
             <h3 className="text-teal-600">PPI PRESIDENT</h3>
             <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know who is PPI Sudan president?</h1>
             <p className="text-md ">Here is the chosen president.</p>
           </div>
-          <div className="mx-auto py-20 lg:px-4 md:gap-8 gap-4 md:flex-row flex flex-col">
-            {
-              (Pres != null) && (
-                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-black bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none">
-                  <img src={nodeurl + '/../med/' + Pres.president_poster} alt="president" className="lg:w-52 lg:h-52 w-full object-cover" />
-                  <div>
-                    <h1 className="font-bold text-2xl mb-4 text-teal-600">President</h1>
-                    <h2 className="font-bold mb-2"><i className="fa mr-1 fa-user"></i> {Pres.name}</h2>
-                    <p><i className="fa mr-1 fa-location-arrow"></i> {Pres.institute}</p>
-                    <p><i className="fa mr-1 fa-building"></i> {Pres.university}</p>
-                    <p><i className="fa mr-1 fa-book"></i> {Pres.major}</p>
-                    <p><i className="fa mr-1 fa-quote-left"></i> {Pres.quotes.slice(1, 50)}...</p>
-                  </div>
-                </div>
-              )
-            }
-            {
-              (coPres != null) && (
-                <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-black bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none" >
-                  <img src={nodeurl + '/../med/' + coPres.president_poster} alt="copresident" className="lg:w-52 lg:h-52 w-full object-cover" />
-                  <div>
-                    <h1 className="font-bold text-2xl mb-4 text-teal-600">Co President</h1>
-                    <h2 className="font-bold mb-2"><i className="fa mr-1 fa-user"></i> {coPres.name}</h2>
-                    <p><i className="fa mr-1 fa-location-arrow"></i> {coPres.institute}</p>
-                    <p><i className="fa mr-1 fa-building"></i> {coPres.university}</p>
-                    <p><i className="fa mr-1 fa-book"></i> {coPres.major}</p>
-                    <p><i className="fa mr-1 fa-quote-left"></i> {coPres.quotes.slice(1, 50)}...</p>
-                  </div>
-                </div>
-              )
-            }
-          </div>
+          {
+            Pres == null && coPres == null ? (
+              <Loader />
+            ) : (
+              <div className="mx-auto py-20 lg:px-4 gap-8 md:flex-row flex flex-col">
+                {
+                  (Pres != null) && (
+                    <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none">
+                      <img src={nodeurl + '/../med/' + Pres.president_poster} alt="president" className="lg:w-52 lg:h-52 w-full object-cover" />
+                      <div className="py-4 lg:py-0">
+                        <h1 className="font-bold text-2xl mb-6 lg:mb-4 text-teal-600">President</h1>
+                        <h2 className="font-bold mb-2"><i className="fa mr-1 fa-user"></i> {Pres.name}</h2>
+                        <p><i className="fa mr-1 fa-location-arrow"></i> {Pres.institute}</p>
+                        <p><i className="fa mr-1 fa-building"></i> {Pres.university}</p>
+                        <p><i className="fa mr-1 fa-book"></i> {Pres.major}</p>
+                        <p><i className="fa mr-1 fa-quote-left"></i> {Pres.quotes.slice(1, 50)}...</p>
+                      </div>
+                    </div>
+                  )
+                }
+                {
+                  (coPres != null) && (
+                    <div className="lg:flex-row flex flex-col gap-6 p-4 md:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow-lg dark:text-slate-200  hover:shadow-xl dark:shadow-none" >
+                      <img src={nodeurl + '/../med/' + coPres.president_poster} alt="copresident" className="lg:w-52 lg:h-52 w-full object-cover" />
+                      <div className="py-4 lg:py-0">
+                        <h1 className="font-bold text-2xl mb-6 lg:mb-4 text-teal-600">Co President</h1>
+                        <h2 className="font-bold mb-2"><i className="fa mr-1 fa-user"></i> {coPres.name}</h2>
+                        <p><i className="fa mr-1 fa-location-arrow"></i> {coPres.institute}</p>
+                        <p><i className="fa mr-1 fa-building"></i> {coPres.university}</p>
+                        <p><i className="fa mr-1 fa-book"></i> {coPres.major}</p>
+                        <p><i className="fa mr-1 fa-quote-left"></i> {coPres.quotes.slice(1, 50)}...</p>
+                      </div>
+                    </div>
+                  )
+                }
+              </div>
+            )
+          }
         </div>
       </div>
 
@@ -114,10 +129,10 @@ function Home() {
           <p className="text-md">Hear and Memorize you'll be relaxed with it.</p>
         </div>
         <div className="flex flex-col-reverse md:flex-row justify-between gap-20 md:gap-0 items-center mt-10">
-          <div className="lg:pl-20">
+          <div className="lg:pl-20 ">
             <Mars />
           </div>
-          <img src="/assets/img/music.svg" alt="poster" className="lg:h-72 h-52 lg:mr-20" />
+          <img src="/assets/img/music.svg" alt="poster" className="lg:h-72 w-full px-8 pt-10 lg:pt-0 lg:mr-20" />
         </div>
       </div>
     </div>

@@ -118,7 +118,7 @@ function PresidentField() {
       <h1 className="md:text-4xl text-3xl font-bold mt-2 mb-8">Change President</h1>
 
       {
-        (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
+        (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#222222] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
           <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
         </div>

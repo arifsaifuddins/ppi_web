@@ -48,11 +48,11 @@ function FAQsField() {
   }
 
   return (
-    <div className="p-4 bg-white shadow rounded-xl dark:bg-[#111111]">
+    <div className="p-4 bg-white shadow rounded-xl dark:bg-[#222222]">
       <h1 className="text-2xl pb-4 font-bold border-b">Add a FAQs</h1>
       <div>
         {
-          (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#111111] dark:text-slate-100 flex justify-between items-center">
+          (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#222222] dark:text-slate-100 flex justify-between items-center">
             <div>{Error}</div>
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
           </div>

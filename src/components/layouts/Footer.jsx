@@ -11,13 +11,13 @@ function Footer({ visit }) {
   }, [])
 
   return (
-    <div className="bg-[#111111] text-slate-200 pb-16 md:pb-0 border-t-2 border-teal-600 mt-20">
-      <div className="lg:flex-row flex flex-col py-16 items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4 border-b">
+    <div className="bg-[#222222] drop-shadow-sm text-slate-200 pb-16 md:pb-0 border-t-8 border-teal-600 dark:border-teal-800 mt-40">
+      <div className="lg:flex-row flex flex-col py-20 items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4 border-b">
         <div className="flex flex-col items-center">
           <Link to='/' className="flex flex-col items-center">
-            <img src="/assets/img/ppisudan.png" alt="logo" className="w-20 h-20" />
-            <h1 className="text-3xl mb-4 text-[#51A274] font-semibold mt-2">PPISUDAN</h1>
-            <p className="text-sm font-thin text-black">اتحاد الطلبة الإندونيسيين بالسودان</p>
+            <img src="/assets/img/ppisudan.png" alt="logo" className="w-24 h-24" />
+            <h1 className="text-3xl mb-4 text-[#51A274] font-semibold mt-4">PPISUDAN</h1>
+            <p className="text-sm font-thin text-[#444444]">اتحاد الطلبة الإندونيسيين بالسودان</p>
             <p className="text-sm font-thin">Indonesian Students Association in Sudan</p>
             <p className="text-sm">Persatuan Pelajar Indonesia Sudan</p>
           </Link>

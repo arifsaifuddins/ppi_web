@@ -27,8 +27,8 @@ function Blog() {
 
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-      <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max  dark:bg-[#111111]">
-        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Blogs<span className="text-[#111111] dark:text-slate-200 text-xl font-thin"> {'>'} {Blogs != null && Blogs.data != null ? Blogs.data[0].title.slice(0, 15) : 'Empty'}...</span></Link>
+      <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max  dark:bg-[#222222]">
+        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Blogs<span className="text-[#222222] dark:text-slate-200 text-xl font-thin"> {'>'} {Blogs != null && Blogs.data != null ? Blogs.data[0].title.slice(0, 15) : 'Empty'}...</span></Link>
         {
           (Blogs == null) ? (
             <Loader />
@@ -68,7 +68,7 @@ function Blog() {
       {/* sidebar */}
 
       <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
-        <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#111111]">
+        <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
           <h1 className="text-2xl p-4 font-bold">{Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Empty'} Category</h1>
           {
             (Cate == null) ? (
