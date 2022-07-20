@@ -42,8 +42,7 @@ function SearchBlog() {
                     {
                       Blogs.previouspage != 0 && (
                         <>
-                          <a href="#"><i onClick={() => setPageAll(1)} className=" my-10  cursor-pointer fa fa-arrow-left-long pl-1 border-l-2 border-l-black dark:border-l-slate-200"></i></a>
-                          <a href="#"><i onClick={() => setPageAll(Blogs.previouspage)} className=" my-10  cursor-pointer fa fa-arrow-left"></i></a>
+                          <a href="#"><i onClick={() => setPageAll(1)} className="hover:text-teal-600 my-10  cursor-pointer fa fa-arrow-left-long pl-1 border-l-2 border-l-black dark:border-l-slate-200"></i></a>
                           <p onClick={() => setPageAll(Blogs.previouspage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600"><a href="#">{Blogs.previouspage}</a></p>
                         </>
                       )
@@ -57,8 +56,7 @@ function SearchBlog() {
                       Blogs.nextpage != 0 && (
                         <>
                           <p onClick={() => setPageAll(Blogs.nextpage)} className=" my-11 px-3 cursor-pointer hover:bg-teal-600 rounded-full border border-teal-600"><a href="#">{Blogs.nextpage}</a></p>
-                          <a href="#"><i onClick={() => setPageAll(Blogs.nextpage)} className=" my-10  cursor-pointer fa fa-arrow-right"></i></a>
-                          <a href="#"><i className="  my-10 cursor-pointer fa fa-arrow-right-long pr-1 border-r-2 border-r-black dark:border-r-slate-200" onClick={() => setPageAll(Blogs.totalpage)}></i></a>
+                          <a href="#"><i className=" hover:text-teal-600 my-10 cursor-pointer fa fa-arrow-right-long pr-1 border-r-2 border-r-black dark:border-r-slate-200" onClick={() => setPageAll(Blogs.totalpage)}></i></a>
                         </>
                       )
                     }

@@ -17,10 +17,14 @@ import SearchBlog from "./components/pages/blogs/SearchBlog";
 import Contact from "./components/pages/Contact";
 import FAQs from "./components/pages/FAQs";
 import Home from "./components/pages/Home";
+import AllPdf from "./components/pages/organizations/AllPdf";
 import Organize from "./components/pages/organizations/Organize";
 import Presidents from "./components/pages/organizations/Presidents";
+import SearchPdf from "./components/pages/organizations/SearchPdf";
 import Section from "./components/pages/organizations/Section";
+import Thesis from "./components/pages/organizations/Thesises";
 import VisMiss from "./components/pages/organizations/VisMiss";
+import Years from "./components/pages/organizations/Years";
 import ToTop from "./components/templates/ToTop";
 import { getVisitor } from "./Gets";
 
@@ -86,6 +90,11 @@ function App() {
           <Route index element={<Presidents />} />
           <Route path="vision" element={<VisMiss />} />
           <Route path="section/:id" element={<Section />} />
+          <Route path="thesis/" element={<Thesis />} >
+            <Route index element={<AllPdf />} />
+            <Route path=":year" element={<Years />} />
+            <Route path="s/:s" element={<SearchPdf />} />
+          </Route>
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

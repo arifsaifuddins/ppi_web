@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { delAdmins, delCategories, getAdmin, getAdmins, getCategories } from "../../../Gets"
+import { delAdmins, delCategories, getAdmin, getAdmins, getCategories, getYear } from "../../../Gets"
 import Profile from "../../templates/Profile"
 import AdminField from "./fields/Admin"
 import CategoryField from "./fields/Category"
@@ -7,6 +7,7 @@ import FAQsField from "./fields/FAQs"
 import OrganizeField from "./fields/Organize"
 import PostField from "./fields/Post"
 import PresidentField from "./fields/President"
+import ThesisesField from "./fields/Thesises"
 import VisMissField from "./fields/VisMiss"
 
 function Admin() {
@@ -15,6 +16,7 @@ function Admin() {
   const [Email, setEmail] = useState(null)
   const [Categories, setCategories] = useState(null)
   const [Admins, setAdmins] = useState(null)
+  const [Year, setYear] = useState(null)
 
   useEffect(() => {
 
@@ -29,6 +31,7 @@ function Admin() {
 
     getCategories().then(a => setCategories(a.data))
     getAdmins().then(a => setAdmins(a.data))
+    getYear().then(a => setYear(a.data))
 
   }, [])
 
@@ -57,6 +60,54 @@ function Admin() {
 
           <OrganizeField />
 
+
+          <div className="flex flex-col lg:flex-row lg:justify-between mb-6 gap-8">
+            <div className="bg-slate-100 shadow rounded-xl overflow-hidden dark:bg-[#121212] w-full">
+              <h1 className="text-2xl p-4 font-bold">Registered Category</h1>
+              <div className="h-52 overflow-auto border-t">
+                {
+                  Categories == null ? (
+                    <div className="flex h-52 w-full">
+                      <div className="m-auto animate-spin duration-700 w-8 h-8 rounded-full p-1 spin-loader">
+                        <span className="w-full h-full bg-slate-100 dark:bg-[#121212] inline-block rounded-full"></span>
+                      </div>
+                    </div>
+                  ) : (Categories.map(c => {
+                    return (
+                      <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
+                        <h1 className=" font-bold text-teal-600">{c.name}</h1>
+                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delCategories(c._id)}></i>
+                      </div>
+                    )
+                  })
+                  )
+                }
+              </div>
+            </div>
+
+            <div className="bg-slate-100 shadow rounded-xl overflow-hidden dark:bg-[#121212] w-full">
+              <h1 className="text-2xl p-4 font-bold ">Registered Admins</h1>
+              <div className="h-52 overflow-auto border-t">
+                {
+                  Admins == null ? (
+                    <div className="flex h-52 w-full">
+                      <div className="m-auto animate-spin duration-700 w-8 h-8 rounded-full p-1 spin-loader">
+                        <span className="w-full h-full bg-slate-100 dark:bg-[#121212] inline-block rounded-full"></span>
+                      </div>
+                    </div>
+                  ) : (Admins.map(c => {
+                    return (
+                      <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
+                        <h1 className=" font-bold text-teal-600">{c.name}</h1>
+                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delAdmins(c._id)}></i>
+                      </div>
+                    )
+                  })
+                  )
+                }
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* sidebar */}
@@ -67,38 +118,31 @@ function Admin() {
 
           <VisMissField />
 
+          <ThesisesField />
+
           <FAQsField />
 
           <CategoryField />
 
           <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
-            <h1 className="text-2xl p-4 font-bold">Registered Category</h1>
+            <h1 className="text-2xl p-4 font-bold">Registered Years</h1>
             <div className="h-52 overflow-auto border-t">
               {
-                (Categories != null) && Categories.map(c => {
+                Year == null ? (
+                  <div className="flex h-52 w-full">
+                    <div className="m-auto animate-spin duration-700 w-8 h-8 rounded-full p-1 spin-loader">
+                      <span className="w-full h-full bg-white dark:bg-[#222222] inline-block rounded-full"></span>
+                    </div>
+                  </div>
+                ) : (Year.map(c => {
                   return (
                     <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
-                      <h1 className=" font-bold text-teal-600">{c.name}</h1>
-                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delCategories(c._id)}></i>
+                      <h1 className=" font-bold text-teal-600">{c.year}</h1>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delyear(c._id)}></i>
                     </div>
                   )
                 })
-              }
-            </div>
-          </div>
-
-          <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
-            <h1 className="text-2xl p-4 font-bold ">Registered Admins</h1>
-            <div className="h-52 overflow-auto border-t">
-              {
-                (Admins != null) && Admins.map(c => {
-                  return (
-                    <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
-                      <h1 className=" font-bold text-teal-600">{c.name}</h1>
-                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delAdmins(c._id)}></i>
-                    </div>
-                  )
-                })
+                )
               }
             </div>
           </div>

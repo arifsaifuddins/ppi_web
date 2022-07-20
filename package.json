@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
+    "fs-browsers": "^1.1.6",
     "html-react-parser": "^3.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

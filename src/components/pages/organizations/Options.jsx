@@ -8,8 +8,14 @@ function Options() {
   const [Institutes, setInstitutes] = useState(null)
   const [Autonomous, setAutonomous] = useState(null)
   const [Universities, setUniversities] = useState(null)
+  const [Year, setYear] = useState(null)
+
+  const nodeurl = import.meta.env.VITE_NODEURL
 
   useEffect(() => {
+    fetch(`${nodeurl}/year/get`)
+      .then(k => k.json()).then(a => setYear(a.data))
+
     getSections('Structures').then(a => {
       setStructures(a.data)
     })
@@ -25,12 +31,14 @@ function Options() {
     getSections('Universities').then(a => {
       setUniversities(a.data)
     })
+
   }, [])
 
   const structures = useRef()
   const autonomous = useRef()
   const institutes = useRef()
   const universities = useRef()
+  const thesises = useRef()
 
   const structure = () => {
     structures.current.classList.toggle("-rotate-180");
@@ -54,6 +62,12 @@ function Options() {
     universities.current.classList.toggle("-rotate-180");
     universities.current.parentElement.nextElementSibling.classList.toggle("flex");
     universities.current.parentElement.nextElementSibling.classList.toggle("hidden");
+  }
+
+  const thesis = () => {
+    thesises.current.classList.toggle("-rotate-180");
+    thesises.current.parentElement.nextElementSibling.classList.toggle("flex");
+    thesises.current.parentElement.nextElementSibling.classList.toggle("hidden");
   }
 
   const titleChange = (e) => {
@@ -144,6 +158,25 @@ function Options() {
                     <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
                   )
                 }
+              </Link>
+            )
+          })
+        }
+      </div>
+
+      <div onClick={() => thesis()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
+        <h1>Thesises</h1>
+        <i ref={thesises} className="fa fa-angle-down"></i>
+      </div>
+      <div className="hidden flex-col p-4 gap-4 border-t">
+        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/thesis/`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+          <p>All Pdf</p>
+        </Link>
+        {
+          (Year != null) && Year.map(c => {
+            return (
+              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/thesis/${c.year}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
+                <p>{c.year}</p>
               </Link>
             )
           })

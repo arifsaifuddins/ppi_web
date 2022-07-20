@@ -125,3 +125,37 @@ export const delFaqs = async (id) => {
   })
   window.location.assign('/faqs')
 }
+
+export const delYear = async (id) => {
+  await fetch(`${nodeurl}/year/delete/${id}`, {
+    method: 'DELETE'
+  })
+  window.location.assign('/admin')
+}
+
+export const getYear = async () => {
+  await fetch(`${nodeurl}/year/get`)
+    .then(k => k.json())
+}
+
+export const getPdfs = async (page) => {
+  return await fetch(`${phpurl}/getpdf.php/?page=${page}`)
+    .then(k => k.json())
+}
+
+export const searchPdfs = async (s, page) => {
+  return await fetch(`${phpurl}/getpdf.php/?s=${s}&page=${page}`)
+    .then(k => k.json())
+}
+
+export const getYearPdfs = async (year, page) => {
+  return await fetch(`${phpurl}/getpdf.php/?year=${year}&page=${page}`)
+    .then(k => k.json())
+}
+
+export const delPdf = async (id) => {
+  await fetch(`${phpurl}/create_delpdf.php/?id=${id}`, {
+    method: 'DELETE'
+  })
+  window.location.assign('/blogs')
+}

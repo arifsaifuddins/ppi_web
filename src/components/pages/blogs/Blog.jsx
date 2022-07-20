@@ -38,7 +38,7 @@ function Blog() {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
                     <div className="px-4 md:px-0">
-                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 underline mt-5 text-2xl">{Blogs.data[0].category}</p></Link>
+                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category} Category</p></Link>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
                         <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
