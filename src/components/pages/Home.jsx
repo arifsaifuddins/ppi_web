@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import BlogPost from "../templates/BlogPost";
-import Mars from "../templates/Mars";
 import TypeAnimation from 'react-type-animation';
 import { useEffect, useState } from "react";
 import { blogsDis, getcoPres, getPdfs, getPres } from "../../Gets";
 import Loader from "../Loader";
 import Pdfs from "../templates/Pdf";
+import Empty from "../layouts/Empty";
 
 function Home() {
   const nodeurl = import.meta.env.VITE_NODEURL
