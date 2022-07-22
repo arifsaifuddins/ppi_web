@@ -181,7 +181,7 @@ function Options() {
           (Year != null) && Year.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c._id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.year}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/y/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.year}</Link>
               </p>
             )
           })

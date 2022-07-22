@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Helmet } from "react-helmet";
 
 function Login() {
 
@@ -53,6 +54,9 @@ function Login() {
 
   return (
     <div className="md:w-[90%] md:px-0 w-full px-4 lg:flex-row flex-col-reverse gap-10 mt-20 lg:mt-0 mx-auto flex justify-evenly items-center">
+      <Helmet>
+        <title>PPi Sudan - Login</title>
+      </Helmet>
       <div className="p-4 bg-white my-32 shadow rounded-xl w-96 dark:bg-[#222222]">
         <h1 className="text-2xl mb-4 pb-4 font-bold border-b">Login to PPI Sudan</h1>
         <div className="relative">

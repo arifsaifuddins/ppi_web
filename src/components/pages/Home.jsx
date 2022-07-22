@@ -6,6 +6,7 @@ import { blogsDis, getcoPres, getPdfs, getPres } from "../../Gets";
 import Loader from "../Loader";
 import Pdfs from "../templates/Pdf";
 import Empty from "../layouts/Empty";
+import { Helmet } from "react-helmet";
 
 function Home() {
   const phpurl = import.meta.env.VITE_PHPURL
@@ -33,6 +34,9 @@ function Home() {
 
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>PPi Sudan - Home</title>
+      </Helmet>
       <div className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
         <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
           <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">
@@ -104,7 +108,7 @@ function Home() {
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-location-arrow"></i> {Pres.institute}</p>
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-building"></i> {Pres.university}</p>
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-book"></i> {Pres.major}</p>
-                        <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {Pres.quotes.slice(0, 50)}...</p>
+                        <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {Pres.quotes.length < 50 ? Pres.quotes : Pres.quotes.slice(0, 50) + '...'}</p>
                       </div>
                     </div>
                   )
@@ -119,7 +123,7 @@ function Home() {
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-location-arrow"></i> {coPres.institute}</p>
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-building"></i> {coPres.university}</p>
                         <p className="text-sm mb-1"><i className="fa mr-1 fa-book"></i> {coPres.major}</p>
-                        <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {coPres.quotes.slice(0, 50)}...</p>
+                        <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {coPres.quotes.length < 50 ? coPres.quotes : coPres.quotes.slice(0, 50) + '...'}</p>
                       </div>
                     </div>
                   )
@@ -140,7 +144,7 @@ function Home() {
                 {
                   (Pdf.data != null) ? (
                     <>
-                      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 gap-4 mx-4 lg:mx-0">
+                      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 sm:grid-cols-2 gap-4 mx-4 lg:mx-0">
                         {
                           Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
                         }

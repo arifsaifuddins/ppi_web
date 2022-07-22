@@ -90,8 +90,8 @@ function App() {
           <Route path="section/:slug" element={<Section />} />
           <Route path="thesis/" element={<Thesis />} >
             <Route index element={<AllPdf />} />
-            <Route path=":year" element={<Years />} />
-            <Route path="s/:s" element={<SearchPdf />} />
+            <Route path="y/:year" element={<Years />} />
+            <Route path=":s" element={<SearchPdf />} />
           </Route>
         </Route>
         <Route path="/about" element={<About />} />

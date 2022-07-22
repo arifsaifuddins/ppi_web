@@ -9,6 +9,7 @@ import PostField from "./fields/Post"
 import PresidentField from "./fields/President"
 import ThesisesField from "./fields/Thesises"
 import VisMissField from "./fields/VisMiss"
+import { Helmet } from "react-helmet";
 
 function Admin() {
 
@@ -47,6 +48,9 @@ function Admin() {
 
   return (
     <>
+      <Helmet>
+        <title>PPi Sudan - Admin</title>
+      </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col relative lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#222222]">
           <div className="flex text-2xl justify-between items-center pb-4 border-b">

@@ -1,9 +1,13 @@
 import Mailing from "../templates/Mailing";
 import Sosmeds from "../templates/Sosmeds";
+import { Helmet } from "react-helmet";
 
 function Contact() {
   return (
     <div className="md:w-[90%] md:px-0 w-full px-4 mx-auto md:flex-row flex-col gap-20 flex justify-evenly items-center my-32">
+      <Helmet>
+        <title>PPi Sudan - Contact</title>
+      </Helmet>
       <img src="/assets/img/mail.svg" alt="mail" className="lg:w-96 w-72 mb-10" />
       <div className="flex flex-col lg:w-96">
         <Mailing />

@@ -6,6 +6,7 @@ import Loader from "../../Loader";
 import BlogSide from "../../templates/BlogSide";
 import FindUs from "../../templates/FindUs";
 import SendPost from "../../templates/SendPost";
+import { Helmet } from "react-helmet";
 
 function Blogs() {
 
@@ -31,6 +32,9 @@ function Blogs() {
 
   return (
     <>
+      <Helmet>
+        <title>PPi Sudan - Blogs</title>
+      </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#222222]">
           <div className="px-4 md:px-0">
