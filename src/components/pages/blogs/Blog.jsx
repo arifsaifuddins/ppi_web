@@ -42,6 +42,7 @@ function Blog() {
                       <title>PPi Sudan - Blog - {Blogs.data[0].title}</title>
                       <meta property="og:title" content="PPI Sudan - Persatuan Pelajar Indonesia" />
                       <meta property="og:type" content="article" />
+                      <meta property="og:url" content="https://ppisudan.com" />
                       <meta property="og:locale" content="en_GB" />
                       <meta property="og:description" content={`${Blogs.data[0].category + ' - ' + Blogs.data[0].title}`} />
                       <meta property="og:image" itemprop="image" content={`${phpurl + '/files/' + Blogs.data[0].blog_poster}`} />

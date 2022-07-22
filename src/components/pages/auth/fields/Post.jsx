@@ -97,7 +97,7 @@ function PostField({ name, category }) {
         }
         <div className="w-full mt-10">
           <label htmlFor="x" className="my-2 block font-bold text-lg text-teal-600">Body :</label>
-          <input id="x" type="hidden" name="content" />
+          <textarea id="x" name="content" className="hidden"></textarea>
           <trix-editor input="x"></trix-editor>
         </div>
         <div className="flex justify-around items-center gap-8 md:flex-row flex-col mt-8">

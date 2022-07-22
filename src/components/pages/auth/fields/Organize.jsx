@@ -81,7 +81,7 @@ function OrganizeField() {
           </div>
         </div>
         <label className="mb-2 mt-8 block font-bold text-lg text-teal-600">Description :</label>
-        <input id="y" type="hidden" name="content" />
+        <textarea id="y" name="content" className="hidden"></textarea>
         <trix-editor input="y"></trix-editor>
         {
           (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Add Section</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitSection()}>Add Section</p>
