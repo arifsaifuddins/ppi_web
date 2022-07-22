@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { delAdmins, delCategories, getAdmin, getAdmins, getCategories, getYear } from "../../../Gets"
+import { delAdmins, delCategories, getAdmin, getAdmins, getCategories } from "../../../Gets"
 import Profile from "../../templates/Profile"
 import AdminField from "./fields/Admin"
 import CategoryField from "./fields/Category"
@@ -18,6 +18,8 @@ function Admin() {
   const [Admins, setAdmins] = useState(null)
   const [Year, setYear] = useState(null)
 
+  const nodeurl = import.meta.env.VITE_NODEURL
+
   useEffect(() => {
 
     if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
@@ -31,7 +33,8 @@ function Admin() {
 
     getCategories().then(a => setCategories(a.data))
     getAdmins().then(a => setAdmins(a.data))
-    getYear().then(a => setYear(a.data))
+    fetch(`${nodeurl}/year/get`)
+      .then(k => k.json()).then(a => setYear(a.data))
 
   }, [])
 

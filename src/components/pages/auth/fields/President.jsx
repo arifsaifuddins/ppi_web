@@ -28,7 +28,7 @@ function PresidentField() {
     }
   }, [Name, posterPres, Major, Univ, Institute, Quotes])
 
-  const nodeurl = import.meta.env.VITE_NODEURL
+  const phpurl = import.meta.env.VITE_PHPURL
 
   const submitPresident = async () => {
     setCommited(false)
@@ -37,23 +37,24 @@ function PresidentField() {
 
     forms.append('name', Name)
     forms.append('institute', Institute)
+    forms.append('is_president', 'president')
     forms.append('university', Univ)
     forms.append('major', Major)
     forms.append('quotes', Quotes)
-    forms.append('president_poster', posterPres)
+    forms.append('poster', posterPres)
 
-    return await fetch(`${nodeurl}/president/add`, {
-      method: 'PUT',
+    return await fetch(`${phpurl}/presidents.php`, {
+      method: 'POST',
       body: forms
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
         window.location.assign('/admin')
       }).catch(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
       })
@@ -90,23 +91,24 @@ function PresidentField() {
 
     forms.append('name', coName)
     forms.append('institute', coInstitute)
+    forms.append('is_president', 'copresident')
     forms.append('university', coUniv)
     forms.append('major', coMajor)
     forms.append('quotes', coQuotes)
-    forms.append('president_poster', postercoPres)
+    forms.append('poster', postercoPres)
 
-    return await fetch(`${nodeurl}/copresident/add`, {
-      method: 'PUT',
+    return await fetch(`${phpurl}/presidents.php`, {
+      method: 'POST',
       body: forms
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.message)
+        setError(j.msg)
         setcoCommited(true)
         setErrored(true)
         window.location.assign('/admin')
       }).catch(j => {
-        setError(j.message)
+        setError(j.msg)
         setcoCommited(true)
         setErrored(true)
       })

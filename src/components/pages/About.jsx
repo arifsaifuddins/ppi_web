@@ -12,9 +12,9 @@ function About() {
           <div className="flex flex-col items-center mt-20">
             <img src="/assets/img/ppisudan.png" alt="logo" className="w-40" />
             <h1 className="text-5xl mb-8 text-[#51A274] font-semibold mt-6">PPISUDAN</h1>
-            <p className="md:text-xl font-thin text-slate-500">اتحاد الطلبة الإندونيسيين بالسودان</p>
-            <p className="md:text-xl font-thin">Indonesian Students Association in Sudan</p>
-            <p className="md:text-xl">Persatuan Pelajar Indonesia Sudan</p>
+            <p className="md:text-xl text-center font-thin text-slate-500">اتحاد الطلبة الإندونيسيين بالسودان</p>
+            <p className="md:text-xl text-center font-thin">Indonesian Students Association in Sudan</p>
+            <p className="md:text-xl text-center">Persatuan Pelajar Indonesia Sudan</p>
           </div>
           <div className="flex flex-col pt-28 pb-16 border-b">
             <h3 className="text-teal-600">PPI SUDAN</h3>

@@ -1,8 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import FindUs from "../../templates/FindUs";
 import Options from "./Options";
 
 function Organize() {
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname == '/organizations/thesis/') {
+      document.querySelector('.title').textContent = 'Thesises'
+      document.querySelector('.sub').textContent = 'All Pdf'
+    }
+  }, [])
 
   return (
     <>

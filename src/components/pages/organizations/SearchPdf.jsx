@@ -25,9 +25,7 @@ function Thesis() {
           <>
             {
               (Pdf.data != null) ? (
-                <div className="flex flex-col mt-10">
-                  <h3 className="text-teal-600">Thesises PDF</h3>
-                  <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know, <br />you can read it now here?</h1>
+                <>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
                       Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
@@ -56,7 +54,7 @@ function Thesis() {
                       )
                     }
                   </div>
-                </div>
+                </>
               ) : (
                 <Empty empty={Pdf.msg} />
               )

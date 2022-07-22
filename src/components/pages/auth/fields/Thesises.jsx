@@ -38,7 +38,7 @@ function ThesisesField() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", `${phpurl}/create_delpdf.php`);
+    ajax.open("POST", `${phpurl}/pdfs.php`);
     ajax.send(forms);
   }
 
@@ -63,6 +63,7 @@ function ThesisesField() {
       setError(res.msg)
       setCommited(true)
       setErrored(true)
+      window.location.assign('/organizations/thesis')
     })
   }
 
@@ -89,8 +90,8 @@ function ThesisesField() {
           </div>
         }
         <input required type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Type the title..." className="ti mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Type the author..." className="ye my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Type the year..." className="au bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Type the author..." className="au my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Type the year..." className="ye bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
         <input required type="file" name="pdf" onChange={(e) => setPdf(e.target.files[0])} placeholder="Type the title..." className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
         <div className="flex gap-2 items-center justify-between ml-2">
           <label id="progress">0%</label>

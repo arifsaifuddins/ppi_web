@@ -8,7 +8,7 @@ import Pdfs from "../templates/Pdf";
 import Empty from "../layouts/Empty";
 
 function Home() {
-  const nodeurl = import.meta.env.VITE_NODEURL
+  const phpurl = import.meta.env.VITE_PHPURL
 
   const [Pres, setPres] = useState(null)
   const [coPres, setcoPres] = useState(null)
@@ -43,7 +43,7 @@ function Home() {
               repeat={Infinity}
               className="inline"
             /></span></h1>
-            <p className="text-md md:text-lg font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
+            <p className="text-md md:text-lg text-center lg:text-left font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
             <p className="md:text-xl text-md mb-5 mt-3 text-center lg:text-left lg:ml-1">PPI Sudan is an organization for Indonesian Students in Sudan, To make stucturely relationship.</p>
             <div className="flex lg:ml-1 gap-x-4 mt-4">
               <Link to="/blogs/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> See PPPI Posts</p></Link>
@@ -97,7 +97,7 @@ function Home() {
                 {
                   (Pres != null) && (
                     <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black">
-                      <img src={nodeurl + '/../med/' + Pres.president_poster} alt="president" className="lg:w-52 lg:h-52 w-full object-cover" />
+                      <img src={phpurl + '/files/' + Pres.president_poster} alt="president" className="lg:w-52 lg:h-52 w-full object-cover" />
                       <div className="py-4 lg:py-0">
                         <h1 className="font-bold text-2xl mb-4 text-teal-600">President</h1>
                         <h2 className="font-bold mb-4 text-xl">{Pres.name}</h2>
@@ -112,7 +112,7 @@ function Home() {
                 {
                   (coPres != null) && (
                     <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black" >
-                      <img src={nodeurl + '/../med/' + coPres.president_poster} alt="copresident" className="lg:w-52 lg:h-52 w-full object-cover" />
+                      <img src={phpurl + '/files/' + coPres.president_poster} alt="copresident" className="lg:w-52 lg:h-52 w-full object-cover" />
                       <div className="py-4 lg:py-0">
                         <h1 className="font-bold text-2xl mb-4 text-teal-600">Co President</h1>
                         <h2 className="font-bold mb-4 text-xl">{coPres.name}</h2>
@@ -140,7 +140,7 @@ function Home() {
                 {
                   (Pdf.data != null) ? (
                     <>
-                      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 gap-2 md:gap-4">
+                      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 gap-4 mx-4 lg:mx-0">
                         {
                           Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
                         }

@@ -7,17 +7,17 @@ import Empty from "../../layouts/Empty";
 
 function Section() {
 
-  const nodeurl = import.meta.env.VITE_NODEURL
+  const phpurl = import.meta.env.VITE_PHPURL
 
   const [Sections, setSections] = useState(null)
 
-  const { id } = useParams()
+  const { slug } = useParams()
 
   useEffect(() => {
-    getSection(id).then(a => {
+    getSection(slug).then(a => {
       setSections(a)
     })
-  }, [id])
+  }, [slug])
 
   return (
     <>
@@ -33,11 +33,11 @@ function Section() {
                   <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know, <br />what's the {Sections.data[0].title}?</h1>
                   <div className="my-10">
                     <div className="w-max flex-col flex items-center gap-8 mx-auto mt-10">
-                      <img src={nodeurl + '/../med/' + Sections.data[0].section_logo} alt="poster" className="h-52" />
+                      <img src={phpurl + '/files/' + Sections.data[0].section_logo} alt="poster" className="h-52" />
                       <h3 className="text-teal-600 font-bold text-2xl">{Sections.data[0].title}</h3>
                     </div>
                     <div className="my-20 text-justify" >{parse(Sections.data[0].description)}</div>
-                    <img src={nodeurl + '/../med/' + Sections.data[0].section_poster} alt="poster" className="w-full mt-6" />
+                    <img src={phpurl + '/files/' + Sections.data[0].section_poster} alt="poster" className="w-full mt-6" />
                   </div>
                 </div>
               ) : (

@@ -32,7 +32,7 @@ function CateBlog() {
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 ">
                     {
                       Blogs.data.map(o => (
-                        <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#333333] rounded-xl ">
+                        <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#333333] rounded-md md:rounded-xl ">
                           <BlogPost data={o} />
                         </div>
                       ))

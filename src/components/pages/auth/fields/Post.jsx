@@ -35,7 +35,7 @@ function PostField({ name, category }) {
     forms.append('date', Dates || document.querySelector('.dat').value)
     forms.append('poster', Poster)
 
-    return await fetch(`${phpurl}/create_del.php`, {
+    return await fetch(`${phpurl}/blogs.php`, {
       method: 'POST',
       body: forms
     })

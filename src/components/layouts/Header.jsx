@@ -60,10 +60,10 @@ function Header() {
           </div>
         </div>
         <div className="md:hidden gap-x-1 items-center flex fixed bottom-0 left-0 right-0 justify-around text-xl py-2 bg-teal-600  dark:bg-teal-800">
-          <NavLink style={active} to="/" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa fa-house-chimney"></i></NavLink>
-          <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa fa-book-open"></i></NavLink>
-          <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa fa-swatchbook"></i></NavLink>
-          <NavLink style={active} to="/about" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa fa-briefcase"></i></NavLink>
+          <NavLink style={active} to="/" className="py-2 px-3 rounded-lg"><i className="fa fa-house-chimney"></i></NavLink>
+          <NavLink style={active} to="/blogs" className="py-2 px-3 rounded-lg"><i className="fa fa-book-open"></i></NavLink>
+          <NavLink style={active} to="/organizations" className="py-2 px-3 rounded-lg"><i className="fa fa-swatchbook"></i></NavLink>
+          <NavLink style={active} to="/about" className="py-2 px-3 rounded-lg"><i className="fa fa-briefcase"></i></NavLink>
         </div>
       </div>
     </>

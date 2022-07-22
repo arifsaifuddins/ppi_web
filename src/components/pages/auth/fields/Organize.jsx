@@ -20,7 +20,7 @@ function OrganizeField() {
     }
   }, [Title])
 
-  const nodeurl = import.meta.env.VITE_NODEURL
+  const phpurl = import.meta.env.VITE_PHPURL
 
   const submitSection = async () => {
     setCommited(false)
@@ -30,21 +30,21 @@ function OrganizeField() {
     forms.append('title', Title)
     forms.append('category', Category || document.querySelector('.dua').value)
     forms.append('description', document.querySelector('#y').value)
-    forms.append('section_poster', Poster)
-    forms.append('section_logo', Logo)
+    forms.append('poster', Poster)
+    forms.append('logo', Logo)
 
-    return await fetch(`${nodeurl}/organize/add`, {
+    return await fetch(`${phpurl}/sections.php`, {
       method: 'POST',
       body: forms
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
         window.location.assign('/organizations')
       }).catch(j => {
-        setError(j.message)
+        setError(j.msg)
         setCommited(true)
         setErrored(true)
       })

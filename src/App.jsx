@@ -69,8 +69,6 @@ function App() {
 
   }, [])
 
-
-
   return (
     <div>
       {progress && <TopBarProgress />}
@@ -89,7 +87,7 @@ function App() {
         <Route path="/organizations" element={<Organize />} >
           <Route index element={<Presidents />} />
           <Route path="vision" element={<VisMiss />} />
-          <Route path="section/:id" element={<Section />} />
+          <Route path="section/:slug" element={<Section />} />
           <Route path="thesis/" element={<Thesis />} >
             <Route index element={<AllPdf />} />
             <Route path=":year" element={<Years />} />

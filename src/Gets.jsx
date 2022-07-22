@@ -46,12 +46,12 @@ export const getVismiss = async () => {
 }
 
 export const getPres = async () => {
-  return await fetch(`${nodeurl}/president/get`)
+  return await fetch(`${phpurl}/presidents.php/?president=president`)
     .then(k => k.json())
 }
 
 export const getcoPres = async () => {
-  return await fetch(`${nodeurl}/copresident/get`)
+  return await fetch(`${phpurl}/presidents.php/?president=copresident`)
     .then(k => k.json())
 }
 
@@ -61,59 +61,59 @@ export const getFAQs = async () => {
 }
 
 export const getSections = async (category) => {
-  return await fetch(`${nodeurl}/organize/get/category/${category}`)
+  return await fetch(`${phpurl}/sections.php/?category=${category}`)
     .then(k => k.json())
 }
 
-export const getSection = async (id) => {
-  return await fetch(`${nodeurl}/organize/get/${id}`)
+export const getSection = async (slug) => {
+  return await fetch(`${phpurl}/sections.php/?slug=${slug}`)
     .then(k => k.json())
 }
 
 export const getBlogs = async (page) => {
-  return await fetch(`${phpurl}/gets.php/?page=${page}`)
+  return await fetch(`${phpurl}/blogs.php/?page=${page}`)
     .then(k => k.json())
 }
 
 export const getBlogsCat = async (page = 0, category) => {
-  return await fetch(`${phpurl}/gets.php/?category=${category}&page=${page}`)
+  return await fetch(`${phpurl}/blogs.php/?category=${category}&page=${page}`)
     .then(k => k.json())
 }
 
 export const getBlogsAut = async (page = 0, author) => {
-  return await fetch(`${phpurl}/gets.php/?author=${author}&page=${page}`)
+  return await fetch(`${phpurl}/blogs.php/?author=${author}&page=${page}`)
     .then(k => k.json())
 }
 
 export const searchBlogsAut = async (page = 0, s) => {
-  return await fetch(`${phpurl}/gets.php/?s=${s}&page=${page}`)
+  return await fetch(`${phpurl}/blogs.php/?s=${s}&page=${page}`)
     .then(k => k.json())
 }
 
 export const blogsFav = async (favorite) => {
-  return await fetch(`${phpurl}/gets.php/?favorite=${favorite}`)
+  return await fetch(`${phpurl}/blogs.php/?favorite=${favorite}`)
     .then(k => k.json())
 }
 
 export const blogsDis = async (dis) => {
-  return await fetch(`${phpurl}/gets.php/?display=${dis}`)
+  return await fetch(`${phpurl}/blogs.php/?display=${dis}`)
     .then(k => k.json())
 }
 
 export const getBlog = async (slug) => {
-  return await fetch(`${phpurl}/gets.php/?slug=${slug}`)
+  return await fetch(`${phpurl}/blogs.php/?slug=${slug}`)
     .then(k => k.json())
 }
 
 export const delBlogs = async (id) => {
-  await fetch(`${phpurl}/create_del.php/?id=${id}`, {
+  await fetch(`${phpurl}/blogs.php/?id=${id}`, {
     method: 'DELETE'
   })
   window.location.assign('/blogs')
 }
 
 export const delSecs = async (id) => {
-  await fetch(`${nodeurl}/organize/delete/${id}`, {
+  await fetch(`${phpurl}/sections.php/?id=${id}`, {
     method: 'DELETE'
   })
   window.location.assign('/organizations')
@@ -133,29 +133,24 @@ export const delYear = async (id) => {
   window.location.assign('/admin')
 }
 
-export const getYear = async () => {
-  await fetch(`${nodeurl}/year/get`)
-    .then(k => k.json())
-}
-
 export const getPdfs = async (page) => {
-  return await fetch(`${phpurl}/getpdf.php/?page=${page}`)
+  return await fetch(`${phpurl}/pdfs.php/?page=${page}`)
     .then(k => k.json())
 }
 
 export const searchPdfs = async (s, page) => {
-  return await fetch(`${phpurl}/getpdf.php/?s=${s}&page=${page}`)
+  return await fetch(`${phpurl}/pdfs.php/?s=${s}&page=${page}`)
     .then(k => k.json())
 }
 
 export const getYearPdfs = async (year, page) => {
-  return await fetch(`${phpurl}/getpdf.php/?year=${year}&page=${page}`)
+  return await fetch(`${phpurl}/pdfs.php/?year=${year}&page=${page}`)
     .then(k => k.json())
 }
 
 export const delPdf = async (id) => {
-  await fetch(`${phpurl}/create_delpdf.php/?id=${id}`, {
+  await fetch(`${phpurl}/pdfs.php/?id=${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/blogs')
+  window.location.assign('/organizations/thesis/')
 }

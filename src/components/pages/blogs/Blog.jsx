@@ -51,7 +51,7 @@ function Blog() {
                         }
                       </div>
                     </div>
-                    <img src={phpurl + '/images/' + Blogs.data[0].blog_poster} alt="banner-post" className="mb-8" />
+                    <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="banner-post" className="mb-8" />
                     <article className="px-4 md:px-0">
                       <p>{parse(Blogs.data[0].body)}</p>
                     </article>

@@ -10,7 +10,7 @@ function BlogSide({ data }) {
         <p className="text-xl font-bold mb-2 text-teal-600 hover:underline">{data.title.slice(0, 20)}...</p>
         <p className="font-thin text-sm text-slate-500 dark:text-slate-200"><i className="fa mr-1 fa-calendar-days"></i> {data.date} <i className="fa mx-1 fa-eye"></i> {data.viewer}</p>
       </div>
-      <img src={phpurl + '/images/' + data.blog_poster} alt="poster" className="h-20 w-24 object-cover hover:object-right-bottom transition-all duration-500 rounded-xl" />
+      <img src={phpurl + '/files/' + data.blog_poster} alt="poster" className="h-20 w-24 object-cover hover:object-right-bottom transition-all duration-500 rounded-xl" />
     </Link>
   );
 }

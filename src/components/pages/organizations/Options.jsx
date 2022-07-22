@@ -71,6 +71,11 @@ function Options() {
   }
 
   const titleChange = (e) => {
+    document.querySelector('.title').innerHTML = e.target.parentElement.parentElement.previousElementSibling.firstChild.textContent
+    document.querySelector('.sub').innerHTML = e.target.textContent
+  }
+
+  const titleChanges = (e) => {
     document.querySelector('.title').innerHTML = e.target.parentElement.previousElementSibling.firstChild.textContent
     document.querySelector('.sub').innerHTML = e.target.textContent
   }
@@ -82,19 +87,19 @@ function Options() {
         <i ref={structures} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
-        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Presidents</Link>
-        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Presidents</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
         {
           (Structures != null) && Structures.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-                <p>{c.title}</p>
+              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
-              </Link>
+              </p>
             )
           })
         }
@@ -109,14 +114,14 @@ function Options() {
         {
           (Autonomous != null) && Autonomous.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-                <p>{c.title}</p>
+              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
-              </Link>
+              </p>
             )
           })
         }
@@ -130,14 +135,14 @@ function Options() {
         {
           (Institutes != null) && Institutes.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-                <p>{c.title}</p>
+              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
-              </Link>
+              </p>
             )
           })
         }
@@ -151,14 +156,14 @@ function Options() {
         {
           (Universities != null) && Universities.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/section/${c._id}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-                <p>{c.title}</p>
+              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c._id)}></i>
+                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
-              </Link>
+              </p>
             )
           })
         }
@@ -169,15 +174,15 @@ function Options() {
         <i ref={thesises} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
-        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/thesis/`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-          <p>All Pdf</p>
+        <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/thesis" className="flex justify-between items-center gap-4">
+          <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">All Pdf</p>
         </Link>
         {
           (Year != null) && Year.map(c => {
             return (
-              <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to={`/organizations/thesis/${c.year}`} key={c._id} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 flex justify-between items-center hover:bg-teal-600">
-                <p>{c.year}</p>
-              </Link>
+              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c._id} className="flex justify-between items-center gap-4">
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.year}</Link>
+              </p>
             )
           })
         }
