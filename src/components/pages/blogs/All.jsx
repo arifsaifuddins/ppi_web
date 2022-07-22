@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getBlogs } from "../../../Gets";
 import Empty from "../../layouts/Empty";
 import Loader from "../../Loader";

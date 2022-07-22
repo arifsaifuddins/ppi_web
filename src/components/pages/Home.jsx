@@ -36,6 +36,11 @@ function Home() {
     <div className="flex flex-col">
       <Helmet>
         <title>PPi Sudan - Home</title>
+        <meta property="og:title" content="PPI Sudan - Persatuan Pelajar Indonesia" />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:description" content="Indonesian Students Association in Sudan" />
+        <meta property="og:image" itemprop="image" content='https://beta.ppisudan.com/assets/img/ppisudan.png' />
       </Helmet>
       <div className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
         <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
