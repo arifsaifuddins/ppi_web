@@ -8,7 +8,7 @@ function Profile({ name, email }) {
       <p onClick={() => {
         window.location.assign('/')
         localStorage.clear()
-      }} className="cursor-pointer text-center mt-4 bg-red-600 text-white py-1 px-3 rounded-lg text-md hover:bg-red-700 font-bold w-[100%]"><i className="fa fa-arrow-right-from-bracket ml-1"></i> Logout</p>
+      }} className="cursor-pointer text-center mt-4 bg-red-600 text-white py-1 px-3 rounded-lg text-md hover:bg-red-700 font-bold w-[100%]"><i className="fa fa-arrow-right-from-bracket ml-1"></i> Keluar</p>
     </div>
   );
 }

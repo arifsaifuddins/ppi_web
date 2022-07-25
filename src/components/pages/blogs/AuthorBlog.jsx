@@ -23,8 +23,8 @@ function AutBlog() {
         ) : (
           <>
             <div className="px-4 md:px-0">
-              <h3 className="text-teal-600">{author} Posts</h3>
-              <h1 className="lg:text-3xl text-2xl font-bold my-3">Read Blogs by {author}.</h1>
+              <h3 className="text-teal-600">Postingan {author}</h3>
+              <h1 className="lg:text-3xl text-2xl font-bold my-3">Baca Postingannya {author}.</h1>
             </div>
             {
               Blogs.data != null ? (

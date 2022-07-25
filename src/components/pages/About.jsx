@@ -8,11 +8,11 @@ function About() {
   return (
     <>
       <Helmet>
-        <title>PPi Sudan - About</title>
+        <title>PPI Sudan - Tentang</title>
       </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#222222]">
-          <h1 className="text-2xl pb-4 border-b text-teal-600"># About</h1>
+        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
+          <h1 className="text-2xl pb-4 border-b text-teal-600"># Tentang</h1>
           <div className="flex flex-col items-center mt-20 w-max mx-auto">
             <img src="/assets/img/ppisudan.png" alt="logo" className="w-40" />
             <h1 className="text-5xl mb-8 text-[#51A274] font-semibold mt-6">PPISUDAN</h1>
@@ -22,7 +22,7 @@ function About() {
           </div>
           <div className="flex flex-col py-20 mt-20 border-y">
             <h3 className="text-teal-600">PPI SUDAN</h3>
-            <h1 className="md:text-3xl text-2xl font-bold my-3">Story of PPI Sudan</h1>
+            <h1 className="md:text-3xl text-2xl font-bold my-3">Sejarah PPI Sudan</h1>
             <p className="mb-8 first-letter:ml-5 text-justify mt-12">Sejarah rantai peradaban sangat ditentukan dengan peralihan generasi. Tentunya generasi-generasi
               pilihan yang akan sanggup mengusung dan meneruskan peradaban para pendahulunya. Mereka
               yang secara intelektual, stamina dan psikologis seiring sejalan. Inilah tujuan agung dari proses
@@ -71,7 +71,7 @@ function About() {
           </div>
           <div className="flex flex-col pt-28">
             <h3 className="text-teal-600">LOGO PPI SUDAN</h3>
-            <h1 className="md:text-3xl text-2xl font-bold my-3">Phylosophy of Logo</h1>
+            <h1 className="md:text-3xl text-2xl font-bold my-3">Filosofi Logo</h1>
             <ul className="mt-16">
               <img src="/assets/img/ppisudan.png" alt="logo" className="w-52 h-52 mx-auto mb-20" />
               <li className="mb-2"><span className="font-bold mr-2">1. </span> Pena berwarna hitam dan bermata keemasan bermakna pendidikan dan keilmuan.</li>
@@ -83,8 +83,8 @@ function About() {
             </ul>
           </div>
           <div className="flex flex-col py-20 mt-20 border-t">
-            <h3 className="text-teal-600">OTHER LOGO</h3>
-            <h1 className="md:text-3xl text-2xl font-bold my-3">Autonomous</h1>
+            <h3 className="text-teal-600">LOGO LAINNYA</h3>
+            <h1 className="md:text-3xl text-2xl font-bold my-3">Otonom</h1>
             <div className="mt-16 flex-col gap-10 flex md:flex-row justify-around md:items-end">
               <div className="flex flex-col items-center gap-10 pb-10 md:pb-0 md:border-0 border-b">
                 <img src="/assets/img/pppisudan.png" alt="logo" className="md:w-36 w-48 mx-auto" />
@@ -100,7 +100,7 @@ function About() {
 
         {/* sidebar */}
 
-        <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
+        <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">
 
           <FindUs />
 

@@ -17,10 +17,10 @@ function FAQs() {
   return (
     <>
       <Helmet>
-        <title>PPi Sudan - FAQs</title>
+        <title>PPI Sudan - FAQs</title>
       </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max pb-8 dark:bg-[#222222]">
+        <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max pb-8 dark:bg-[#222222]">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># FAQs</h1>
           <div className="flex flex-col mt-8">
             <h1 className="lg:text-3xl text-teal-600 text-2xl mb-6">Who is made this site, and how?</h1>
@@ -80,7 +80,7 @@ function FAQs() {
 
         {/* sidebar */}
 
-        <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
+        <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">
 
           <FindUs />
 

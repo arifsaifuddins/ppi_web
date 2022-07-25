@@ -21,8 +21,8 @@ function Presidents() {
 
   return (
     <div className="flex flex-col mt-10">
-      <h3 className="text-teal-600">PRESIDENTS</h3>
-      <h1 className="md:text-3xl text-2xl font-bold my-3">Do you know, <br />who is PPI Sudan president?</h1>
+      <h3 className="text-teal-600">PRESIDEN</h3>
+      <h1 className="md:text-3xl text-2xl font-bold my-3">Tahukah kamu, <br />Siapa Presiden sekarang?</h1>
       {
         (Pres == null && coPres == null) ? (
           <Loader />
@@ -33,8 +33,9 @@ function Presidents() {
                 <div className="my-10 flex gap-8 flex-col lg:flex-row">
                   <img src={phpurl + '/files/' + Pres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
                   <div>
-                    <h1 className="font-bold text-xl mb-4 text-teal-600">President</h1>
+                    <h1 className="font-bold text-xl mb-4 text-teal-600">Presiden</h1>
                     <h2 className="font-bold text-2xl my-4">{Pres[0].name}</h2>
+                    <p><i className="fa mr-1 fa-cake-candles"></i> {Pres[0].birth}</p>
                     <p><i className="fa mr-1 fa-location-arrow"></i> {Pres[0].institute}</p>
                     <p><i className="fa mr-1 fa-building"></i> {Pres[0].university}</p>
                     <p><i className="fa mr-1 fa-book"></i> {Pres[0].major}</p>
@@ -49,8 +50,9 @@ function Presidents() {
                 <div className="my-10 flex gap-8 flex-col lg:flex-row">
                   <img src={phpurl + '/files/' + coPres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
                   <div>
-                    <h1 className="font-bold text-xl mb-4 text-teal-600">Co President</h1>
+                    <h1 className="font-bold text-xl mb-4 text-teal-600">Wakil Presiden</h1>
                     <h2 className="font-bold text-2xl my-4">{coPres[0].name}</h2>
+                    <p><i className="fa mr-1 fa-cake-candles"></i> {coPres[0].birth}</p>
                     <p><i className="fa mr-1 fa-location-arrow"></i> {coPres[0].institute}</p>
                     <p><i className="fa mr-1 fa-building"></i> {coPres[0].university}</p>
                     <p><i className="fa mr-1 fa-book"></i> {coPres[0].major}</p>

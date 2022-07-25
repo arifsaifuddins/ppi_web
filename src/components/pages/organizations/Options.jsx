@@ -16,19 +16,19 @@ function Options() {
     fetch(`${nodeurl}/year/get`)
       .then(k => k.json()).then(a => setYear(a.data))
 
-    getSections('Structures').then(a => {
+    getSections('Struktur').then(a => {
       setStructures(a.data)
     })
 
-    getSections('Institutes').then(a => {
+    getSections('Kekeluargaan').then(a => {
       setInstitutes(a.data)
     })
 
-    getSections('Autonomous').then(a => {
+    getSections('Otonom').then(a => {
       setAutonomous(a.data)
     })
 
-    getSections('Universities').then(a => {
+    getSections('Universitas').then(a => {
       setUniversities(a.data)
     })
 
@@ -83,12 +83,12 @@ function Options() {
   return (
     <>
       <div onClick={() => structure()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
-        <h1>Structures</h1>
+        <h1>Struktur</h1>
         <i ref={structures} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
-        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Presidents</Link>
-        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Vision & Mission</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Presiden</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Visi & Misi</Link>
         {
           (Structures != null) && Structures.map(c => {
             return (
@@ -106,7 +106,7 @@ function Options() {
       </div>
 
       <div onClick={() => autonomou()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
-        <h1>Autonomous</h1>
+        <h1>Otonom</h1>
         <i ref={autonomous} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
@@ -128,7 +128,7 @@ function Options() {
       </div>
 
       <div onClick={() => institute()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
-        <h1>Institutes</h1>
+        <h1>Kekeluargaan</h1>
         <i ref={institutes} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
@@ -149,7 +149,7 @@ function Options() {
       </div>
 
       <div onClick={() => universitie()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
-        <h1>Universities</h1>
+        <h1>Universitas</h1>
         <i ref={universities} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
@@ -170,12 +170,12 @@ function Options() {
       </div>
 
       <div onClick={() => thesis()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
-        <h1>Thesises</h1>
+        <h1>Tesis</h1>
         <i ref={thesises} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/thesis" className="flex justify-between items-center gap-4">
-          <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">All Pdf</p>
+          <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">Semua Pdf</p>
         </Link>
         {
           (Year != null) && Year.map(c => {

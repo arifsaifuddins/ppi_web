@@ -23,8 +23,8 @@ function SearchBlog() {
         ) : (
           <>
             <div className="px-4 md:px-0">
-              <h3 className="text-teal-600">Search Posts</h3>
-              <h1 className="lg:text-3xl text-2xl font-bold my-3">Searching for {s.charAt(0).toUpperCase() + s.slice(1)} Blog.</h1>
+              <h3 className="text-teal-600">Cari Post</h3>
+              <h1 className="lg:text-3xl text-2xl font-bold my-3">Mencari Postingan {s.charAt(0).toUpperCase() + s.slice(1)}.</h1>
             </div>
             {
               Blogs.data != null ? (

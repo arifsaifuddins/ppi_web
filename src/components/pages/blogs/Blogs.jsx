@@ -33,22 +33,22 @@ function Blogs() {
   return (
     <>
       <Helmet>
-        <title>PPi Sudan - Blogs</title>
+        <title>PPI Sudan - Postingan</title>
       </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
-        <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-[100%] h-max dark:bg-[#222222]">
+        <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
           <div className="px-4 md:px-0">
-            <h1 className="text-2xl pb-4 border-b text-teal-600"># Blogs</h1>
+            <h1 className="text-2xl pb-4 border-b text-teal-600"># Postingan</h1>
             <div className="flex items-center justify-between gap-4 relative">
               <div className="flex items-center py-4 gap-4 overflow-auto">
-                <NavLink to={`/blogs`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">All</NavLink>
+                <NavLink to={`/blogs`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">Semua</NavLink>
                 {
                   category != null && category.map(c => (<NavLink key={c._id} style={active} to={`/blogs/category/${c.name}`} className="py-1 px-4 text-sm hover:bg-teal-600 border border-teal-600 hover:text-white rounded-full">{c.name}</NavLink>))
                 }
               </div>
               <i onClick={(e) => searchBox(e)} className="fa fa-search searchicon text-teal-600 font-bold cursor-pointer hover:text-teal-600 rounded-full p-2 border"></i>
               <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 scale-0 transition duration-500 dark:bg-[#222222]">
-                <input type="text" placeholder="Search Blog..." className="bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" onChange={(e) => navigate(`/blogs/${e.target.value}`)} />
+                <input type="text" placeholder="Cari Postingan..." className="bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" onChange={(e) => navigate(`/blogs/${e.target.value}`)} />
               </div>
             </div>
           </div>
@@ -57,9 +57,9 @@ function Blogs() {
 
         {/* sidebar */}
 
-        <div className="flex flex-col lg:w-[45%] w-full lg:mx-0 gap-8">
+        <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">
           <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
-            <h1 className="text-2xl p-4 font-bold">Favorite Blogs</h1>
+            <h1 className="text-2xl p-4 font-bold">Postingan Favorit</h1>
             {
               (Fav == null) ? (
                 <div className="border-t">

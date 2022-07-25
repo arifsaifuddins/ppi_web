@@ -22,9 +22,12 @@ function ThesisesField() {
 
   const phpurl = import.meta.env.VITE_PHPURL
   const nodeurl = import.meta.env.VITE_NODEURL
+  const bThesis = document.querySelector('.bthesis')
+
 
   function submitThesis() {
     setCommited(false)
+    bThesis.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -63,6 +66,7 @@ function ThesisesField() {
       setError(res.msg)
       setCommited(true)
       setErrored(true)
+      bThesis.innerHTML = 'Tambah Tesis'
       window.location.assign('/organizations/thesis')
     })
   }
@@ -81,7 +85,7 @@ function ThesisesField() {
 
   return (
     <div className="p-4 bg-white shadow rounded-xl dark:bg-[#222222]">
-      <h1 className="text-2xl pb-4 font-bold border-b">Add a Thesis</h1>
+      <h1 className="text-2xl pb-4 font-bold border-b">Tambah Satu Tesis</h1>
       <div>
         {
           (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mt-4 rounded-xl text-[#222222] dark:text-slate-100 flex justify-between items-center">
@@ -89,16 +93,16 @@ function ThesisesField() {
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
           </div>
         }
-        <input required type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Type the title..." className="ti mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Type the author..." className="au my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Type the year..." className="ye bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required type="file" name="pdf" onChange={(e) => setPdf(e.target.files[0])} placeholder="Type the title..." className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Judul..." className="ti mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Penulis..." className="au my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Tahun Angkatan..." className="ye bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required type="file" name="pdf" onChange={(e) => setPdf(e.target.files[0])} className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
         <div className="flex gap-2 items-center justify-between ml-2">
           <label id="progress">0%</label>
           <progress id="progressBar" value="0" max="100" className="w-full bg-teal-600 mx-2 rounded-lg"></progress>
         </div>
         {
-          (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Add Thesises</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitThesis()}>Add Thesises</p>
+          (Commited == false) ? <p disabled type="submit" className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Tesis</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitThesis()}>Tambah Tesis</p>
         }
       </div>
     </div>

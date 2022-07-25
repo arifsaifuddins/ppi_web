@@ -21,7 +21,7 @@ function Header() {
     if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
       document.querySelector('.admin').innerHTML = 'Admin'
     } else if (!localStorage.getItem('admin')) {
-      document.querySelector('.admin').innerHTML = 'Login'
+      document.querySelector('.admin').innerHTML = 'Masuk'
     }
   })
 
@@ -45,10 +45,10 @@ function Header() {
         <div className="flex justify-between mx-auto md:w-[90%] md:px-0 relative w-full px-4">
           <Link to='/' className="flex items-center text-3xl font-bold"><img src="/assets/img/ppisudan.png" alt="ppi" className="w-10 h-10 mr-2 inline" /><span className="md:hidden lg:block">PPI</span> <span className="text-teal-800 dark:text-teal-600 ml-1 hidden lg:block">Sudan</span></Link>
           <div className="md:flex gap-x-1 items-center hidden">
-            <NavLink style={active} to="/" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-house-chimney"></i> Home</NavLink>
-            <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-book-open"></i> Blogs</NavLink>
-            <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-swatchbook"></i> Organizations</NavLink>
-            <NavLink style={active} to="/about" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-briefcase"></i> About</NavLink>
+            <NavLink style={active} to="/" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-house-chimney"></i> Beranda</NavLink>
+            <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-book-open"></i> Postingan</NavLink>
+            <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-swatchbook"></i> Organisasi</NavLink>
+            <NavLink style={active} to="/about" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-briefcase"></i> Tentang</NavLink>
           </div>
           <div className="flex gap-x-1 items-center">
             <i className="fa text-xl fa-comment-dots hover:text-teal-700 cursor-pointer" onClick={() => document.querySelector('.mail').classList.toggle('scale-0')}></i>

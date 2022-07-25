@@ -21,9 +21,11 @@ function Login() {
   }, [Email, Pass])
 
   const nodeurl = import.meta.env.VITE_NODEURL
+  const bAdmin = document.querySelector('.badmin')
 
   const submitAdmin = async () => {
     setCommited(false)
+    bAdmin.innerHTML = 'Memuat...'
 
     return await fetch(`${nodeurl}/admin/login`, {
       headers: {
@@ -43,6 +45,8 @@ function Login() {
           localStorage.removeItem('id_admin')
           JSON.stringify(localStorage.setItem('admin', j.data.name))
           JSON.stringify(localStorage.setItem('id_admin', j.data._id))
+          setCommited(true)
+          bAdmin.innerHTML = 'Masuk Sebagai Admin'
           window.location.assign('/admin')
         } else {
           setError(j.message)
@@ -55,10 +59,10 @@ function Login() {
   return (
     <div className="md:w-[90%] md:px-0 w-full px-4 lg:flex-row flex-col-reverse gap-10 mt-20 lg:mt-0 mx-auto flex justify-evenly items-center">
       <Helmet>
-        <title>PPi Sudan - Login</title>
+        <title>PPI Sudan - Login</title>
       </Helmet>
       <div className="p-4 bg-white my-32 shadow rounded-xl w-96 dark:bg-[#222222]">
-        <h1 className="text-2xl mb-4 pb-4 font-bold border-b">Login to PPI Sudan</h1>
+        <h1 className="text-2xl mb-4 pb-4 font-bold border-b">Masuk Ke PPI Sudan</h1>
         <div className="relative">
           {
             (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 mb-4 rounded-xl text-[#222222] dark:text-slate-100 flex justify-between items-center">
@@ -66,11 +70,11 @@ function Login() {
               <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
             </div>
           }
-          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Your Email..." className="mail mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
-          <input required type="password" id="passwords" onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setPass(e.target.value)} placeholder="Your Password..." className="pass mt-4 bg-transparent pr-12 py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
+          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="mail mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
+          <input required type="password" id="passwords" onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setPass(e.target.value)} placeholder="Password..." className="pass mt-4 bg-transparent pr-12 py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
           <p onMouseEnter={() => document.getElementById('passwords').type = 'text'} onMouseLeave={() => document.getElementById('passwords').type = 'password'} className="absolute right-3 bottom-[70px] cursor-pointer hover:text-teal-800 text-teal-600"><i className="fa fa-eye"></i></p>
           {
-            (Commited == false) ? <p disabled type="submit" className="cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Login as Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Login as Admin</p>
+            (Commited == false) ? <p disabled type="submit" className="badmin cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Masuk Sebagai Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Masuk Sebagai Admin</p>
           }
         </div>
       </div>
