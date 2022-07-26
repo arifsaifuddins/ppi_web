@@ -91,7 +91,7 @@ function Home() {
           <div className="px-4 md:px-0">
             <h3 className="text-teal-600">PRESIDEN PPI</h3>
             <h1 className="md:text-3xl text-2xl font-bold my-3">Tahukah kamu, siapa Presiden PPI Sudan?</h1>
-            <p className="text-md ">Berikut adalah Presiden terpilihnya.</p>
+            <p className="text-md ">Yuk, kenalan dengan Presiden dan Wakil terpilihnya.</p>
           </div>
           {
             Pres == null && coPres == null ? (
@@ -101,7 +101,7 @@ function Home() {
                 {
                   (Pres != null) && (
                     <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black hover:scale-[103%] transition-transform ">
-                      <img src={phpurl + '/files/' + Pres.president_poster} alt="president" className="lg:w-56 lg:h-56 w-full object-cover" />
+                      <img src={phpurl + '/files/' + Pres.president_poster} alt="president" className="lg:w-56 lg:h-56 shadow-lg w-full object-cover" />
                       <div className="py-4 lg:py-0 flex flex-col justify-between">
                         <div>
                           <h1 className="font-bold text-2xl mb-4 text-teal-600">Presiden</h1>
@@ -110,7 +110,7 @@ function Home() {
                           <p className="text-sm mb-1"><i className="fa mr-1 fa-building"></i> {Pres.university}</p>
                           <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {Pres.quotes.length < 35 ? Pres.quotes : Pres.quotes.slice(0, 35) + '...'}</p>
                         </div>
-                        <Link to="/organizations" className="flex text-slate-100 font-bold text-xs items-center gap-2 px-2 py-1 rounded-lg bg-teal-600 w-max">
+                        <Link to="/organizations" className="flex mt-6 lg:mt-2 text-slate-100 font-bold text-xs items-center gap-2 px-2 py-1 rounded-lg bg-teal-600 w-max">
                           <p>Lihat Lebih...</p>
                           <i className="fa fa-angle-up rotate-90 p-2 bg-teal-700 rounded-full cursor-pointer text-md hover:bg-teal-800 "></i>
                         </Link>
@@ -121,16 +121,16 @@ function Home() {
                 {
                   (coPres != null) && (
                     <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black hover:scale-[103%] transition-transform " >
-                      <img src={phpurl + '/files/' + coPres.president_poster} alt="copresident" className="lg:w-56 lg:h-56 w-full object-cover" />
+                      <img src={phpurl + '/files/' + coPres.president_poster} alt="copresident" className="lg:w-56 lg:h-56 shadow-lg w-full object-cover" />
                       <div className="py-4 lg:py-0 flex flex-col justify-between">
                         <div>
-                          <h1 className="font-bold text-2xl mb-4 text-teal-600">Wakil President</h1>
+                          <h1 className="font-bold text-2xl mb-4 text-teal-600">Wakil Presiden</h1>
                           <h2 className="font-bold mb-4 text-xl">{coPres.name}</h2>
                           <p className="text-sm mb-1"><i className="fa mr-1 fa-location-arrow"></i> {coPres.institute}</p>
                           <p className="text-sm mb-1"><i className="fa mr-1 fa-building"></i> {coPres.university}</p>
                           <p className="text-sm mb-1"><i className="fa mr-1 fa-quote-left"></i> {coPres.quotes.length < 35 ? coPres.quotes : coPres.quotes.slice(0, 35) + '...'}</p>
                         </div>
-                        <Link to="/organizations" className="flex text-slate-100 font-bold text-xs items-center gap-2 px-2 py-1 rounded-lg bg-teal-600 w-max">
+                        <Link to="/organizations" className="flex mt-6 lg:mt-2 text-slate-100 font-bold text-xs items-center gap-2 px-2 py-1 rounded-lg bg-teal-600 w-max">
                           <p>Lihat Lebih...</p>
                           <i className="fa fa-angle-up rotate-90 p-2 bg-teal-700 rounded-full cursor-pointer text-md hover:bg-teal-800 "></i>
                         </Link>

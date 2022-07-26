@@ -21,11 +21,9 @@ function Login() {
   }, [Email, Pass])
 
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bAdmin = document.querySelector('.badmin')
 
   const submitAdmin = async () => {
     setCommited(false)
-    bAdmin.innerHTML = 'Memuat...'
 
     return await fetch(`${nodeurl}/admin/login`, {
       headers: {
@@ -46,7 +44,6 @@ function Login() {
           JSON.stringify(localStorage.setItem('admin', j.data.name))
           JSON.stringify(localStorage.setItem('id_admin', j.data._id))
           setCommited(true)
-          bAdmin.innerHTML = 'Masuk Sebagai Admin'
           window.location.assign('/admin')
         } else {
           setError(j.message)

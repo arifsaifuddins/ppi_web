@@ -31,12 +31,9 @@ function PresidentField() {
   }, [Name, posterPres, Major, Univ, Institute, Quotes])
 
   const phpurl = import.meta.env.VITE_PHPURL
-  const bPres = document.querySelector('.bpres')
-
 
   const submitPresident = async () => {
     setCommited(false)
-    bPres.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -58,7 +55,6 @@ function PresidentField() {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        bPres.innerHTML = 'Ubah Presiden'
         window.location.assign('/organizations')
       }).catch(j => {
         setError(j.msg)
@@ -92,11 +88,8 @@ function PresidentField() {
     }
   }, [coName, postercoPres, coMajor, coUniv, coInstitute, coQuotes])
 
-  const bcoPres = document.querySelector('.bcopres')
-
   const submitcoPresident = async () => {
     setcoCommited(false)
-    bcoPres.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -118,7 +111,6 @@ function PresidentField() {
         setError(j.msg)
         setcoCommited(true)
         setErrored(true)
-        bcoPres.innerHTML = 'Ubah Wakil Presiden'
         window.location.assign('/organizations')
       }).catch(j => {
         setError(j.msg)

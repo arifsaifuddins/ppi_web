@@ -29,12 +29,9 @@ function AdminField() {
   }, [Email, Pass, Name, Conf])
 
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bAdmin = document.querySelector('.badminadd')
-
 
   const submitAdmin = async () => {
     setCommited(false)
-    bAdmin.innerHTML = 'Memuat...'
 
     return await fetch(`${nodeurl}/admin/register`, {
       headers: {
@@ -53,7 +50,6 @@ function AdminField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        bAdmin.innerHTML = 'Tambah Admin'
         window.location.assign('/admin')
       }).catch(j => {
         setError(j.message)
@@ -76,7 +72,7 @@ function AdminField() {
       <input required type="text" placeholder="Password Admin..." onChange={(e) => setPass(e.target.value)} className="passed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       <input required type="password" placeholder="Konfirmasi Password..." onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setConf(e.target.value)} className="confed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       {
-        (Commited == false) ? <p disabled type="submit" className="badminadd cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Tambah Admin</p>
+        (Commited == false) ? <p className="badminadd cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Tambah Admin</p>
       }
     </div>
   );

@@ -22,12 +22,9 @@ function ThesisesField() {
 
   const phpurl = import.meta.env.VITE_PHPURL
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bThesis = document.querySelector('.bthesis')
-
 
   function submitThesis() {
     setCommited(false)
-    bThesis.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -66,7 +63,6 @@ function ThesisesField() {
       setError(res.msg)
       setCommited(true)
       setErrored(true)
-      bThesis.innerHTML = 'Tambah Tesis'
       window.location.assign('/organizations/thesis')
     })
   }

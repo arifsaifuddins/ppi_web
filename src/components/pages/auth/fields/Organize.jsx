@@ -21,12 +21,9 @@ function OrganizeField() {
   }, [Title])
 
   const phpurl = import.meta.env.VITE_PHPURL
-  const bSec = document.querySelector('.bsec')
-
 
   const submitSection = async () => {
     setCommited(false)
-    bSec.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -45,7 +42,6 @@ function OrganizeField() {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        bSec.innerHTML = 'Tambah Seksi'
         window.location.assign('/organizations')
       }).catch(j => {
         setError(j.msg)

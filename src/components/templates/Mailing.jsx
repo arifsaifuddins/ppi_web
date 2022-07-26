@@ -19,11 +19,9 @@ function Mailing() {
   }, [Name, Email, Msg])
 
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bMail = document.querySelector('.bmail')
 
   const submitMail = async () => {
     setCommited(false)
-    bMail.innerHTML = 'Memuat...'
 
     return await fetch(`${nodeurl}/mail`, {
       headers: {
@@ -42,7 +40,6 @@ function Mailing() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        bMail.innerHTML = 'Kirim Mail'
       }).catch(j => {
         setError(j.message)
         setCommited(true)

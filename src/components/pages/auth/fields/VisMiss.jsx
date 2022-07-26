@@ -19,12 +19,9 @@ function VisMissField() {
   }, [Vision, Mission])
 
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bVMiss = document.querySelector('.bmiss')
-
 
   const submitVisMiss = async () => {
     setCommited(false)
-    bVMiss.innerHTML = 'Memuat...'
 
     let mission;
 
@@ -55,7 +52,6 @@ function VisMissField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        bVMiss.innerHTML = 'Ubah Visi & Misi'
         window.location.assign('/organizations/vision')
       }).catch(j => {
         setError(j.message)

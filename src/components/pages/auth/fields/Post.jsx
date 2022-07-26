@@ -13,8 +13,6 @@ function PostField({ name, category }) {
   const [Poster, setPoster] = useState(null)
 
   const phpurl = import.meta.env.VITE_PHPURL
-  const bBlog = document.querySelector('.bblog')
-
 
   useEffect(() => {
 
@@ -27,7 +25,6 @@ function PostField({ name, category }) {
 
   const submitBlogs = async () => {
     setCommited(false)
-    bBlog.innerHTML = 'Memuat...'
 
     let forms = new FormData()
 
@@ -47,7 +44,6 @@ function PostField({ name, category }) {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        bBlog.innerHTML = 'Tambah Postingan'
         window.location.assign('/blogs')
       }).catch(j => {
         setError(j.msg)

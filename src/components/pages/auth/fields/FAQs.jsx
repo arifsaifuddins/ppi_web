@@ -19,12 +19,9 @@ function FAQsField() {
   }, [Answer, Question])
 
   const nodeurl = import.meta.env.VITE_NODEURL
-  const bFAQs = document.querySelector('.bfaqs')
-
 
   const submitFAQs = async () => {
     setCommited(false)
-    bFAQs.innerHTML = 'Memuat...'
 
     return await fetch(`${nodeurl}/faqs/add`, {
       headers: {
@@ -42,7 +39,6 @@ function FAQsField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        bFAQs.innerHTML = 'Tambah FAQs'
         window.location.assign('/faqs')
       }).catch(j => {
         setError(j.message)
@@ -64,7 +60,7 @@ function FAQsField() {
         <input required type="text" name="question" onChange={(e) => setQuestion(e.target.value)} placeholder="Ketik Pertanyaan..." className="que my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
         <textarea required name="answer" onChange={(e) => setAnswer(e.target.value)} onKeyUp={(e) => e.which === 13 && submitFAQs()} placeholder="Ketik Jawaban..." className="ans bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {
-          (Commited == false) ? <p disabled type="submit" className="bfaqs cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah FAQs</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitFAQs()}>Tambah FAQs</p>
+          (Commited == false) ? <p className="bfaqs cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah FAQs</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Tambah FAQs</p>
         }
       </div>
     </div>
