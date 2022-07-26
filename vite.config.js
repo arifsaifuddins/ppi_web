@@ -17,10 +17,9 @@ export default defineConfig({
       includeAssets: ['/assets/img/ppisudan.png', '/assets/img/ppi.png'],
       manifest: {
         name: 'PPI Sudan',
-        short_name: 'PPISudan',
+        short_name: 'PPI Sudan',
         description: 'Indonesian Students Association in Sudan',
-        theme_color: '#0D9488',
-        background_color: "#fff",
+        theme_color: '#0F766E',
         display: "standalone",
         orientation: "portrait",
         start_url: "/",
