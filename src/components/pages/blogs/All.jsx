@@ -26,8 +26,8 @@ function All() {
         ) : (
           <div>
             <div className="px-4 md:px-0">
-              <h3 className="text-teal-600">Semua Postingan</h3>
-              <h1 className="lg:text-3xl text-2xl font-bold my-3">Baca Semua Postingan Kami.</h1>
+              <h3 className="text-teal-600">Semua Artikel</h3>
+              <h1 className="lg:text-3xl text-2xl font-bold my-3">Baca Semua Artikel Kami.</h1>
             </div>
             {
               Blogs.data != null ? (
@@ -37,7 +37,7 @@ function All() {
                       <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover hover:object-right-bottom transition-all duration-500" />
                       <div className="flex justify-end bg-cover text-slate-100 flex-col absolute right-0 top-0 left-0">
                         <h1 className="lg:text-4xl text-2xl font-bold p-4 bg-opacity-50 bg-slate-900 hover:underline hover:text-teal-600">{Blogs.data[0].title.length < 40 ? Blogs.data[0].title : Blogs.data[0].title.slice(0, 40) + '...'}</h1>
-                        <p className="font-light lg:text-xl text-sm pb-4 px-4 bg-slate-900 bg-opacity-50">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
+                        <p className="font-light lg:text-xl text-md pb-4 px-4 bg-slate-900 bg-opacity-50">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
                       </div>
                     </Link>
                     <div className="flex justify-between items-center text-slate-500 px-4 pt-4 text-sm">

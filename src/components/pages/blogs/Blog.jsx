@@ -29,7 +29,7 @@ function Blog() {
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
       <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max  dark:bg-[#222222]">
-        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Postingan<span className="text-[#222222] dark:text-slate-200 text-xl font-thin"> {'>'} {Blogs != null && Blogs.data != null ? Blogs.data[0].title.length < 15 ? Blogs.data[0].title : Blogs.data[0].title.slice(0, 15) + '...' : 'Kosong'}</span></Link>
+        <Link to={'/blogs'} className="text-2xl pb-4 lg:px-0 px-4 md:px-0 border-b text-teal-600"># Artikel<span className="text-[#222222] dark:text-slate-200 text-xl font-thin"> {'>'} {Blogs != null && Blogs.data != null ? Blogs.data[0].title.length < 15 ? Blogs.data[0].title : Blogs.data[0].title.slice(0, 15) + '...' : 'Memuat...'}</span></Link>
         {
           (Blogs == null) ? (
             <Loader />
@@ -39,7 +39,7 @@ function Blog() {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
                     <Helmet>
-                      <title>PPI Sudan - Postingan - {Blogs.data[0].title}</title>
+                      <title>PPI Sudan - Artikel - {Blogs.data[0].title}</title>
                     </Helmet>
                     <div className="px-4 md:px-0">
                       <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">Kategori {Blogs.data[0].category}</p></Link>
@@ -73,7 +73,7 @@ function Blog() {
 
       <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">
         <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
-          <h1 className="text-2xl p-4 font-bold">Kategori {Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Kosong'}</h1>
+          <h1 className="text-2xl p-4 font-bold">Kategori {Blogs != null && Blogs.data != null ? Blogs.data[0].category : 'Memuat...'}</h1>
           {
             (Cate == null) ? (
               <div className="border-t">

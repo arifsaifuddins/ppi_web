@@ -10,6 +10,14 @@ function Footer({ visit }) {
     getCategoriesLim(5).then(a => setCategory(a.data))
   }, [])
 
+  useEffect(() => {
+    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
+      document.querySelector('.admin').innerHTML = 'Admin'
+    } else if (!localStorage.getItem('admin')) {
+      document.querySelector('.admin').innerHTML = 'Masuk'
+    }
+  })
+
   return (
     <div className="bg-[#222222] drop-shadow-sm text-slate-200 pb-16 md:pb-0 border-t-8 border-teal-600 dark:border-teal-800 mt-40">
       <div className="lg:flex-row flex flex-col py-20 items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4 border-b">
@@ -41,7 +49,7 @@ function Footer({ visit }) {
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:py-0 border-b lg:border-0 pb-10 w-full lg:w-max ">
           <h1 className="font-semibold mb-4 text-xl text-white">Produk</h1>
           <Link to="/" className="mb-2 hover:text-teal-600">Beranda</Link>
-          <Link to="/blogs" className="mb-2 hover:text-teal-600">Postingan</Link>
+          <Link to="/blogs" className="mb-2 hover:text-teal-600">Artikel</Link>
           <Link to="/organizations" className="mb-2 hover:text-teal-600">Organisasi</Link>
           <Link to="/about" className="mb-2 hover:text-teal-600">Tentang</Link>
         </div>
@@ -51,6 +59,7 @@ function Footer({ visit }) {
           <a target="_blank" href="https://www.majalahelnilein.com/" className="mb-2 hover:text-teal-600 flex items-center"><img src="/assets/img/elnilein.png" alt="elnilein" className="h-5 inline mr-2" /> El Nilein</a>
 
           <h1 className="font-semibold my-4 text-xl text-white">Perusahaan</h1>
+          <Link to="/admin" className="admin mb-2 hover:text-teal-600">Admin</Link>
           <Link to="/faqs" className="mb-2 hover:text-teal-600">FAQs</Link>
           <Link to="/contact" className="mb-2 hover:text-teal-600">Kontak</Link>
         </div>

@@ -60,7 +60,7 @@ function PostField({ name, category }) {
   return (
     <div className="my-10 pb-10 border-b">
       <h3 className="text-teal-600">TAMBAH POST</h3>
-      <h1 className="md:text-4xl text-3xl font-bold mt-2 mb-8">Tambah Postingan di PPI Sudan</h1>
+      <h1 className="md:text-4xl text-3xl font-bold mt-2 mb-8">Tambah Artikel di PPI Sudan</h1>
       {
         (Errored == true) && <div className="text-sm w-[100%] bg-transparent border py-1 px-2 my-4 rounded-xl text-[#222222] dark:text-slate-100 flex justify-between items-center">
           <div>{Error}</div>
@@ -103,7 +103,7 @@ function PostField({ name, category }) {
         <div className="flex justify-around items-center gap-8 md:flex-row flex-col mt-8">
           <input type="date" required defaultValue={`${y}-${(m.length < 2) ? '0' : ''}${m}-${(d.length < 2) ? '0' : ''}${d}`} onChange={(e) => setDates(e.target.value)} className="dat bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
           {
-            (Commited == false) ? <p disabled type="submit" className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Postingan</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Postingan</p>
+            (Commited == false) ? <p disabled type="submit" className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Artikel</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Artikel</p>
           }
         </div>
       </div>

@@ -38,23 +38,26 @@ function Home() {
         <title>PPI Sudan - Beranda</title>
       </Helmet>
       <div className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
-        <div className="lg:flex-row flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
+        <div className="lg:flex-row relative flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
           <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">
             <h1 className="md:text-7xl text-4xl sm:text-6xl mb-5 font-bold">PPI <span className="text-teal-600"><TypeAnimation
-              sequence={['Sudan', 3000, 'Khartoum', 2000]}
+              sequence={['Sudan', 3000, 'in', 1000, 'Khartoum', 2000]}
               cursor={true}
               wrapper="h2"
               repeat={Infinity}
               className="inline"
             /></span></h1>
             <p className="text-md md:text-lg text-center lg:text-left font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
-            <p className="md:text-xl text-md mb-5 mt-3 text-center lg:text-left lg:ml-1">PPI Sudan adalah organisasi yang menaungi seluruh pelajar indonesia di Sudan, untuk mempererat silaturahmi.</p>
+            <p className="md:text-xl text-md mb-5 mt-3 text-center lg:text-left lg:ml-1">PPI Sudan adalah Organisasi yang Menaungi Seluruh Pelajar Indonesia yang sedang Menempuh Pendidikan di Sudan</p>
             <div className="flex lg:ml-1 gap-x-4 mt-4">
-              <Link to="/blogs/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> Lihat Post PPPI</p></Link>
+              <Link to="/blogs/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> Artikel PPPI</p></Link>
               <Link to="/contact"><p className="py-2 px-3 hover:border-teal-600 border border-teal-700 rounded-lg"><i className="fa fa-mobile-screen-button mr-1"></i> Kontak</p></Link>
             </div>
           </div>
-          <img src="/assets/img/box.svg" alt="banner" className="w-[550px] pt-28 lg:mt-16 lg:-mb-52" />
+          <div className="w-56 h-56 rounded-full bg-teal-500 absolute mix-blend-multiply filter opacity-50 dark:opacity-0  blur-xl right-16 animate-pulse sm:right-20 top-48"></div>
+          <div className="w-40 h-40 rounded-full bg-purple-300 absolute mix-blend-multiply filter opacity-75 dark:opacity-0 animate-blob blur-xl right-52 sm:right-72 top-52"></div>
+          <div className="w-32 h-32 rounded-full bg-yellow-300 absolute mix-blend-multiply filter opacity-0  sm:opacity-75 dark:opacity-0 animate-pulse blur-xl right-96 top-80"></div>
+          <img src="/assets/img/welcom.svg" alt="banner" className="w-[430px] relative px-8 pt-20 lg:pt-16 lg:mt-16 lg:-mb-52 lg:pl-0 lg:mr-4" />
         </div>
       </div>
       <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28 mb-28 lg:mb-10">
@@ -90,7 +93,7 @@ function Home() {
         <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-10">
           <div className="px-4 md:px-0">
             <h3 className="text-teal-600">PRESIDEN PPI</h3>
-            <h1 className="md:text-3xl text-2xl font-bold my-3">Tahukah kamu, siapa Presiden PPI Sudan?</h1>
+            <h1 className="md:text-3xl text-2xl font-bold my-3">Tahukah kamu,<br />siapa Presiden PPI Sudan?</h1>
             <p className="text-md ">Yuk, kenalan dengan Presiden dan Wakil terpilihnya.</p>
           </div>
           {

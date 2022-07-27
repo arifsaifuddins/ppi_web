@@ -23,8 +23,8 @@ function CateBlog() {
         ) : (
           <>
             <div className="px-4 md:px-0">
-              <h3 className="text-teal-600">Postingan {category}</h3>
-              <h1 className="lg:text-3xl text-2xl font-bold my-3">Baca Post Dengan Kategori {category}.</h1>
+              <h3 className="text-teal-600">Artikel {category}</h3>
+              <h1 className="lg:text-3xl text-2xl font-bold my-3">Baca Artikel dengan Kategori {category}.</h1>
             </div>
             {
               Blogs.data != null ? (

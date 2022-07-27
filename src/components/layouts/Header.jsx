@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Mailing from "../templates/Mailing";
 import Sosmeds from "../templates/Sosmeds";
@@ -16,14 +15,6 @@ function Header() {
       localStorage.removeItem("mode");
     }
   }
-
-  useEffect(() => {
-    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
-      document.querySelector('.admin').innerHTML = 'Admin'
-    } else if (!localStorage.getItem('admin')) {
-      document.querySelector('.admin').innerHTML = 'Masuk'
-    }
-  })
 
   const active = ({ isActive }) => {
     return {
@@ -43,17 +34,17 @@ function Header() {
       </div>
       <div className="flex sticky top-0 py-2 text-slate-100 bg-teal-600 z-40 dark:bg-teal-800">
         <div className="flex justify-between mx-auto md:w-[90%] md:px-0 relative w-full px-4">
-          <Link to='/' className="flex items-center text-3xl font-bold"><img src="/assets/img/ppisudan.png" alt="ppi" className="w-10 h-10 mr-2 inline" /><span className="md:hidden lg:block">PPI</span> <span className="text-teal-800 dark:text-teal-600 ml-1 hidden lg:block">Sudan</span></Link>
+          <Link to='/' className="flex items-center text-3xl font-bold"><img src="/assets/img/ppisudan.png" alt="ppi" className="w-10 h-10 mr-2 inline" /><img src="/assets/img/ppitextlogo.png" alt="textlogo" className="h-8 bg-blend-darken" /></Link>
           <div className="md:flex gap-x-1 items-center hidden">
             <NavLink style={active} to="/" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-house-chimney"></i> Beranda</NavLink>
-            <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-book-open"></i> Postingan</NavLink>
+            <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-book-open"></i> Artikel</NavLink>
             <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-swatchbook"></i> Organisasi</NavLink>
             <NavLink style={active} to="/about" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-briefcase"></i> Tentang</NavLink>
           </div>
           <div className="flex gap-x-1 items-center">
             <i className="fa text-xl fa-comment-dots hover:text-teal-700 cursor-pointer" onClick={() => document.querySelector('.mail').classList.toggle('scale-0')}></i>
-            <i className="mode fa md:mx-3 mx-4 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
-            <NavLink style={active} to="/admin" className="py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fa mr-1 fa-user"></i> <span className="admin">Admin</span></NavLink>
+            <i className="mode fa md:ml-3 ml-4 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
+            <Link to="/https://github.com/saifuddien/ppi_web" className="hidden lg:block  py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fab mr-1 fa-github"></i> <span className="git">Github</span></Link>
           </div>
           <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-[#111111] rounded-xl border dark:text-slate-100">
             <Mailing />
