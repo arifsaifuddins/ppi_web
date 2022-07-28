@@ -89,16 +89,20 @@ function ThesisesField() {
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
           </div>
         }
-        <input required type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Judul..." className="ti mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Penulis..." className="au my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Tahun Angkatan..." className="ye bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <input required type="file" name="pdf" onChange={(e) => setPdf(e.target.files[0])} className="my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <label htmlFor="judul" className="my-2 block font-bold text-lg text-teal-600">Judul :</label>
+        <input required id="judul" type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Judul..." className="ti bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+        <label htmlFor="penulis" className="my-2 block font-bold text-lg text-teal-600">Penulis :</label>
+        <input required id="penulis" type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Penulis..." className="au bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+        <label htmlFor="angkatan" className="my-2 block font-bold text-lg text-teal-600">Tahun Angkatan :</label>
+        <input required id="angkatan" name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Tahun Angkatan..." className="ye bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+        <label htmlFor="Pdf" className="my-2 block font-bold text-lg text-teal-600">PDF :</label>
+        <input required id="Pdf" type="file" name="pdf" onChange={(e) => setPdf(e.target.files[0])} className="mb-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         <div className="flex gap-2 items-center justify-between ml-2">
           <label id="progress">0%</label>
           <progress id="progressBar" value="0" max="100" className="w-full bg-teal-600 mx-2 rounded-lg"></progress>
         </div>
         {
-          (Commited == false) ? <p disabled type="submit" className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Tesis</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitThesis()}>Tambah Tesis</p>
+          (Commited == false) ? <p className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Tesis</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitThesis()}>Tambah Tesis</p>
         }
       </div>
     </div>

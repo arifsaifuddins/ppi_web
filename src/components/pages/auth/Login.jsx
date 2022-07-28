@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet";
+import Cookies from 'js-cookie'
 
 function Login() {
 
@@ -12,7 +13,7 @@ function Login() {
 
   useEffect(() => {
 
-    if (document.querySelector('.mail').value !== '' && document.querySelector('.pass').value !== '') {
+    if (document.querySelector('.maile').value !== '' && document.querySelector('.pass').value !== '') {
       setCommited(true)
     } else {
       setCommited(false)
@@ -39,10 +40,10 @@ function Login() {
       .then(r => r.json())
       .then(j => {
         if (j.data) {
-          localStorage.removeItem('admin')
-          localStorage.removeItem('id_admin')
-          JSON.stringify(localStorage.setItem('admin', j.data.name))
-          JSON.stringify(localStorage.setItem('id_admin', j.data._id))
+          Cookies.remove('admin')
+          Cookies.remove('id_admin')
+          Cookies.set('admin', j.data.name, { expires: 2 })
+          Cookies.set('id_admin', j.data._id, { expires: 2 })
           setCommited(true)
           window.location.assign('/admin')
         } else {
@@ -67,11 +68,11 @@ function Login() {
               <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
             </div>
           }
-          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="mail mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
+          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="maile mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
           <input required type="password" id="passwords" onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setPass(e.target.value)} placeholder="Password..." className="pass mt-4 bg-transparent pr-12 py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
           <p onMouseEnter={() => document.getElementById('passwords').type = 'text'} onMouseLeave={() => document.getElementById('passwords').type = 'password'} className="absolute right-3 bottom-[70px] cursor-pointer hover:text-teal-800 text-teal-600"><i className="fa fa-eye"></i></p>
           {
-            (Commited == false) ? <p disabled type="submit" className="badmin cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Masuk Sebagai Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Masuk Sebagai Admin</p>
+            (Commited == false) ? <p className="badmin cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Masuk Sebagai Admin</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Masuk Sebagai Admin</p>
           }
         </div>
       </div>

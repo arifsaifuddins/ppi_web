@@ -31,7 +31,7 @@ function Presidents() {
             {
               (Pres != null) && (
                 <div className="my-10 flex gap-8 flex-col lg:flex-row">
-                  <img src={phpurl + '/files/' + Pres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
+                  <img src={phpurl + '/files/' + Pres[0].president_poster} alt="president" className="lg:w-60 shadow-lg lg:h-60 w-full object-cover" />
                   <div>
                     <h1 className="font-bold text-xl mb-4 text-teal-600">Presiden</h1>
                     <h2 className="font-bold text-2xl my-4">{Pres[0].name}</h2>
@@ -48,7 +48,7 @@ function Presidents() {
             {
               (coPres != null) && (
                 <div className="my-10 flex gap-8 flex-col lg:flex-row">
-                  <img src={phpurl + '/files/' + coPres[0].president_poster} alt="president" className="lg:w-60 lg:h-60 w-full object-cover" />
+                  <img src={phpurl + '/files/' + coPres[0].president_poster} alt="president" className="lg:w-60 shadow-lg lg:h-60 w-full object-cover" />
                   <div>
                     <h1 className="font-bold text-xl mb-4 text-teal-600">Wakil Presiden</h1>
                     <h2 className="font-bold text-2xl my-4">{coPres[0].name}</h2>

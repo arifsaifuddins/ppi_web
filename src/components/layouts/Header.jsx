@@ -44,7 +44,7 @@ function Header() {
           <div className="flex gap-x-1 items-center">
             <i className="fa text-xl fa-comment-dots hover:text-teal-700 cursor-pointer" onClick={() => document.querySelector('.mail').classList.toggle('scale-0')}></i>
             <i className="mode fa md:ml-3 ml-4 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
-            <Link to="/https://github.com/saifuddien/ppi_web" className="hidden lg:block  py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fab mr-1 fa-github"></i> <span className="git">Github</span></Link>
+            <a target="_blank" href="https://github.com/saifuddien/ppi_web" className="hidden lg:block  py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fab mr-1 fa-github"></i> <span className="git">Github</span></a>
           </div>
           <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-[#111111] rounded-xl border dark:text-slate-100">
             <Mailing />

@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 function Profile({ name, email }) {
 
   return (
@@ -7,8 +9,8 @@ function Profile({ name, email }) {
       <p className="text-lg">{email}</p>
       <p onClick={() => {
         window.location.assign('/')
-        localStorage.removeItem('admin')
-        localStorage.removeItem('id_admin')
+        Cookies.remove('admin')
+        Cookies.remove('id_admin')
       }} className="cursor-pointer text-center mt-4 bg-red-600 text-white py-1 px-3 rounded-lg text-md hover:bg-red-700 font-bold w-[100%]"><i className="fa fa-arrow-right-from-bracket ml-1"></i> Keluar</p>
     </div>
   );

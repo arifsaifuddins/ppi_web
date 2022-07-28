@@ -103,7 +103,7 @@ function PostField({ name, category }) {
         <div className="flex justify-around items-center gap-8 md:flex-row flex-col mt-8">
           <input type="date" required defaultValue={`${y}-${(m.length < 2) ? '0' : ''}${m}-${(d.length < 2) ? '0' : ''}${d}`} onChange={(e) => setDates(e.target.value)} className="dat bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
           {
-            (Commited == false) ? <p disabled type="submit" className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Artikel</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Artikel</p>
+            (Commited == false) ? <p className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Artikel</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Artikel</p>
           }
         </div>
       </div>

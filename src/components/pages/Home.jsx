@@ -62,9 +62,9 @@ function Home() {
       </div>
       <div className="flex flex-col mx-auto md:w-[90%] md:px-0 sm:px-4 w-full mt-28 mb-28 lg:mb-10">
         <div className="px-4 md:px-0">
-          <h3 className="text-teal-600">POSTINGAN TERBARU</h3>
+          <h3 className="text-teal-600">ARTIKEL TERBARU</h3>
           <h1 className="md:text-3xl text-2xl font-bold my-3">Apa yang baru di PPI Sudan?</h1>
-          <p className="text-md">Berikut 6 postingan terakhir kami, baca dan ikuti kami.</p>
+          <p className="text-md">Berikut enam artikel terbaru kami, baca dan ikuti kami.</p>
         </div>
         {
           Blogs == null ? (
@@ -103,7 +103,7 @@ function Home() {
               <div className="mx-auto py-20 gap-8 lg:gap-12 md:flex-row flex flex-col">
                 {
                   (Pres != null) && (
-                    <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black hover:scale-[103%] transition-transform ">
+                    <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black lg:hover:scale-[103%] transition-transform ">
                       <img src={phpurl + '/files/' + Pres.president_poster} alt="president" className="lg:w-56 lg:h-56 shadow-lg w-full object-cover" />
                       <div className="py-4 lg:py-0 flex flex-col justify-between">
                         <div>
@@ -123,7 +123,7 @@ function Home() {
                 }
                 {
                   (coPres != null) && (
-                    <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black hover:scale-[103%] transition-transform " >
+                    <div className="lg:flex-row flex flex-col gap-6 p-4 lg:rounded-xl dark:bg-[#111] bg-slate-50 text-slate-900 shadow dark:text-slate-200  hover:shadow-md dark:shadow-black lg:hover:scale-[103%] transition-transform " >
                       <img src={phpurl + '/files/' + coPres.president_poster} alt="copresident" className="lg:w-56 lg:h-56 shadow-lg w-full object-cover" />
                       <div className="py-4 lg:py-0 flex flex-col justify-between">
                         <div>
@@ -147,7 +147,7 @@ function Home() {
           <div className="px-4 md:px-0 mt-20">
             <h3 className="text-teal-600">DIGITAL TESIS</h3>
             <h1 className="md:text-3xl text-2xl font-bold my-3">Apakah kamu ingin membacanya?</h1>
-            <p className="text-md ">Download, dan baca lebih!.</p>
+            <p className="text-md ">Unduh PDF-nya dan baca lebih!</p>
           </div>
           {
             (Pdf == null) ? (

@@ -1,3 +1,5 @@
+import Cookies from "js-cookie"
+
 const nodeurl = import.meta.env.VITE_NODEURL
 const phpurl = import.meta.env.VITE_PHPURL
 
@@ -36,7 +38,7 @@ export const delAdmins = async (id) => {
 }
 
 export const getAdmin = async () => {
-  return await fetch(`${nodeurl}/admin/admin/${localStorage.getItem('id_admin')}`)
+  return await fetch(`${nodeurl}/admin/admin/${Cookies.get('id_admin')}`)
     .then(k => k.json())
 }
 

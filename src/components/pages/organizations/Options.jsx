@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { delSecs, getSections } from "../../../Gets";
@@ -95,7 +96,7 @@ function Options() {
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
-                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                  Cookies.get('admin') && Cookies.get('id_admin') && (
                     <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
@@ -117,7 +118,7 @@ function Options() {
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
-                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                  Cookies.get('admin') && Cookies.get('id_admin') && (
                     <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
@@ -138,7 +139,7 @@ function Options() {
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
-                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                  Cookies.get('admin') && Cookies.get('id_admin') && (
                     <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }
@@ -159,7 +160,7 @@ function Options() {
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
-                  localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                  Cookies.get('admin') && Cookies.get('id_admin') && (
                     <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
                   )
                 }

@@ -147,7 +147,7 @@ function PresidentField() {
             </div>
             <textarea required placeholder="Quote..." onChange={(e) => setQuotes(e.target.value)} onKeyUp={(e) => e.which === 13 && submitPresident()} className="quotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
             {
-              (Commited == false) ? <p disabled type="submit" className="bpres cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Presiden</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitPresident()} >Ubah Presiden</p>
+              (Commited == false) ? <p className="bpres cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Presiden</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitPresident()} >Ubah Presiden</p>
             }
           </div>
         </div>
@@ -168,7 +168,7 @@ function PresidentField() {
             </div>
             <textarea required placeholder="Quote..." onChange={(e) => setcoQuotes(e.target.value)} onKeyUp={(e) => e.which === 13 && submitcoPresident()} className="coquotesp mt-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
             {
-              (coCommited == false) ? <p disabled type="submit" className="bcopres cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Wakil Presiden</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitcoPresident()} >Ubah Wakil Presiden</p>
+              (coCommited == false) ? <p className="bcopres cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Wakil Presiden</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitcoPresident()} >Ubah Wakil Presiden</p>
             }
           </div>
         </div>

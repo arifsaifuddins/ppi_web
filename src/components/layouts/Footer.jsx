@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCategoriesLim } from "../../Gets";
@@ -11,9 +12,9 @@ function Footer({ visit }) {
   }, [])
 
   useEffect(() => {
-    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
+    if (Cookies.get('admin') && Cookies.get('id_admin')) {
       document.querySelector('.admin').innerHTML = 'Admin'
-    } else if (!localStorage.getItem('admin')) {
+    } else if (!Cookies.get('admin')) {
       document.querySelector('.admin').innerHTML = 'Masuk'
     }
   })

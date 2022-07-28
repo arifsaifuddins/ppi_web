@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 function CategoryField() {
   const [Category, setCategory] = useState(null)
+  const [DescCate, setDescCate] = useState(null)
 
   const [Errored, setErrored] = useState(false)
   const [Error, setError] = useState(null)
@@ -9,12 +10,12 @@ function CategoryField() {
 
   useEffect(() => {
 
-    if (document.querySelector('.cate').value !== '') {
+    if (document.querySelector('.cate').value !== '' && document.querySelector('.dscate').value !== '') {
       setCommited(true)
     } else {
       setCommited(false)
     }
-  }, [Category])
+  }, [Category, DescCate])
 
   const nodeurl = import.meta.env.VITE_NODEURL
 
@@ -28,7 +29,8 @@ function CategoryField() {
       },
       method: 'POST',
       body: JSON.stringify({
-        name: Category
+        name: Category,
+        desc: DescCate
       })
     })
       .then(r => r.json())
@@ -54,7 +56,8 @@ function CategoryField() {
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
           </div>
         }
-        <input required type="text" onChange={(e) => setCategory(e.target.value)} onKeyUp={(e) => e.which === 13 && submitCategory()} name="category" placeholder="Ketik Kategori..." className="cate my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <input required type="text" onChange={(e) => setCategory(e.target.value)} name="category" placeholder="Ketik Kategori..." className="cate my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+        <textarea required type="text" onChange={(e) => setDescCate(e.target.value)} onKeyUp={(e) => e.which === 13 && submitCategory()} name="desccategory" placeholder="Ketik Deskripsi..." className="dscate mb-4 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {
           (Commited == false) ? <p className="bcategory cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Kategori Post</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitCategory()}>Tambah Kategori Post</p>
         }

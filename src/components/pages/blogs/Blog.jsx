@@ -7,6 +7,7 @@ import SendPost from "../../templates/SendPost";
 import Loader from "../../Loader";
 import Empty from "../../layouts/Empty";
 import { Helmet } from "react-helmet";
+import Cookies from "js-cookie";
 
 function Blog() {
 
@@ -49,7 +50,7 @@ function Blog() {
                         <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date}</p>
                         <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
                         {
-                          localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                          Cookies.get('admin') && Cookies.get('id_admin') && (
                             <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer ml-4" onClick={() => delBlogs(Blogs.data[0].id)}></i>
                           )
                         }

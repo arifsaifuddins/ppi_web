@@ -1,5 +1,6 @@
 import { delPdf } from "../../Gets";
 import { downloadFile } from 'fs-browsers';
+import Cookies from "js-cookie";
 
 function Pdfs({ data }) {
 
@@ -16,7 +17,7 @@ function Pdfs({ data }) {
         <div className="flex gap-4 mt-1 -ml-1 items-center">
           <p onClick={() => downloadFile(`${phpurl}/files/${data.pdf}`, data.pdf)} className="text-white bg-teal-600 hover:bg-teal-700 font-bold py-1 text-xs px-3 rounded-full cursor-pointer"><i className="fa fa-download mr-1"></i> Download</p>
           {
-            localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+            Cookies.get('admin') && Cookies.get('id_admin') && (
               <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delPdf(data.id)}></i>
             )
           }

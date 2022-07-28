@@ -3,6 +3,7 @@ import { delFaqs, getFAQs } from "../../Gets";
 import FindUs from "../templates/FindUs";
 import Mailing from "../templates/Mailing";
 import { Helmet } from "react-helmet";
+import Cookies from "js-cookie";
 
 function FAQs() {
 
@@ -66,7 +67,7 @@ function FAQs() {
                   <h1 className="lg:text-3xl text-teal-600 text-2xl flex justify-between">
                     <p>{a.question}</p>
                     {
-                      localStorage.getItem('admin') && localStorage.getItem('id_admin') && (
+                      Cookies.get('admin') && Cookies.get('id_admin') && (
                         <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => delFaqs(a._id)}></i>
                       )
                     }

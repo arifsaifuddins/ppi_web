@@ -10,6 +10,7 @@ import PresidentField from "./fields/President"
 import ThesisesField from "./fields/Thesises"
 import VisMissField from "./fields/VisMiss"
 import { Helmet } from "react-helmet";
+import Cookies from "js-cookie"
 
 function Admin() {
 
@@ -23,12 +24,12 @@ function Admin() {
 
   useEffect(() => {
 
-    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
+    if (Cookies.get('admin') && Cookies.get('id_admin')) {
       getAdmin().then(a => {
         setName(a.data[0].name)
         setEmail(a.data[0].email)
       })
-    } else if (!localStorage.getItem('admin')) {
+    } else if (!Cookies.get('admin')) {
       return null
     }
 

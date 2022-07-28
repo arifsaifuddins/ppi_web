@@ -100,7 +100,7 @@ function VisMissField() {
         <textarea required id="mission" onChange={(e) => setMission(e.target.value)} placeholder="Ketik Misi..." className="mis misis bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
       </div>
       {
-        (Commited == false) ? <p disabled type="submit" className="bmiss cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Visi & Misi</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitVisMiss()}>Ubah Visi & Misi</p>
+        (Commited == false) ? <p className="bmiss cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Ubah Visi & Misi</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitVisMiss()}>Ubah Visi & Misi</p>
       }
     </div>
   );

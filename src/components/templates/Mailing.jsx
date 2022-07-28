@@ -61,7 +61,7 @@ function Mailing() {
         <input required type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="mailing mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
         <textarea required onChange={(e) => setMsg(e.target.value)} placeholder="Pesan..." className="msg mt-8 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {
-          (Commited == false) ? <p disabled type="submit" className="bmail cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Kirim Mail</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitMail()}>Kirim Mail</p>
+          (Commited == false) ? <p className="bmail cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Kirim Mail</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitMail()}>Kirim Mail</p>
         }
       </div>
     </div>

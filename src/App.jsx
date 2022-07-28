@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import TopBarProgress from "react-topbar-progress-indicator"
@@ -38,9 +39,9 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    if (localStorage.getItem('admin') && localStorage.getItem('id_admin')) {
+    if (Cookies.get('admin') && Cookies.get('id_admin')) {
       setAdmin(true)
-    } else if (!localStorage.getItem('admin')) {
+    } else if (!Cookies.get('admin')) {
       setAdmin(false)
     }
   })
