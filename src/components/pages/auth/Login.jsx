@@ -48,8 +48,8 @@ function Login() {
           setCommited(true)
           window.location.assign('/admin')
         } else {
+          setError(j.message)
           document.body.classList.add('cursor-default')
-          setError('Terjadi error!')
           setCommited(true)
           setErrored(true)
         }

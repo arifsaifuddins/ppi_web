@@ -42,8 +42,8 @@ function FAQsField() {
         setErrored(true)
         window.location.assign('/faqs')
       }).catch(j => {
+        setError(j.message)
         document.body.classList.add('cursor-default')
-        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })

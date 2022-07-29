@@ -55,8 +55,8 @@ function VisMissField() {
         setErrored(true)
         window.location.assign('/organizations/vision')
       }).catch(j => {
+        setError(j.message)
         document.body.classList.add('cursor-default')
-        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })

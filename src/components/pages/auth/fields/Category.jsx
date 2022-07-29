@@ -41,8 +41,8 @@ function CategoryField() {
         setErrored(true)
         window.location.assign('/admin')
       }).catch(j => {
+        setError(j.message)
         document.body.classList.add('cursor-default')
-        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })
