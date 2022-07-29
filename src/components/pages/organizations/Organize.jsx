@@ -18,7 +18,7 @@ function Organize() {
   return (
     <>
       <Helmet>
-        <title>PPi Sudan - Organisasi</title>
+        <title>PPI Sudan - Organisasi</title>
       </Helmet>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col-reverse mx-auto lg:my-10 my-4 relative">
         <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">

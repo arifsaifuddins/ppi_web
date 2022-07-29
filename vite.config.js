@@ -9,12 +9,12 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}']
       },
       devOptions: {
         enabled: true
       },
-      includeAssets: ['/assets/img/ppisudan.png', '/assets/img/ppi.png'],
+      includeAssets: ['/assets/img/ppisudan.png', '/assets/img/ppi192.png'],
       manifest: {
         name: 'PPI Sudan',
         short_name: 'PPI Sudan',

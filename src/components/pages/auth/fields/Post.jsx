@@ -25,6 +25,7 @@ function PostField({ name, category }) {
 
   const submitBlogs = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     let forms = new FormData()
 
@@ -46,7 +47,8 @@ function PostField({ name, category }) {
         setErrored(true)
         window.location.assign('/blogs')
       }).catch(j => {
-        setError(j.msg)
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!, gambar salah/terlalu besar.')
         setCommited(true)
         setErrored(true)
       })
@@ -80,7 +82,7 @@ function PostField({ name, category }) {
         </div>
         <div className="flex justify-around items-center md:gap-8 md:flex-row flex-col">
           <div className="w-full">
-            <label htmlFor="postfile" className="my-2 block font-bold text-lg text-teal-600">Poster :</label>
+            <label htmlFor="postfile" className="my-2 block font-bold text-lg text-teal-600">Poster {'< 5MB'} :</label>
             <input required onChange={(e) => setPoster(e.target.files[0])} type="file" id="postfile" className="pos bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
           </div>
           <div className="w-full">

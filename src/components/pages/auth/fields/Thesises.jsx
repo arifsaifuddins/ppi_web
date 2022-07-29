@@ -25,6 +25,7 @@ function ThesisesField() {
 
   function submitThesis() {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     let forms = new FormData()
 

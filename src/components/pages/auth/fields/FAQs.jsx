@@ -22,6 +22,7 @@ function FAQsField() {
 
   const submitFAQs = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     return await fetch(`${nodeurl}/faqs/add`, {
       headers: {
@@ -41,7 +42,8 @@ function FAQsField() {
         setErrored(true)
         window.location.assign('/faqs')
       }).catch(j => {
-        setError(j.message)
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })
@@ -60,7 +62,7 @@ function FAQsField() {
         <input required type="text" name="question" onChange={(e) => setQuestion(e.target.value)} placeholder="Ketik Pertanyaan..." className="que my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
         <textarea required name="answer" onChange={(e) => setAnswer(e.target.value)} onKeyUp={(e) => e.which === 13 && submitFAQs()} placeholder="Ketik Jawaban..." className="ans bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {
-          (Commited == false) ? <p className="bfaqs cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah FAQs</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitAdmin()}>Tambah FAQs</p>
+          (Commited == false) ? <p className="bfaqs cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah FAQs</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitFAQs()}>Tambah FAQs</p>
         }
       </div>
     </div>

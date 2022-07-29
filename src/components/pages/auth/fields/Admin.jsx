@@ -32,6 +32,7 @@ function AdminField() {
 
   const submitAdmin = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     return await fetch(`${nodeurl}/admin/register`, {
       headers: {
@@ -52,7 +53,8 @@ function AdminField() {
         setErrored(true)
         window.location.assign('/admin')
       }).catch(j => {
-        setError(j.message)
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })

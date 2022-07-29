@@ -24,6 +24,7 @@ function OrganizeField() {
 
   const submitSection = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     let forms = new FormData()
 
@@ -43,8 +44,9 @@ function OrganizeField() {
         setCommited(true)
         setErrored(true)
         window.location.assign('/organizations')
-      }).catch(j => {
-        setError(j.msg)
+      }).catch(err => {
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!, gambar salah/terlalu besar.')
         setCommited(true)
         setErrored(true)
       })
@@ -74,9 +76,9 @@ function OrganizeField() {
             </select>
           </div>
           <div className="w-full">
-            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo :</label>
+            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo {'< 5MB'} :</label>
             <input type="file" onChange={(e) => setLogo(e.target.files[0])} className=" bg-transparent py-2 pl-3 rounded-xl text-lg border outline-none border-teal-600 w-[100%]" />
-            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Poster :</label>
+            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Poster {'< 5MB'} :</label>
             <input required type="file" onChange={(e) => setPoster(e.target.files[0])} className=" bg-transparent py-2 pl-3 rounded-xl text-lg border outline-none border-teal-600 w-[100%]" />
           </div>
         </div>

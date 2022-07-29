@@ -34,6 +34,7 @@ function PresidentField() {
 
   const submitPresident = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     let forms = new FormData()
 
@@ -57,7 +58,8 @@ function PresidentField() {
         setErrored(true)
         window.location.assign('/organizations')
       }).catch(j => {
-        setError(j.msg)
+        setError('Terjadi error!, gambar salah/terlalu besar.')
+        document.body.classList.add('cursor-default')
         setCommited(true)
         setErrored(true)
       })
@@ -90,6 +92,7 @@ function PresidentField() {
 
   const submitcoPresident = async () => {
     setcoCommited(false)
+    document.body.classList.add('cursor-wait')
 
     let forms = new FormData()
 
@@ -113,7 +116,8 @@ function PresidentField() {
         setErrored(true)
         window.location.assign('/organizations')
       }).catch(j => {
-        setError(j.msg)
+        setError('Terjadi error!, gambar salah/terlalu besar.')
+        document.body.classList.add('cursor-default')
         setcoCommited(true)
         setErrored(true)
       })
@@ -134,7 +138,7 @@ function PresidentField() {
         <div>
           <label className="block font-bold text-lg text-teal-600">Presiden :</label>
           <div className="w-full">
-            <input required type="file" className="filepres bg-transparent py-2 pl-3 rounded-xl text-lg my-4 border outline-none border-teal-600 w-[100%]" onChange={(e) => setPosterPres(e.target.files[0])} />
+            <input required type="file" id="postid" className="filepres bg-transparent py-2 pl-3 rounded-xl text-lg my-4 border outline-none border-teal-600 w-[100%]" onChange={(e) => setPosterPres(e.target.files[0])} />
             {
               (posterPres != null) && <img src={URL.createObjectURL(posterPres)} alt="president" className="mb-4 w-full" />
             }

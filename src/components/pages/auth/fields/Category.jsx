@@ -21,6 +21,7 @@ function CategoryField() {
 
   const submitCategory = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     return await fetch(`${nodeurl}/category/add`, {
       headers: {
@@ -40,7 +41,8 @@ function CategoryField() {
         setErrored(true)
         window.location.assign('/admin')
       }).catch(j => {
-        setError(j.message)
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })

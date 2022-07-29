@@ -22,6 +22,7 @@ function Mailing() {
 
   const submitMail = async () => {
     setCommited(false)
+    document.body.classList.add('cursor-wait')
 
     return await fetch(`${nodeurl}/mail`, {
       headers: {
@@ -41,7 +42,8 @@ function Mailing() {
         setCommited(true)
         setErrored(true)
       }).catch(j => {
-        setError(j.message)
+        document.body.classList.add('cursor-default')
+        setError('Terjadi error!')
         setCommited(true)
         setErrored(true)
       })
