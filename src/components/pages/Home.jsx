@@ -32,6 +32,39 @@ function Home() {
     })
   }, [])
 
+  useEffect(() => {
+    if (Blogs != null) {
+      const headTag = document.head
+
+      const metaTitle = document.createElement('meta')
+      const metaURL = document.createElement('meta')
+      const metaType = document.createElement('meta')
+      const metaDesc = document.createElement('meta')
+      const metaImg = document.createElement('meta')
+
+      metaTitle.setAttribute("property", "og:title")
+      metaTitle.content = "PPI Sudan - Persatuan Pelajar Indonesia"
+
+      metaURL.setAttribute("property", "og:url")
+      metaURL.content = `https://ppisudan.com`
+
+      metaType.setAttribute("property", "og:type")
+      metaType.content = "article"
+
+      metaDesc.setAttribute("property", "og:description")
+      metaDesc.content = `Indonesian Students Association in Sudan`
+
+      metaImg.setAttribute("property", "og:image")
+      metaImg.content = `https://ppisudan.com/assets/img/ppisudan.png`
+
+      headTag.append(metaTitle)
+      headTag.append(metaURL)
+      headTag.append(metaType)
+      headTag.append(metaDesc)
+      headTag.append(metaImg)
+    }
+  })
+
   return (
     <div className="flex flex-col">
       <Helmet>
