@@ -37,7 +37,7 @@ function Blog() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link rel="stylesheet" href="/src/index.pcss">
+      <link rel="stylesheet" href="../../../index.pcss">
       <link rel="stylesheet" type="text/css" href="/css/trix.css">
       <title>PPI Sudan - Artikel - ${Blogs.data[0].title}</title>
       <script type="text/javascript" src="/js/trix.js"></script>
@@ -64,7 +64,7 @@ function Blog() {
       </style>
     `;
     }
-  })
+  }, [])
 
   useEffect(() => {
     getBlogsCat(0, category).then(a => setCate(a))
