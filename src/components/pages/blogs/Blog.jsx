@@ -58,8 +58,11 @@ function Blog() {
 
   useEffect(() => {
     getBlog(slug).then(a => setBlogs(a))
-    metas()
   }, [slug])
+
+  useEffect(() => {
+    metas()
+  }, [Blogs])
 
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
