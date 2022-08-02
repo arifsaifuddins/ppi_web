@@ -1,7 +1,7 @@
 function SendPost() {
   return (
     <div className="p-4 bg-white shadow rounded-xl dark:bg-[#222222]">
-      <h1 className="text-2xl pb-4 font-bold border-b">Questions</h1>
+      <h1 className="text-2xl pb-4 font-bold border-b">Pertanyaan</h1>
       <div className="flex flex-col items-center">
         <img src="/assets/img/question.svg" alt="question" className="h-32 w-32 my-10" />
         <h1 className="font-bold">Posting artikel kamu di PPI site!</h1>

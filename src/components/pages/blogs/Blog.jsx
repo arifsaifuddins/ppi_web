@@ -20,6 +20,53 @@ function Blog() {
   const category = Blogs != null && Blogs.data != null ? Blogs.data[0].category : null
 
   useEffect(() => {
+    if (Blogs != null) {
+      document.head.innerHTML = /*html*/ `
+      <meta property="og:title" content="PPI Sudan - Artikel" />
+      <meta property="og:url" content="https://ppisudan.com/blog/${slug}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:description" content="${Blogs.data[0].title}" />
+      <meta property="og:image" itemprop="image" content='https://server.ppisudan.com/files/${Blogs.data[0].blog_poster}' />
+      <link rel="apple-touch-icon" href="/assets/img/ppi192.png" sizes="180x180">
+      <link rel="mask-icon" href="/assets/img/ppi192.png" color="#FFFFFF">
+      <meta name="theme-color" content="#115E59">
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <link rel="shortcut icon" href="/assets/img/ppisudan.png" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="/src/index.pcss">
+      <link rel="stylesheet" type="text/css" href="/css/trix.css">
+      <title>PPI Sudan - Artikel - ${Blogs.data[0].title}</title>
+      <script type="text/javascript" src="/js/trix.js"></script>
+      <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        body {
+          font-family: 'Inter var', sans-serif;
+        }
+
+        @supports (font-variation-settings: normal) {
+          body {
+            font-family: 'Inter var', sans-serif;
+          }
+        }
+
+        span.trix-button-group--file-tools {
+          display: none !important;
+        }
+
+        button.trix-button {
+          background-color: #0C9286;
+        }
+      </style>
+    `;
+    }
+  })
+
+  useEffect(() => {
     getBlogsCat(0, category).then(a => setCate(a))
   }, [category])
 
@@ -39,9 +86,9 @@ function Blog() {
               {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
-                    <Helmet>
+                    {/* <Helmet>
                       <title>PPI Sudan - Artikel - {Blogs.data[0].title}</title>
-                    </Helmet>
+                    </Helmet> */}
                     <div className="px-4 md:px-0">
                       <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">Kategori {Blogs.data[0].category}</p></Link>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
@@ -58,7 +105,7 @@ function Blog() {
                     </div>
                     <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="banner-post" className="mb-8" />
                     <article className="px-4 md:px-0 mb-10 w-full">
-                      <p >{parse(Blogs.data[0].body)}</p>
+                      {parse(Blogs.data[0].body)}
                     </article>
                   </div>
                 ) : (
