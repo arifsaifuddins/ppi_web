@@ -19,7 +19,7 @@ function Blog() {
 
   const category = Blogs != null && Blogs.data != null ? Blogs.data[0].category : null
 
-  useEffect(() => {
+  const metas = () => {
     if (Blogs != null) {
       const headTag = document.head
 
@@ -50,7 +50,7 @@ function Blog() {
       headTag.append(metaDesc)
       headTag.append(metaImg)
     }
-  })
+  }
 
   useEffect(() => {
     getBlogsCat(0, category).then(a => setCate(a))
@@ -58,6 +58,7 @@ function Blog() {
 
   useEffect(() => {
     getBlog(slug).then(a => setBlogs(a))
+    metas()
   }, [slug])
 
   return (
