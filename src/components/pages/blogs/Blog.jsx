@@ -56,7 +56,7 @@ function Blog() {
                         },
                         {
                           property: "og:locale",
-                          content: "en_GB"
+                          content: "en_US"
                         },
                         {
                           property: "og:type",
@@ -64,15 +64,7 @@ function Blog() {
                         },
                         {
                           property: "og:image:type",
-                          content: "image/png"
-                        },
-                        {
-                          property: "og:image:width",
-                          content: "200"
-                        },
-                        {
-                          property: "og:image:height",
-                          content: "200"
+                          content: `image/${Blogs.data[0].blog_poster.slice(-3)}`
                         },
                         {
                           property: "og:description",
