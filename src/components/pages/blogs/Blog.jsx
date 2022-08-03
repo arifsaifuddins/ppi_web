@@ -19,39 +19,6 @@ function Blog() {
 
   const category = Blogs != null && Blogs.data != null ? Blogs.data[0].category : null
 
-  const metas = () => {
-    if (Blogs != null) {
-      const headTag = document.head
-
-      const metaTitle = document.createElement('meta')
-      const metaURL = document.createElement('meta')
-      const metaType = document.createElement('meta')
-      const metaDesc = document.createElement('meta')
-      const metaImg = document.createElement('meta')
-
-      metaTitle.setAttribute("property", "og:title")
-      metaTitle.content = "PPI Sudan - Artikel"
-
-      metaURL.setAttribute("property", "og:url")
-      metaURL.content = `https://ppisudan.com/blog/${slug}`
-
-      metaType.setAttribute("property", "og:type")
-      metaType.content = "article"
-
-      metaDesc.setAttribute("property", "og:description")
-      metaDesc.content = `${Blogs.data[0].title}`
-
-      metaImg.setAttribute("property", "og:image")
-      metaImg.content = `https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`
-
-      headTag.append(metaTitle)
-      headTag.append(metaURL)
-      headTag.append(metaType)
-      headTag.append(metaDesc)
-      headTag.append(metaImg)
-    }
-  }
-
   useEffect(() => {
     getBlogsCat(0, category).then(a => setCate(a))
   }, [category])
@@ -59,10 +26,6 @@ function Blog() {
   useEffect(() => {
     getBlog(slug).then(a => setBlogs(a))
   }, [slug])
-
-  useEffect(() => {
-    metas()
-  }, [Blogs])
 
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
@@ -76,9 +39,52 @@ function Blog() {
               {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
-                    <Helmet>
-                      <title>PPI Sudan - Artikel - {Blogs.data[0].title}</title>
-                    </Helmet>
+                    <Helmet
+                      title={`PPI Sudan - Artikel - ${Blogs.data[0].title}`}
+                      meta={[
+                        {
+                          name: "description",
+                          content: Blogs.data[0].title
+                        },
+                        {
+                          property: "og:title",
+                          content: "PPI Sudan - Artikel"
+                        },
+                        {
+                          property: "og:url",
+                          content: `https://ppisudan.com/blog/${slug}`
+                        },
+                        {
+                          property: "og:locale",
+                          content: "en_GB"
+                        },
+                        {
+                          property: "og:type",
+                          content: "article"
+                        },
+                        {
+                          property: "og:image:type",
+                          content: "image/png"
+                        },
+                        {
+                          property: "og:image:width",
+                          content: "200"
+                        },
+                        {
+                          property: "og:image:height",
+                          content: "200"
+                        },
+                        {
+                          property: "og:description",
+                          content: Blogs.data[0].title
+                        },
+                        {
+                          property: "og:image",
+                          itemProp: "image",
+                          content: `https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`
+                        }
+                      ]}
+                    />
                     <div className="px-4 md:px-0">
                       <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">Kategori {Blogs.data[0].category}</p></Link>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
