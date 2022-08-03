@@ -80,7 +80,6 @@ function Blog() {
                         },
                         {
                           property: "og:image",
-                          itemProp: "image",
                           content: `https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`
                         }
                       ]}
