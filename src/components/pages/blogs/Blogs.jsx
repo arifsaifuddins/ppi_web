@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Title } from "react-head";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { blogsFav, getCategories } from "../../../Gets";
 import Empty from "../../layouts/Empty";
@@ -6,7 +7,6 @@ import Loader from "../../Loader";
 import BlogSide from "../../templates/BlogSide";
 import FindUs from "../../templates/FindUs";
 import SendPost from "../../templates/SendPost";
-import { Helmet } from "react-helmet";
 
 function Blogs() {
 
@@ -32,9 +32,8 @@ function Blogs() {
 
   return (
     <>
-      <Helmet>
-        <title>PPI Sudan - Artikel</title>
-      </Helmet>
+      <Title>PPI Sudan - Artikel</Title>
+
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
           <div className="px-4 md:px-0">

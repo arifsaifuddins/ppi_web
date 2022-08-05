@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function AdminField() {
   const [Name, setName] = useState(null)
@@ -9,6 +10,8 @@ function AdminField() {
   const [Errored, setErrored] = useState(false)
   const [Error, setError] = useState(null)
   const [Commited, setCommited] = useState(false)
+
+  const nav = useNavigate()
 
   useEffect(() => {
 
@@ -51,7 +54,8 @@ function AdminField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/admin')
+        document.body.classList.add('cursor-default')
+        nav('/')
       }).catch(j => {
         setError(j.message)
         document.body.classList.add('cursor-default')
@@ -70,7 +74,7 @@ function AdminField() {
         </div>
       }
       <input required type="text" placeholder="Nama Admin..." onChange={(e) => setName(e.target.value)} className="named mt-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-      <input required type="email" placeholder="Email Admin..." onChange={(e) => setEmail(e.target.value)} className="mailed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
+      <input required type="email" placeholder="Email/Username Admin..." onChange={(e) => setEmail(e.target.value)} className="mailed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       <input required type="text" placeholder="Password Admin..." onChange={(e) => setPass(e.target.value)} className="passed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       <input required type="password" placeholder="Konfirmasi Password..." onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setConf(e.target.value)} className="confed mt-2 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
       {

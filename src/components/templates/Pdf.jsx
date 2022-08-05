@@ -1,6 +1,6 @@
-import { delPdf } from "../../Gets";
 import { downloadFile } from 'fs-browsers';
 import Cookies from "js-cookie";
+import { ConfirmAlert } from './Confirm';
 
 function Pdfs({ data }) {
 
@@ -18,7 +18,7 @@ function Pdfs({ data }) {
           <p onClick={() => downloadFile(`${phpurl}/files/${data.pdf}`, data.pdf)} className="text-white bg-teal-600 hover:bg-teal-700 font-bold py-1 text-xs px-3 rounded-full cursor-pointer"><i className="fa fa-download mr-1"></i> Download</p>
           {
             Cookies.get('admin') && Cookies.get('id_admin') && (
-              <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delPdf(data.id)}></i>
+              <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(data.id, 'tesis')}></i>
             )
           }
         </div>

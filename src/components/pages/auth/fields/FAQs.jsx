@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function FAQsField() {
 
@@ -8,6 +9,8 @@ function FAQsField() {
   const [Errored, setErrored] = useState(false)
   const [Error, setError] = useState(null)
   const [Commited, setCommited] = useState(false)
+
+  const nav = useNavigate()
 
   useEffect(() => {
 
@@ -23,7 +26,7 @@ function FAQsField() {
   const submitFAQs = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     return await fetch(`${nodeurl}/faqs/add`, {
       headers: {
         'Accept': 'application/json',
@@ -40,10 +43,13 @@ function FAQsField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/faqs')
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
+        nav('/faqs')
       }).catch(j => {
         setError(j.message)
         document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
         setCommited(true)
         setErrored(true)
       })

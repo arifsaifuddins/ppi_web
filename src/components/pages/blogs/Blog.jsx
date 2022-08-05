@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { delBlogs, getBlog, getBlogsCat } from "../../../Gets";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { getBlogsCat, getBlogv } from "../../../Gets";
 import BlogSide from "../../templates/BlogSide";
 import parse from 'html-react-parser';
 import SendPost from "../../templates/SendPost";
 import Loader from "../../Loader";
 import Empty from "../../layouts/Empty";
-import { Helmet } from "react-helmet";
 import Cookies from "js-cookie";
+import { ConfirmAlert } from "../../templates/Confirm";
+import { Meta, Title } from "react-head";
 
 function Blog() {
 
   const phpurl = import.meta.env.VITE_PHPURL
 
+  const nav = useNavigate()
   const { slug } = useParams()
   const [Cate, setCate] = useState(null)
   const [Blogs, setBlogs] = useState(null)
@@ -24,7 +26,7 @@ function Blog() {
   }, [category])
 
   useEffect(() => {
-    getBlog(slug).then(a => setBlogs(a))
+    getBlogv(slug).then(a => setBlogs(a))
   }, [slug])
 
   return (
@@ -39,45 +41,16 @@ function Blog() {
               {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
-                    <Helmet
-                      title={`PPI Sudan - Artikel - ${Blogs.data[0].title}`}
-                      meta={[
-                        {
-                          name: "description",
-                          content: Blogs.data[0].title
-                        },
-                        {
-                          property: "og:title",
-                          content: "PPI Sudan - Artikel"
-                        },
-                        {
-                          property: "og:url",
-                          content: `https://ppisudan.com/blog/${slug}`
-                        },
-                        {
-                          property: "og:locale",
-                          content: "en_US"
-                        },
-                        {
-                          property: "og:type",
-                          content: "article"
-                        },
-                        {
-                          property: "og:image:type",
-                          content: `image/${Blogs.data[0].blog_poster.slice(-3)}`
-                        },
-                        {
-                          property: "og:description",
-                          content: Blogs.data[0].title
-                        },
-                        {
-                          property: "og:image",
-                          content: `https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`
-                        }
-                      ]}
-                    />
+                    <Title>{`PPI Sudan - Artikel - ${Blogs.data[0].title}`}</Title>
+                    <Meta property="og:title" content="PPI Sudan - Artikel" />
+                    <Meta property="og:description" content={Blogs.data[0].title} />
+                    <Meta property="og:url" content={`https://ppisudan.com/blog/${slug}`} />
+                    <Meta property="og:locale" content="en_US" />
+                    <Meta property="og:type" content="article" />
+                    <Meta property="og:image:type" content={`image/${Blogs.data[0].blog_poster.slice(-3)}`} />
+                    <Meta property="og:image" content={`https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`} />
                     <div className="px-4 md:px-0">
-                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">Kategori {Blogs.data[0].category}</p></Link>
+                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category}</p></Link>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
                         <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
@@ -85,7 +58,13 @@ function Blog() {
                         <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
                         {
                           Cookies.get('admin') && Cookies.get('id_admin') && (
-                            <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer ml-4" onClick={() => delBlogs(Blogs.data[0].id)}></i>
+                            <>
+                              <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer ml-4" onClick={() => {
+                                ConfirmAlert(Blogs.data[0].id, 'artikel')
+                                nav('/blogs')
+                              }}></i>
+                              <Link to={`/blog/edit/${Blogs.data[0].slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer ml-4"></Link>
+                            </>
                           )
                         }
                       </div>

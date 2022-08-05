@@ -23,7 +23,7 @@ function Mailing() {
   const submitMail = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     return await fetch(`${nodeurl}/mail`, {
       headers: {
         'Accept': 'application/json',
@@ -41,8 +41,11 @@ function Mailing() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
       }).catch(j => {
         setError(j.message)
+        document.body.classList.remove('cursor-wait')
         document.body.classList.add('cursor-default')
         setCommited(true)
         setErrored(true)

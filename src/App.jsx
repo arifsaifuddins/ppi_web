@@ -8,6 +8,8 @@ import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/Header";
 import About from "./components/pages/About";
 import Admin from "./components/pages/auth/Admin";
+import PostEdit from "./components/pages/auth/fields/PostEdit";
+import SecEdit from "./components/pages/auth/fields/SecEdit";
 import Login from "./components/pages/auth/Login";
 import All from "./components/pages/blogs/All";
 import AutBlog from "./components/pages/blogs/AuthorBlog";
@@ -85,6 +87,8 @@ function App() {
           <Route path=":s" element={<SearchBlog />} />
         </Route>
         <Route path="/blog/:slug" element={<Blog />} />
+        <Route path="/blog/edit/:slug" element={admin ? <PostEdit /> : <Page404 />} />
+        <Route path="/section/edit/:slug" element={admin ? <SecEdit /> : <Page404 />} />
         <Route path="/organizations" element={<Organize />} >
           <Route index element={<Presidents />} />
           <Route path="vision" element={<VisMiss />} />

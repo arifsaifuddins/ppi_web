@@ -1,15 +1,13 @@
+import { Title } from "react-head";
 import { Link } from "react-router-dom";
 import FindUs from "../templates/FindUs";
 import Mailing from "../templates/Mailing";
 import Mars from "../templates/Mars";
-import { Helmet } from "react-helmet";
 
 function About() {
   return (
     <>
-      <Helmet>
-        <title>PPI Sudan - Tentang</title>
-      </Helmet>
+      <Title>PPI Sudan - Tentang</Title>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># Tentang</h1>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function VisMissField() {
 
@@ -19,11 +20,12 @@ function VisMissField() {
   }, [Vision, Mission])
 
   const nodeurl = import.meta.env.VITE_NODEURL
+  const nav = useNavigate()
 
   const submitVisMiss = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let mission;
 
     if (document.querySelector('.misis')) {
@@ -53,10 +55,13 @@ function VisMissField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/organizations/vision')
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
+        nav('/organizations/vision')
       }).catch(j => {
         setError(j.message)
         document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
         setCommited(true)
         setErrored(true)
       })

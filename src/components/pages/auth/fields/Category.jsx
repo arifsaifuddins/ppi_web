@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function CategoryField() {
   const [Category, setCategory] = useState(null)
@@ -7,6 +8,8 @@ function CategoryField() {
   const [Errored, setErrored] = useState(false)
   const [Error, setError] = useState(null)
   const [Commited, setCommited] = useState(false)
+
+  const nav = useNavigate()
 
   useEffect(() => {
 
@@ -22,7 +25,7 @@ function CategoryField() {
   const submitCategory = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     return await fetch(`${nodeurl}/category/add`, {
       headers: {
         'Accept': 'application/json',
@@ -39,10 +42,13 @@ function CategoryField() {
         setError(j.message)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/admin')
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
+        nav('/')
       }).catch(j => {
         setError(j.message)
         document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
         setCommited(true)
         setErrored(true)
       })

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function ThesisesField() {
 
@@ -22,11 +23,12 @@ function ThesisesField() {
 
   const phpurl = import.meta.env.VITE_PHPURL
   const nodeurl = import.meta.env.VITE_NODEURL
+  const nav = useNavigate()
 
   function submitThesis() {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let forms = new FormData()
 
     forms.append('title', Title)
@@ -49,35 +51,46 @@ function ThesisesField() {
     document.getElementById("progress").innerHTML = Math.round(percent) + "%";
   }
 
-  async function completeHandler(event) {
+  function completeHandler(event) {
 
     document.getElementById("progressBar").value = 0;
     document.getElementById("progress").innerHTML = '0%';
-
-    await fetch(`${nodeurl}/year/add`, {
-      method: 'POST',
-      body: {
-        yeartime: Year || document.querySelector('.ye').value
-      }
-    }).then(a => {
-      const res = JSON.parse(event.target.responseText)
-      setError(res.msg)
-      setCommited(true)
-      setErrored(true)
-      window.location.assign('/organizations/thesis')
-    })
+    const res = JSON.parse(event.target.responseText)
+    setError(res.msg)
+    setCommited(true)
+    setErrored(true)
+    nav('/organizations/thesis')
+    document.body.classList.add('cursor-default')
+    document.body.classList.remove('cursor-wait')
   }
 
   function errorHandler() {
     setError("Upload Failed")
     setCommited(true)
     setErrored(true)
+    document.body.classList.add('cursor-default')
+    document.body.classList.remove('cursor-wait')
   }
 
   function abortHandler() {
     setError("Upload Aborted")
     setCommited(true)
     setErrored(true)
+    document.body.classList.add('cursor-default')
+    document.body.classList.remove('cursor-wait')
+  }
+
+  const addYear = async () => {
+    await fetch(`${nodeurl}/year/add`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        yeartime: Year || document.querySelector('.ye').value
+      })
+    })
   }
 
   return (
@@ -103,7 +116,10 @@ function ThesisesField() {
           <progress id="progressBar" value="0" max="100" className="w-full bg-teal-600 mx-2 rounded-lg"></progress>
         </div>
         {
-          (Commited == false) ? <p className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Tesis</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitThesis()}>Tambah Tesis</p>
+          (Commited == false) ? <p className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Tesis</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => {
+            submitThesis()
+            addYear()
+          }}>Tambah Tesis</p>
         }
       </div>
     </div>

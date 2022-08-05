@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function OrganizeField() {
 
@@ -10,6 +11,8 @@ function OrganizeField() {
   const [Category, setCategory] = useState(null)
   const [Logo, setLogo] = useState(null)
   const [Poster, setPoster] = useState(null)
+
+  const nav = useNavigate()
 
   useEffect(() => {
 
@@ -25,7 +28,7 @@ function OrganizeField() {
   const submitSection = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let forms = new FormData()
 
     forms.append('title', Title)
@@ -43,9 +46,12 @@ function OrganizeField() {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/organizations')
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
+        nav('/organizations')
       }).catch(err => {
         document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
         setError('Terjadi error!, gambar salah/terlalu besar.')
         setCommited(true)
         setErrored(true)
@@ -67,6 +73,13 @@ function OrganizeField() {
           <div className="w-full">
             <label htmlFor="titlesec" className="my-2 block font-bold text-lg text-teal-600">Judul :</label>
             <input required type="text" id="titlesec" onChange={(e) => setTitle(e.target.value)} placeholder="Judul Seksi..." className="satu bg-transparent rounded-xl py-2 pl-3 text-lg  border outline-none border-teal-600 w-[100%]" />
+            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo {'< 5MB'} :</label>
+            <input type="file" onChange={(e) => setLogo(e.target.files[0])} className=" bg-transparent py-2 pl-3 rounded-xl text-lg border outline-none border-teal-600 w-[100%]" />
+            {
+              (Logo != null) && <img src={URL.createObjectURL(Logo)} alt="blog" className="mt-4 w-full" />
+            }
+          </div>
+          <div className="w-full">
             <label htmlFor="titlesec" className="my-2 block font-bold text-lg text-teal-600">Seksi :</label>
             <select required type="text" id="authorpost" onChange={(e) => setCategory(e.target.value)} className="dua bg-transparent border-teal-600 border rounded-xl p-3 text-lg outline-none w-[100%]" >
               <option value="Struktur">Struktur</option>
@@ -74,12 +87,11 @@ function OrganizeField() {
               <option value="Kekeluargaan">Kekeluargaan</option>
               <option value="Universitas">Universitas</option>
             </select>
-          </div>
-          <div className="w-full">
-            <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Logo {'< 5MB'} :</label>
-            <input type="file" onChange={(e) => setLogo(e.target.files[0])} className=" bg-transparent py-2 pl-3 rounded-xl text-lg border outline-none border-teal-600 w-[100%]" />
             <label htmlFor="logo" className="my-2 block font-bold text-lg text-teal-600">Poster {'< 5MB'} :</label>
             <input required type="file" onChange={(e) => setPoster(e.target.files[0])} className=" bg-transparent py-2 pl-3 rounded-xl text-lg border outline-none border-teal-600 w-[100%]" />
+            {
+              (Poster != null) && <img src={URL.createObjectURL(Poster)} alt="blog" className="mt-4 w-full" />
+            }
           </div>
         </div>
         <label className="mb-2 mt-8 block font-bold text-lg text-teal-600">Deskripsi :</label>

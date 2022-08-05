@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
-import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie'
+import { useNavigate } from "react-router-dom";
+import { Title } from "react-head";
 
 function Login() {
+
+  const nav = useNavigate()
 
   const [Email, setEmail] = useState(null)
   const [Pass, setPass] = useState(null)
@@ -24,8 +27,9 @@ function Login() {
   const nodeurl = import.meta.env.VITE_NODEURL
 
   const submitAdmin = async () => {
-    setCommited(false)
     document.body.classList.add('cursor-wait')
+    document.body.classList.remove('cursor-default')
+    setCommited(false)
 
     return await fetch(`${nodeurl}/admin/login`, {
       headers: {
@@ -46,10 +50,13 @@ function Login() {
           Cookies.set('admin', j.data.name, { expires: 2 })
           Cookies.set('id_admin', j.data._id, { expires: 2 })
           setCommited(true)
-          window.location.assign('/admin')
+          document.body.classList.add('cursor-default')
+          document.body.classList.remove('cursor-wait')
+          nav('/admin')
         } else {
           setError(j.message)
           document.body.classList.add('cursor-default')
+          document.body.classList.remove('cursor-wait')
           setCommited(true)
           setErrored(true)
         }
@@ -58,9 +65,7 @@ function Login() {
 
   return (
     <div className="md:w-[90%] md:px-0 w-full px-4 lg:flex-row flex-col-reverse gap-10 mt-20 lg:mt-0 mx-auto flex justify-evenly items-center">
-      <Helmet>
-        <title>PPI Sudan - Login</title>
-      </Helmet>
+      <Title>PPI Sudan - Masuk</Title>
       <div className="p-4 bg-white my-32 shadow rounded-xl w-96 dark:bg-[#222222]">
         <h1 className="text-2xl mb-4 pb-4 font-bold border-b">Masuk Ke PPI Sudan</h1>
         <div className="relative">
@@ -70,7 +75,7 @@ function Login() {
               <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
             </div>
           }
-          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="maile mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
+          <input required autoFocus type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email/Username..." className="maile mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
           <input required type="password" id="passwords" onKeyUp={(e) => e.which === 13 && submitAdmin()} onChange={(e) => setPass(e.target.value)} placeholder="Password..." className="pass mt-4 bg-transparent pr-12 py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
           <p onMouseEnter={() => document.getElementById('passwords').type = 'text'} onMouseLeave={() => document.getElementById('passwords').type = 'password'} className="absolute right-3 bottom-[70px] cursor-pointer hover:text-teal-800 text-teal-600"><i className="fa fa-eye"></i></p>
           {

@@ -6,10 +6,12 @@ import { blogsDis, getcoPres, getPdfs, getPres } from "../../Gets";
 import Loader from "../Loader";
 import Pdfs from "../templates/Pdf";
 import Empty from "../layouts/Empty";
-import { Helmet } from "react-helmet";
+import { Title } from "react-head";
+import Cookies from "js-cookie";
 
 function Home() {
   const phpurl = import.meta.env.VITE_PHPURL
+  const nodeurl = import.meta.env.VITE_NODEURL
 
   const [Pres, setPres] = useState(null)
   const [coPres, setcoPres] = useState(null)
@@ -20,6 +22,22 @@ function Home() {
   useEffect(() => {
     getPdfs(0).then(a => setPdf(a))
     blogsDis(6).then(a => setBlogs(a.data))
+
+    if (!Cookies.get('visit')) {
+
+      Cookies.set('visit', 1, { expires: 1 })
+
+      fetch(nodeurl + '/visit/add', {
+        method: 'POST',
+        body: JSON.stringify({
+          count: 1
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      })
+    }
   }, [])
 
   useEffect(() => {
@@ -34,15 +52,7 @@ function Home() {
 
   return (
     <div className="flex flex-col">
-      <Helmet>
-        <title>PPI Sudan - Beranda</title>
-        <meta property="og:title" content="PPI Sudan - Persatuan Pelajar Indonesia" />
-        <meta property="og:url" content="https://ppisudan.com" />
-        <meta property="og:type" content="article" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:description" content="Indonesian Students Association in Sudan" />
-        <meta property="og:image" content='https://ppisudan.com/assets/img/ppisudan.png' />
-      </Helmet>
+      <Title>PPI Sudan - Beranda</Title>
       <div className="dark:bg-[#222222] bg-white text-slate-900 dark:text-slate-200 shadow-lg">
         <div className="lg:flex-row relative flex flex-col-reverse items-center lg:items-start justify-between mx-auto md:w-[90%] md:px-0 w-full px-4">
           <div className="flex flex-col py-24 lg:w-[45%] items-center lg:items-start">

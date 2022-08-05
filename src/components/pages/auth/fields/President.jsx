@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PresidentField() {
+
+  const nav = useNavigate()
 
   const [Errored, setErrored] = useState(false)
   const [Error, setError] = useState(null)
@@ -35,7 +38,7 @@ function PresidentField() {
   const submitPresident = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let forms = new FormData()
 
     forms.append('name', Name)
@@ -56,9 +59,12 @@ function PresidentField() {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/organizations')
+        document.body.classList.remove('cursor-wait')
+        document.body.classList.add('cursor-default')
+        nav('/organizations')
       }).catch(j => {
         setError('Terjadi error!, gambar salah/terlalu besar.')
+        document.body.classList.remove('cursor-wait')
         document.body.classList.add('cursor-default')
         setCommited(true)
         setErrored(true)
@@ -93,7 +99,7 @@ function PresidentField() {
   const submitcoPresident = async () => {
     setcoCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let forms = new FormData()
 
     forms.append('name', coName)
@@ -114,9 +120,12 @@ function PresidentField() {
         setError(j.msg)
         setcoCommited(true)
         setErrored(true)
-        window.location.assign('/organizations')
+        nav('/organizations')
+        document.body.classList.add('cursor-default')
+        document.body.classList.remove('cursor-wait')
       }).catch(j => {
         setError('Terjadi error!, gambar salah/terlalu besar.')
+        document.body.classList.remove('cursor-wait')
         document.body.classList.add('cursor-default')
         setcoCommited(true)
         setErrored(true)

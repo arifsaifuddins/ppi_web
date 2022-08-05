@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function PostField({ name, category }) {
 
@@ -13,6 +14,7 @@ function PostField({ name, category }) {
   const [Poster, setPoster] = useState(null)
 
   const phpurl = import.meta.env.VITE_PHPURL
+  const nav = useNavigate()
 
   useEffect(() => {
 
@@ -26,7 +28,7 @@ function PostField({ name, category }) {
   const submitBlogs = async () => {
     setCommited(false)
     document.body.classList.add('cursor-wait')
-
+    document.body.classList.remove('cursor-default')
     let forms = new FormData()
 
     forms.append('title', Title)
@@ -45,8 +47,11 @@ function PostField({ name, category }) {
         setError(j.msg)
         setCommited(true)
         setErrored(true)
-        window.location.assign('/blogs')
+        document.body.classList.remove('cursor-wait')
+        document.body.classList.add('cursor-default')
+        nav('/blogs')
       }).catch(j => {
+        document.body.classList.remove('cursor-wait')
         document.body.classList.add('cursor-default')
         setError('Terjadi error!, gambar salah/terlalu besar.')
         setCommited(true)

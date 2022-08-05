@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { delFaqs, getFAQs } from "../../Gets";
+import { getFAQs } from "../../Gets";
 import FindUs from "../templates/FindUs";
 import Mailing from "../templates/Mailing";
-import { Helmet } from "react-helmet";
 import Cookies from "js-cookie";
+import { ConfirmAlert } from "../templates/Confirm";
+import { Title } from "react-head";
 
 function FAQs() {
 
@@ -17,9 +18,7 @@ function FAQs() {
 
   return (
     <>
-      <Helmet>
-        <title>PPI Sudan - FAQs</title>
-      </Helmet>
+      <Title>PPI Sudan - FAQs</Title>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max pb-8 dark:bg-[#222222]">
           <h1 className="text-2xl pb-4 border-b text-teal-600"># FAQs</h1>
@@ -68,7 +67,7 @@ function FAQs() {
                     <p>{a.question}</p>
                     {
                       Cookies.get('admin') && Cookies.get('id_admin') && (
-                        <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => delFaqs(a._id)}></i>
+                        <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => ConfirmAlert(a._id, 'faqs')}></i>
                       )
                     }
                   </h1>

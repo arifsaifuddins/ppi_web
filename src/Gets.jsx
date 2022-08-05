@@ -22,7 +22,6 @@ export const delCategories = async (id) => {
   await fetch(`${nodeurl}/category/delete/${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/admin')
 }
 
 export const getAdmins = async () => {
@@ -34,7 +33,6 @@ export const delAdmins = async (id) => {
   await fetch(`${nodeurl}/admin/delete/${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/admin')
 }
 
 export const getAdmin = async () => {
@@ -107,32 +105,33 @@ export const getBlog = async (slug) => {
     .then(k => k.json())
 }
 
+export const getBlogv = async (slug) => {
+  return await fetch(`${phpurl}/blogs.php/?v=${slug}`)
+    .then(k => k.json())
+}
+
 export const delBlogs = async (id) => {
   await fetch(`${phpurl}/blogs.php/?id=${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/blogs')
 }
 
 export const delSecs = async (id) => {
   await fetch(`${phpurl}/sections.php/?id=${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/organizations')
 }
 
 export const delFaqs = async (id) => {
   await fetch(`${nodeurl}/faqs/delete/${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/faqs')
 }
 
 export const delYear = async (id) => {
   await fetch(`${nodeurl}/year/delete/${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/admin')
 }
 
 export const getPdfs = async (page) => {
@@ -154,5 +153,4 @@ export const delPdf = async (id) => {
   await fetch(`${phpurl}/pdfs.php/?id=${id}`, {
     method: 'DELETE'
   })
-  window.location.assign('/organizations/thesis/')
 }

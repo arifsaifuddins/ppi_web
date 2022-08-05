@@ -1,8 +1,8 @@
 import { useEffect } from "react";
+import { Title } from "react-head";
 import { Outlet, useLocation } from "react-router-dom";
 import FindUs from "../../templates/FindUs";
 import Options from "./Options";
-import { Helmet } from "react-helmet";
 
 function Organize() {
 
@@ -17,9 +17,7 @@ function Organize() {
 
   return (
     <>
-      <Helmet>
-        <title>PPI Sudan - Organisasi</title>
-      </Helmet>
+      <Title>PPI Sudan - Organisasi</Title>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col-reverse mx-auto lg:my-10 my-4 relative">
         <div className="flex flex-col lg:w-[30%] w-full lg:mx-0 gap-8">
           <div className="bg-white z-20 side shadow lg:rounded-xl lg:h-max overflow-y-auto transition-all duration-700 lg:overflow-hidden dark:bg-[#222222] fixed left-0 top-0 bottom-0 pt-16 mt-9 lg:mt-0 lg:pt-0 w-[100%] pb-20 lg:pb-0 md:w-[45%] lg:relative lg:w-full lg:block -translate-x-[100%] lg:translate-x-0">

@@ -13,8 +13,9 @@
     "html-react-parser": "^3.0.1",
     "js-cookie": "^3.0.1",
     "react": "^18.0.0",
+    "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.0.0",
-    "react-helmet": "^6.1.0",
+    "react-head": "^3.4.0",
     "react-router-dom": "^6.3.0",
     "react-topbar-progress-indicator": "^4.1.1",
     "react-type-animation": "^1.1.3"

@@ -1,7 +1,8 @@
 import Cookies from "js-cookie";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { delSecs, getSections } from "../../../Gets";
+import { getSections } from "../../../Gets";
+import { ConfirmAlert } from "../../templates/Confirm";
 
 function Options() {
 
@@ -97,7 +98,10 @@ function Options() {
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   Cookies.get('admin') && Cookies.get('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
+                    <>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c.id, 'seksi')}></i>
+                      <Link to={`/section/edit/${c.slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer"></Link>
+                    </>
                   )
                 }
               </p>
@@ -119,7 +123,10 @@ function Options() {
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   Cookies.get('admin') && Cookies.get('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
+                    <>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c.id, 'seksi')}></i>
+                      <Link to={`/section/edit/${c.slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer"></Link>
+                    </>
                   )
                 }
               </p>
@@ -140,7 +147,10 @@ function Options() {
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   Cookies.get('admin') && Cookies.get('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
+                    <>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c.id, 'seksi')}></i>
+                      <Link to={`/section/edit/${c.slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer"></Link>
+                    </>
                   )
                 }
               </p>
@@ -161,7 +171,10 @@ function Options() {
                 <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
                 {
                   Cookies.get('admin') && Cookies.get('id_admin') && (
-                    <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delSecs(c.id)}></i>
+                    <>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c.id, 'seksi')}></i>
+                      <Link to={`/section/edit/${c.slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer"></Link>
+                    </>
                   )
                 }
               </p>

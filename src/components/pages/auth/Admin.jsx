@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { delAdmins, delCategories, delYear, getAdmin, getAdmins, getCategories } from "../../../Gets"
+import { getAdmin, getAdmins, getCategories } from "../../../Gets"
 import Profile from "../../templates/Profile"
 import AdminField from "./fields/Admin"
 import CategoryField from "./fields/Category"
@@ -9,8 +9,9 @@ import PostField from "./fields/Post"
 import PresidentField from "./fields/President"
 import ThesisesField from "./fields/Thesises"
 import VisMissField from "./fields/VisMiss"
-import { Helmet } from "react-helmet";
 import Cookies from "js-cookie"
+import { ConfirmAlert } from "../../templates/Confirm"
+import { Title } from "react-head"
 
 function Admin() {
 
@@ -49,9 +50,7 @@ function Admin() {
 
   return (
     <>
-      <Helmet>
-        <title>PPI Sudan - Admin</title>
-      </Helmet>
+      <Title>PPI Sudan - Admin</Title>
       <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
         <div className="flex flex-col relative lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
           <div className="flex text-2xl justify-between items-center pb-4 border-b">
@@ -84,7 +83,7 @@ function Admin() {
                     return (
                       <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
                         <h1 className=" font-bold text-teal-600">{c.name}</h1>
-                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delCategories(c._id)}></i>
+                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c._id, 'kategori')}></i>
                       </div>
                     )
                   })
@@ -107,7 +106,7 @@ function Admin() {
                     return (
                       <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
                         <h1 className=" font-bold text-teal-600">{c.name}</h1>
-                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delAdmins(c._id)}></i>
+                        <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c._id, 'admin')}></i>
                       </div>
                     )
                   })
@@ -146,7 +145,7 @@ function Admin() {
                   return (
                     <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
                       <h1 className=" font-bold text-teal-600">{c.year}</h1>
-                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => delYear(c._id)}></i>
+                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c._id, 'angkatan')}></i>
                     </div>
                   )
                 })
