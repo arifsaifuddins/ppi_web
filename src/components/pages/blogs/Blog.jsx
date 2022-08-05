@@ -42,13 +42,13 @@ function Blog() {
                 (Blogs.data != null) ? (
                   <div className="flex flex-col">
                     <Title>{`PPI Sudan - Artikel - ${Blogs.data[0].title}`}</Title>
-                    <Meta property="og:title" content="PPI Sudan - Artikel" />
+                    {/* <Meta property="og:title" content="PPI Sudan - Artikel" />
                     <Meta property="og:description" content={Blogs.data[0].title} />
                     <Meta property="og:url" content={`https://ppisudan.com/blog/${slug}`} />
                     <Meta property="og:locale" content="en_US" />
                     <Meta property="og:type" content="article" />
                     <Meta property="og:image:type" content={`image/${Blogs.data[0].blog_poster.slice(-3)}`} />
-                    <Meta property="og:image" content={`https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`} />
+                    <Meta property="og:image" content={`https://serverppi.ppisudan.com/files/${Blogs.data[0].blog_poster}`} /> */}
                     <div className="px-4 md:px-0">
                       <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category}</p></Link>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
