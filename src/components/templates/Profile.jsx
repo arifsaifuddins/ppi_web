@@ -3,10 +3,11 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from "react-router-dom";
 
-
 function Profile({ name, email }) {
 
   const nav = useNavigate()
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   const ConfirmAlert = () => {
     confirmAlert({
@@ -17,8 +18,8 @@ function Profile({ name, email }) {
           label: 'Yakin',
           onClick: () => {
             nav('/')
-            Cookies.remove('admin')
-            Cookies.remove('id_admin')
+            Cookies.remove(adm)
+            Cookies.remove(idadm)
           }
         },
         {

@@ -9,7 +9,7 @@ function Contact() {
       <img src="/assets/img/mail.svg" alt="mail" className="lg:w-96 w-72 mb-10" />
       <div className="flex flex-col lg:w-96">
         <Mailing />
-        <h3 className="self-center -mb-12 z-2 mt-10 text-xl font-bold text-teal-600 px-3 w-max bg-slate-50 dark:bg-black">OR</h3>
+        <h3 className="self-center -mb-12 z-2 mt-10 text-xl font-bold text-teal-600 px-3 w-max bg-slate-100 dark:bg-[#111]">OR</h3>
         <p className="mt-8 border-t-1 dark:border-t-white -z-20"></p>
         <div className="text-3xl self-center mt-10">
           <Sosmeds />

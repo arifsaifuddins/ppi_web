@@ -22,15 +22,17 @@ function Admin() {
   const [Year, setYear] = useState(null)
 
   const nodeurl = import.meta.env.VITE_NODEURL
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   useEffect(() => {
 
-    if (Cookies.get('admin') && Cookies.get('id_admin')) {
+    if (Cookies.get(adm) && Cookies.get(idadm)) {
       getAdmin().then(a => {
         setName(a.data[0].name)
         setEmail(a.data[0].email)
       })
-    } else if (!Cookies.get('admin')) {
+    } else if (!Cookies.get(adm)) {
       return null
     }
 

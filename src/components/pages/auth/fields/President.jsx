@@ -56,12 +56,22 @@ function PresidentField() {
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.msg)
-        setCommited(true)
-        setErrored(true)
-        document.body.classList.remove('cursor-wait')
-        document.body.classList.add('cursor-default')
-        nav('/organizations')
+        if (j.sts == 'gagal') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+        }
+
+        if (j.sts == 'berhasil') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+          nav('/organizations')
+        }
       }).catch(j => {
         setError('Terjadi error!, gambar salah/terlalu besar.')
         document.body.classList.remove('cursor-wait')
@@ -117,12 +127,22 @@ function PresidentField() {
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.msg)
-        setcoCommited(true)
-        setErrored(true)
-        nav('/organizations')
-        document.body.classList.add('cursor-default')
-        document.body.classList.remove('cursor-wait')
+        if (j.sts == 'gagal') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+        }
+
+        if (j.sts == 'berhasil') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+          nav('/organizations')
+        }
       }).catch(j => {
         setError('Terjadi error!, gambar salah/terlalu besar.')
         document.body.classList.remove('cursor-wait')

@@ -100,7 +100,7 @@ function Home() {
                   )
                 }
               </div>
-              <Link to="/blogs" className="text-teal-600 font-bold mt-8 ml-4 hover:text-teal-500 underline">Lihat Postingan Lebih &raquo;</Link>
+              <Link to="/blogs" className="text-teal-600 font-bold mt-8 ml-4 hover:text-teal-500 underline">Lihat Artikel Lebih &raquo;</Link>
             </>
           )
         }
@@ -178,7 +178,7 @@ function Home() {
                           Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
                         }
                       </div>
-                      <Link to="/organizations/thesis/" className="text-teal-600 font-bold mt-8 mb-20 ml-4 hover:text-teal-500 underline">See More Thesises &raquo;</Link>
+                      <Link to="/organizations/thesis/" className="text-teal-600 font-bold mt-8 mb-20 ml-4 hover:text-teal-500 underline">Lihat Tesis Lebih &raquo;</Link>
                     </>
                   ) : (
                     <Empty empty={Pdf.msg} />

@@ -5,6 +5,8 @@ import { ConfirmAlert } from './Confirm';
 function Pdfs({ data }) {
 
   const phpurl = import.meta.env.VITE_PHPURL
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   return (
     <div className="p-4 flex lg:rounded-xl rounded-md gap-4 bg-slate-50 dark:bg-[#121212] shadow dark:shadow-black">
@@ -17,7 +19,7 @@ function Pdfs({ data }) {
         <div className="flex gap-4 mt-1 -ml-1 items-center">
           <p onClick={() => downloadFile(`${phpurl}/files/${data.pdf}`, data.pdf)} className="text-white bg-teal-600 hover:bg-teal-700 font-bold py-1 text-xs px-3 rounded-full cursor-pointer"><i className="fa fa-download mr-1"></i> Download</p>
           {
-            Cookies.get('admin') && Cookies.get('id_admin') && (
+            Cookies.get(adm) && Cookies.get(idadm) && (
               <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(data.id, 'tesis')}></i>
             )
           }

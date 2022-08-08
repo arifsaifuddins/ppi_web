@@ -13,7 +13,6 @@ import SecEdit from "./components/pages/auth/fields/SecEdit";
 import Login from "./components/pages/auth/Login";
 import All from "./components/pages/blogs/All";
 import AutBlog from "./components/pages/blogs/AuthorBlog";
-import Blog from "./components/pages/blogs/Blog";
 import Blogs from "./components/pages/blogs/Blogs";
 import CateBlog from "./components/pages/blogs/CategoriesBlog";
 import SearchBlog from "./components/pages/blogs/SearchBlog";
@@ -40,10 +39,13 @@ function App() {
   const [prevLoc, setPrevLoc] = useState("")
   const location = useLocation()
 
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
+
   useEffect(() => {
-    if (Cookies.get('admin') && Cookies.get('id_admin')) {
+    if (Cookies.get(adm) && Cookies.get(idadm)) {
       setAdmin(true)
-    } else if (!Cookies.get('admin')) {
+    } else if (!Cookies.get(adm)) {
       setAdmin(false)
     }
   })
@@ -86,7 +88,6 @@ function App() {
           <Route path="author/:author" element={<AutBlog />} />
           <Route path=":s" element={<SearchBlog />} />
         </Route>
-        <Route path="/blog/:slug" element={<Blog />} />
         <Route path="/blog/edit/:slug" element={admin ? <PostEdit /> : <Page404 />} />
         <Route path="/section/edit/:slug" element={admin ? <SecEdit /> : <Page404 />} />
         <Route path="/organizations" element={<Organize />} >

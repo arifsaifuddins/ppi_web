@@ -9,6 +9,8 @@ import { Title } from "react-head";
 function FAQs() {
 
   const [FAQs, setFAQs] = useState(null)
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   useEffect(() => {
     getFAQs().then(a => {
@@ -66,7 +68,7 @@ function FAQs() {
                   <h1 className="lg:text-3xl text-teal-600 text-2xl flex justify-between">
                     <p>{a.question}</p>
                     {
-                      Cookies.get('admin') && Cookies.get('id_admin') && (
+                      Cookies.get(adm) && Cookies.get(idadm) && (
                         <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => ConfirmAlert(a._id, 'faqs')}></i>
                       )
                     }

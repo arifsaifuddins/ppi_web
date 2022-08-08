@@ -6,15 +6,17 @@ import { getCategoriesLim } from "../../Gets";
 function Footer({ visit }) {
 
   const [category, setCategory] = useState(null)
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   useEffect(() => {
     getCategoriesLim(5).then(a => setCategory(a.data))
   }, [])
 
   useEffect(() => {
-    if (Cookies.get('admin') && Cookies.get('id_admin')) {
+    if (Cookies.get(adm) && Cookies.get(idadm)) {
       document.querySelector('.admin').innerHTML = 'Admin'
-    } else if (!Cookies.get('admin')) {
+    } else if (!Cookies.get(adm)) {
       document.querySelector('.admin').innerHTML = 'Masuk'
     }
   })

@@ -8,6 +8,7 @@ import BlogPost from "../../templates/BlogPost";
 function All() {
 
   const phpurl = import.meta.env.VITE_PHPURL
+  const ppi = import.meta.env.VITE_PPI
   const [Blogs, setBlogs] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
@@ -33,13 +34,13 @@ function All() {
               Blogs.data != null ? (
                 <div className="flex flex-col mt-10">
                   <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:shadow-black dark:shadow-lg dark:bg-transparent dark:hover:bg-[#333333]">
-                    <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
+                    <a href={`${ppi}/blog/index.php?slug=${Blogs.data[0].slug}`} className="relative">
                       <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover hover:object-right-bottom transition-all duration-500" />
                       <div className="flex justify-end bg-cover text-slate-100 flex-col absolute right-0 top-0 left-0">
                         <h1 className="lg:text-4xl text-2xl font-bold p-4 bg-opacity-50 bg-slate-900 hover:underline hover:text-teal-600">{Blogs.data[0].title.length < 40 ? Blogs.data[0].title : Blogs.data[0].title.slice(0, 40) + '...'}</h1>
                         <p className="font-light lg:text-xl text-md pb-4 px-4 bg-slate-900 bg-opacity-50">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
                       </div>
-                    </Link>
+                    </a>
                     <div className="flex justify-between items-center text-slate-500 px-4 pt-4 text-sm">
                       <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
                       <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className="text-teal-600 hover:text-teal-700 hover:underline">{Blogs.data[0].category}</p></Link>

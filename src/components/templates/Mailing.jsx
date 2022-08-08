@@ -62,7 +62,7 @@ function Mailing() {
             <p onClick={() => setErrored(false)} className="text-teal-600 hover:text-teal-700 text-2xl cursor-pointer">&times;</p>
           </div>
         }
-        <input required type="text" onChange={(e) => setName(e.target.value)} placeholder="Nama Anda..." className="naming mt-4 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
+        <input required type="text" onChange={(e) => setName(e.target.value)} placeholder="Nama..." className="naming mt-4 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
         <input required type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email..." className="mailing mt-2 bg-transparent py-2 pl-3 rounded-full text-md  border outline-none border-teal-600 w-[100%]" />
         <textarea required onChange={(e) => setMsg(e.target.value)} placeholder="Pesan..." className="msg mt-8 bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {

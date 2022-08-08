@@ -55,12 +55,22 @@ function OrgEdit() {
     })
       .then(r => r.json())
       .then(j => {
-        setError(j.msg)
-        setCommited(true)
-        setErrored(true)
-        document.body.classList.remove('cursor-wait')
-        document.body.classList.add('cursor-default')
-        nav('/organizations')
+        if (j.sts == 'gagal') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+        }
+
+        if (j.sts == 'berhasil') {
+          setError(j.msg)
+          setCommited(true)
+          setErrored(true)
+          document.body.classList.remove('cursor-wait')
+          document.body.classList.add('cursor-default')
+          nav('/organizations')
+        }
       }).catch(err => {
         document.body.classList.add('cursor-default')
         document.body.classList.remove('cursor-wait')

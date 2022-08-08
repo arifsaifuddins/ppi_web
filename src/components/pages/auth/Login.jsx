@@ -25,6 +25,8 @@ function Login() {
   }, [Email, Pass])
 
   const nodeurl = import.meta.env.VITE_NODEURL
+  const adm = import.meta.env.VITE_ADMIN
+  const idadm = import.meta.env.VITE_ID
 
   const submitAdmin = async () => {
     document.body.classList.add('cursor-wait')
@@ -45,10 +47,10 @@ function Login() {
       .then(r => r.json())
       .then(j => {
         if (j.data) {
-          Cookies.remove('admin')
-          Cookies.remove('id_admin')
-          Cookies.set('admin', j.data.name, { expires: 2 })
-          Cookies.set('id_admin', j.data._id, { expires: 2 })
+          Cookies.remove(adm)
+          Cookies.remove(idadm)
+          Cookies.set(adm, j.data.name, { expires: 2 })
+          Cookies.set(idadm, j.data._id, { expires: 2 })
           setCommited(true)
           document.body.classList.add('cursor-default')
           document.body.classList.remove('cursor-wait')
