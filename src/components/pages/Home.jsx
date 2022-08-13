@@ -25,7 +25,7 @@ function Home() {
 
     if (!Cookies.get('visit')) {
 
-      Cookies.set('visit', 1, { expires: 1 })
+      Cookies.set('visit', 'visited', { expires: 1 })
 
       fetch(nodeurl + '/visit/add', {
         method: 'POST',

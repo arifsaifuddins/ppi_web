@@ -12,7 +12,7 @@ function PostField({ name, category }) {
   const [Author, setAuthor] = useState(null)
   const [Dates, setDates] = useState(null)
   const [Poster, setPoster] = useState(null)
-  const [Thumb, setThumb] = useState(null)
+  // const [Thumb, setThumb] = useState(null)
 
   const phpurl = import.meta.env.VITE_PHPURL
   const nav = useNavigate()
@@ -36,7 +36,7 @@ function PostField({ name, category }) {
     forms.append('category', Category || document.querySelector('.cat').value)
     forms.append('author', Author || document.querySelector('.aut').value)
     forms.append('poster', Poster)
-    forms.append('thumb', Thumb)
+    // forms.append('thumb', Thumb)
     forms.append('date', Dates || document.querySelector('.dat').value)
     forms.append('body', document.querySelector('#x').value)
 
@@ -121,17 +121,17 @@ function PostField({ name, category }) {
         </div>
         <div className="flex justify-around items-center gap-8 md:flex-row flex-col my-5">
           <div className="w-full">
-            <label htmlFor="x" className="my-2 block font-bold text-lg text-teal-600">Tanggal :</label>
+            {/* <label htmlFor="x" className="my-2 block font-bold text-lg text-teal-600">Tanggal :</label> */}
             <input type="date" required defaultValue={`${y}-${(m.length < 2) ? '0' : ''}${m}-${(d.length < 2) ? '0' : ''}${d}`} onChange={(e) => setDates(e.target.value)} className="dat bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
           </div>
-          <div className="w-full">
+          {/* <div className="w-full">
             <label htmlFor="x" className="my-2 block font-bold text-lg text-teal-600">Thumbnail {'< 250KB'} :</label>
             <input type="file" required onChange={(e) => setThumb(e.target.files[0])} className="dat bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
-          </div>
+          </div> */}
+          {
+            (Commited == false) ? <p className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Artikel</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Artikel</p>
+          }
         </div>
-        {
-          (Commited == false) ? <p className="bblog cursor-not-allowed text-center bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Artikel</p> : <p className="cursor-pointer text-center bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBlogs()}>Tambah Artikel</p>
-        }
       </div>
     </div>
   );
