@@ -59,6 +59,8 @@ function Blog() {
     }
   }
 
+  const month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+
   return (
     <div className="flex gap-8 md:w-[90%] md:px-0 w-full lg:flex-row flex-col mx-auto lg:my-10 my-4">
       <div className="flex flex-col lg:px-8 sm:px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max  dark:bg-[#222222]">
@@ -73,20 +75,22 @@ function Blog() {
                   <div className="flex flex-col">
                     <Title>{`PPI Sudan - Artikel - ${Blogs.data[0].title}`}</Title>
                     <div className="px-4 md:px-0">
-                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category}</p></Link>
+                      <div className="flex items-center mt-6 justify-between">
+                        <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category}</p></Link>
+                        {
+                          Cookies.get('admin') && Cookies.get('id_admin') && (
+                            <div className="w-max">
+                              <Link to={`/blog/edit/${Blogs.data[0].slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer mx-4"></Link>
+                              <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer ml-4" onClick={() => Copy()}></i>
+                            </div>
+                          )
+                        }
+                      </div>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
                         <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
-                        <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date}</p>
+                        <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date.split('-')[2]} {Blogs.data[0].date.split('-')[1] == '01' ? month[0] : Blogs.data[0].date.split('-')[1] == '02' ? month[1] : Blogs.data[0].date.split('-')[1] == '03' ? month[2] : Blogs.data[0].date.split('-')[1] == '04' ? month[3] : Blogs.data[0].date.split('-')[1] == '05' ? month[4] : Blogs.data[0].date.split('-')[1] == '06' ? month[5] : Blogs.data[0].date.split('-')[1] == '07' ? month[6] : Blogs.data[0].date.split('-')[1] == '08' ? month[7] : Blogs.data[0].date.split('-')[1] == '09' ? month[8] : Blogs.data[0].date.split('-')[1] == '10' ? month[9] : Blogs.data[0].date.split('-')[1] == '11' ? month[10] : month[11]}, {Blogs.data[0].date.split('-')[0]}</p>
                         <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
-                        {
-                          Cookies.get('admin') && Cookies.get('id_admin') && (
-                            <>
-                              <Link to={`/blog/edit/${Blogs.data[0].slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer ml-4"></Link>
-                              <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer mx-4" onClick={() => Copy()}></i>
-                            </>
-                          )
-                        }
                       </div>
                     </div>
                     <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="banner-post" className="mb-8" />

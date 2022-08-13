@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { getCategoriesLim } from "../../Gets";
 
 function Footer({ visit }) {
@@ -51,10 +51,10 @@ function Footer({ visit }) {
         </div>
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:py-0 border-b lg:border-0 pb-10 w-full lg:w-max ">
           <h1 className="font-semibold mb-4 text-xl text-white">Produk</h1>
-          <Link to="/" className="mb-2 hover:text-teal-600">Beranda</Link>
-          <Link to="/blogs" className="mb-2 hover:text-teal-600">Artikel</Link>
-          <Link to="/organizations" className="mb-2 hover:text-teal-600">Organisasi</Link>
-          <Link to="/about" className="mb-2 hover:text-teal-600">Tentang</Link>
+          <NavLink to="/" className="mb-2 hover:text-teal-600">Beranda</NavLink>
+          <NavLink to="/blogs" className="mb-2 hover:text-teal-600">Artikel</NavLink>
+          <NavLink to="/organizations" className="mb-2 hover:text-teal-600">Organisasi</NavLink>
+          <NavLink to="/about" className="mb-2 hover:text-teal-600">Tentang</NavLink>
         </div>
         <div className="flex flex-col text-slate-400 self-start mt-10 lg:mt-0 lg:pb-0 w-full lg:w-max">
           <h1 className="font-semibold mb-4 text-xl text-white">Otonom</h1>
@@ -62,9 +62,9 @@ function Footer({ visit }) {
           <a target="_blank" href="https://www.majalahelnilein.com/" className="mb-2 hover:text-teal-600 flex items-center"><img src="/assets/img/elnilein.png" alt="elnilein" className="h-5 inline mr-2" /> El Nilein</a>
 
           <h1 className="font-semibold my-4 text-xl text-white">Perusahaan</h1>
-          <Link to="/admin" className="admin mb-2 hover:text-teal-600">Admin</Link>
-          <Link to="/faqs" className="mb-2 hover:text-teal-600">FAQs</Link>
-          <Link to="/contact" className="mb-2 hover:text-teal-600">Kontak</Link>
+          <NavLink to="/admin" className="admin mb-2 hover:text-teal-600">Admin</NavLink>
+          <NavLink to="/faqs" className="mb-2 hover:text-teal-600">FAQs</NavLink>
+          <NavLink to="/contact" className="mb-2 hover:text-teal-600">Kontak</NavLink>
         </div>
       </div>
       <footer className="py-4 text-sm mx-auto w-max lg:py-6 flex flex-col md:flex-row items-center">

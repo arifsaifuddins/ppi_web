@@ -43,16 +43,8 @@ function All() {
                       </div>
                     </Link>
                     {/* </a> */}
-                    <div className="flex justify-between items-center text-slate-500 px-4 pt-4 text-sm">
-                      <Link to={`/blogs/author/${Blogs.data[0].author}`}><i className="fa mr-1 fa-user inline"></i><p className="text-teal-600 hover:text-teal-700 hover:underline inline"> {Blogs.data[0].author}</p></Link>
-                      <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className="text-teal-600 hover:text-teal-700 hover:underline">{Blogs.data[0].category}</p></Link>
-                    </div>
-                    <div className="flex justify-between items-center text-slate-500 px-4 pb-4 text-sm mt-1">
-                      <p><i className="fa mr-1 fa-calendar-days"></i> {Blogs.data[0].date}</p>
-                      <p><i className="fa mr-1 fa-eye"></i> {Blogs.data[0].viewer}</p>
-                    </div>
                   </div>
-                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-10 pt-10 border-t">
+                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-5 pt-10">
                     {
                       Blogs.data.map(o => (
                         <div key={o.id} className="dark:shadow-black dark:shadow-lg dark:hover:bg-[#333333] rounded-md lg:rounded-xl ">
