@@ -20,9 +20,13 @@ import SearchBlog from "./components/pages/blogs/SearchBlog";
 import Contact from "./components/pages/Contact";
 import FAQs from "./components/pages/FAQs";
 import Home from "./components/pages/Home";
+import AllBases from "./components/pages/organizations/AllBases";
 import AllPdf from "./components/pages/organizations/AllPdf";
+import Base from "./components/pages/organizations/Base";
+import Faculty from "./components/pages/organizations/Faculty";
 import Organize from "./components/pages/organizations/Organize";
 import Presidents from "./components/pages/organizations/Presidents";
+import SearchBases from "./components/pages/organizations/SearchBase";
 import SearchPdf from "./components/pages/organizations/SearchPdf";
 import Section from "./components/pages/organizations/Section";
 import Thesis from "./components/pages/organizations/Thesises";
@@ -95,10 +99,15 @@ function App() {
         <Route path="/organizations" element={<Organize />} >
           <Route index element={<Presidents />} />
           <Route path="vision" element={<VisMiss />} />
+          <Route path="bases" element={<Base />} >
+            <Route index element={<AllBases />} />
+            <Route path=":s" element={<SearchBases />} />
+          </Route>
           <Route path="section/:slug" element={<Section />} />
           <Route path="thesis/" element={<Thesis />} >
             <Route index element={<AllPdf />} />
             <Route path="y/:year" element={<Years />} />
+            <Route path="f/:faculty" element={<Faculty />} />
             <Route path=":s" element={<SearchPdf />} />
           </Route>
         </Route>

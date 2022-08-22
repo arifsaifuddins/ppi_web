@@ -144,13 +144,34 @@ export const searchPdfs = async (s, page) => {
     .then(k => k.json())
 }
 
+export const searchPdfsBase = async (s, page) => {
+  return await fetch(`${phpurl}/bases.php/?s=${s}&page=${page}`)
+    .then(k => k.json())
+}
+
 export const getYearPdfs = async (year, page) => {
   return await fetch(`${phpurl}/pdfs.php/?year=${year}&page=${page}`)
     .then(k => k.json())
 }
 
+export const getFacultyPdfs = async (faculty, page) => {
+  return await fetch(`${phpurl}/pdfs.php/?faculty=${faculty}&page=${page}`)
+    .then(k => k.json())
+}
+
 export const delPdf = async (id) => {
   await fetch(`${phpurl}/pdfs.php/?id=${id}`, {
+    method: 'DELETE'
+  })
+}
+
+export const getBasePdfs = async (page) => {
+  return await fetch(`${phpurl}/bases.php/?page=${page}`)
+    .then(k => k.json())
+}
+
+export const delBase = async (id) => {
+  await fetch(`${phpurl}/bases.php/?id=${id}`, {
     method: 'DELETE'
   })
 }

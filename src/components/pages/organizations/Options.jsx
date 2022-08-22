@@ -91,13 +91,14 @@ function Options() {
         <i ref={structures} className="fa fa-angle-down"></i>
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
-        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Presiden</Link>
-        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600">Visi & Misi</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Presiden</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Visi & Misi</Link>
+        <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/bases" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Landasan</Link>
         {
           (Structures != null) && Structures.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.title}</Link>
                 {
                   Cookies.get(adm) && Cookies.get(idadm) && (
                     <>
@@ -122,7 +123,7 @@ function Options() {
           (Autonomous != null) && Autonomous.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.title}</Link>
                 {
                   Cookies.get(adm) && Cookies.get(idadm) && (
                     <>
@@ -146,7 +147,7 @@ function Options() {
           (Institutes != null) && Institutes.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.title}</Link>
                 {
                   Cookies.get(adm) && Cookies.get(idadm) && (
                     <>
@@ -170,7 +171,7 @@ function Options() {
           (Universities != null) && Universities.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c.id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.title}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/section/${c.slug}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.title}</Link>
                 {
                   Cookies.get(adm) && Cookies.get(idadm) && (
                     <>
@@ -191,13 +192,13 @@ function Options() {
       </div>
       <div className="hidden flex-col p-4 gap-4 border-t">
         <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/thesis" className="flex justify-between items-center gap-4">
-          <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">Semua Pdf</p>
+          <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">Semua Pdf</p>
         </Link>
         {
           (Year != null) && Year.map(c => {
             return (
               <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c._id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/y/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600">{c.year}</Link>
+                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/y/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.year}</Link>
               </p>
             )
           })

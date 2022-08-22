@@ -12,6 +12,7 @@ import VisMissField from "./fields/VisMiss"
 import Cookies from "js-cookie"
 import { ConfirmAlert } from "../../templates/Confirm"
 import { Title } from "react-head"
+import BasesField from "./fields/Bases"
 
 function Admin() {
 
@@ -69,6 +70,7 @@ function Admin() {
 
           <OrganizeField />
 
+          <BasesField />
 
           <div className="flex flex-col lg:flex-row lg:justify-between mb-6 gap-8">
             <div className="bg-slate-100 shadow rounded-xl overflow-hidden dark:bg-[#121212] w-full">

@@ -7,7 +7,6 @@ import BlogPost from "../../templates/BlogPost";
 
 function All() {
 
-  // const ppi = import.meta.env.VITE_PPI
   const phpurl = import.meta.env.VITE_PHPURL
   const [Blogs, setBlogs] = useState(null)
   const [PageAll, setPageAll] = useState(0)
@@ -34,7 +33,6 @@ function All() {
               Blogs.data != null ? (
                 <div className="flex flex-col mt-10">
                   <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:shadow-black dark:shadow-lg dark:bg-transparent dark:hover:bg-[#333333]">
-                    {/* <a href={`${ppi}/blog/index.php?slug=${Blogs.data[0].slug}`} className="relative"> */}
                     <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
                       <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover hover:object-right-bottom transition-all duration-500" />
                       <div className="flex justify-end bg-cover text-slate-100 flex-col absolute right-0 top-0 left-0">
@@ -42,7 +40,6 @@ function All() {
                         <p className="font-light lg:text-xl text-md pb-4 px-4 bg-slate-900 bg-opacity-50">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
                       </div>
                     </Link>
-                    {/* </a> */}
                   </div>
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-8 mt-5 pt-10">
                     {

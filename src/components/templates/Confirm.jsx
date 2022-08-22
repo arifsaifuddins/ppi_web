@@ -1,5 +1,5 @@
 import { confirmAlert } from "react-confirm-alert";
-import { delAdmins, delBlogs, delCategories, delFaqs, delPdf, delYear } from "../../Gets";
+import { delAdmins, delBase, delBlogs, delCategories, delFaqs, delPdf, delYear } from "../../Gets";
 
 export const ConfirmAlert = (id, each) => {
 
@@ -13,6 +13,11 @@ export const ConfirmAlert = (id, each) => {
           if (each == 'kategori') {
             window.history.back()
             delCategories(id)
+          }
+
+          if (each == 'base') {
+            window.history.back()
+            delBase(id)
           }
 
           if (each == 'admin') {

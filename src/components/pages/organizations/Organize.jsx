@@ -10,8 +10,13 @@ function Organize() {
 
   useEffect(() => {
     if (location.pathname == '/organizations/thesis/') {
-      document.querySelector('.title').textContent = 'Thesises'
-      document.querySelector('.sub').textContent = 'All Pdf'
+      document.querySelector('.title').textContent = 'Tesis'
+      document.querySelector('.sub').textContent = 'Semua Pdf'
+    }
+
+    if (location.pathname == '/organizations/bases/') {
+      document.querySelector('.title').textContent = 'Struktur'
+      document.querySelector('.sub').textContent = 'Landasan'
     }
   }, [])
 
@@ -37,7 +42,7 @@ function Organize() {
         <div className="flex flex-col lg:px-8 px-4 py-4 bg-white shadow rounded-xl w-full lg:w-[68%] h-max dark:bg-[#222222]">
           <div className="flex items-center border-b justify-between">
             <h1 className="text-2xl pb-4 text-teal-600"># <span className="title">Struktur</span> <span className="dark:text-slate-100 text-[#222222] text-xl font-thin"> {'>'} <span className="sub">Presiden</span></span></h1>
-            <i onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="fa fa-align-right mr-1 dark:text-slate-200 text-slate-900 lg:hidden text-2xl -mt-4 hover:text-teal-600 dark:hover:text-teal-600"></i>
+            <i onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="fa fa-align-justify cursor-pointer mr-1 dark:text-slate-200 text-slate-900 lg:hidden text-2xl -mt-4 hover:text-teal-600 dark:hover:text-teal-600"></i>
           </div>
 
           <Outlet />

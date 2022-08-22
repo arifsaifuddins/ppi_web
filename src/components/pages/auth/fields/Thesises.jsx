@@ -6,6 +6,7 @@ function ThesisesField() {
   const [Title, setTitle] = useState(null)
   const [Year, setYear] = useState(null)
   const [Author, setAuthor] = useState(null)
+  const [Faculty, setFaculty] = useState(null)
   const [Pdf, setPdf] = useState(null)
 
   const [Errored, setErrored] = useState(false)
@@ -34,6 +35,7 @@ function ThesisesField() {
     forms.append('title', Title)
     forms.append('author', Author || document.querySelector('.au').value)
     forms.append('year', Year || document.querySelector('.ye').value)
+    forms.append('faculty', Faculty)
     forms.append('pdf', Pdf)
 
     let ajax = new XMLHttpRequest();
@@ -107,6 +109,8 @@ function ThesisesField() {
         <input required id="judul" type="text" name="title" onChange={(e) => setTitle(e.target.value)} placeholder="Judul..." className="ti bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         <label htmlFor="penulis" className="my-2 block font-bold text-lg text-teal-600">Penulis :</label>
         <input required id="penulis" type="text" name="author" onChange={(e) => setAuthor(e.target.value)} placeholder="Penulis..." className="au bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+        <label htmlFor="fak" className="my-2 block font-bold text-lg text-teal-600">Fakultas :</label>
+        <input required id="fak" type="text" name="author" onChange={(e) => setFaculty(e.target.value)} placeholder="Fakultas..." className="bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         <label htmlFor="angkatan" className="my-2 block font-bold text-lg text-teal-600">Tahun Angkatan :</label>
         <input required id="angkatan" name="year" type="number" defaultValue={new Date().getFullYear()} onChange={(e) => setYear(e.target.value)} onKeyUp={(e) => e.which === 13 && submitThesis()} placeholder="Tahun Angkatan..." className="ye bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         <label htmlFor="Pdf" className="my-2 block font-bold text-lg text-teal-600">PDF :</label>
