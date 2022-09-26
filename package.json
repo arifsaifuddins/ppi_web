@@ -2,7 +2,7 @@
   "name": "ppi_web",
   "private": true,
   "homepage": "https://ppisudan.com/",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
