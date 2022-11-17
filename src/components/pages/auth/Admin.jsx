@@ -72,7 +72,7 @@ function Admin() {
 
           <BasesField />
 
-          <div className="flex flex-col lg:flex-row lg:justify-between mb-6 gap-8">
+          <div className="hidden lg:flex flex-col lg:flex-row lg:justify-between mb-6 gap-8">
             <div className="bg-slate-100 shadow rounded-xl overflow-hidden dark:bg-[#121212] w-full">
               <h1 className="text-2xl p-4 font-bold">Kategori Terdaftar</h1>
               <div className="h-52 overflow-auto border-t">
@@ -135,7 +135,7 @@ function Admin() {
 
           <CategoryField />
 
-          <div className="bg-white shadow rounded-xl overflow-hidden dark:bg-[#222222]">
+          <div className="bg-white shadow rounded-xl lg:block hidden overflow-hidden dark:bg-[#222222]">
             <h1 className="text-2xl p-4 font-bold">Angkatan Terdaftar</h1>
             <div className="h-52 overflow-auto border-t">
               {

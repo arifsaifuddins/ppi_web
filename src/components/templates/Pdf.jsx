@@ -10,7 +10,7 @@ function Pdfs({ data }) {
   const idadm = import.meta.env.VITE_ID
 
   return (
-    <div className="p-4 flex flex-col lg:rounded-xl rounded-md gap-2 bg-slate-50 dark:bg-[#121212] shadow dark:shadow-black">
+    <div className="p-4 flex flex-col justify-between lg:rounded-xl rounded-md gap-2 bg-slate-50 dark:bg-[#121212] shadow dark:shadow-black">
       <div className="flex gap-4 pb-2">
         <i className="fa fa-file-pdf p-4 text-white text-4xl bg-red-500 rounded-xl"></i>
         <div className="flex flex-col justify-between">
@@ -23,8 +23,7 @@ function Pdfs({ data }) {
       </div>
       <hr />
       <div className="flex gap-4 mt-1 -ml-1 items-center self-center w-full">
-        <div className="rounded-lg overflow-hidden flex w-full">
-          <a href={`${phpurl}/files/${data.pdf}`} target="_blank" className="text-white bg-yellow-400 hover:bg-yellow-500 font-bold py-2 text-xs px-4 w-max text-center cursor-pointer"><i className="fa fa-eye"></i></a>
+        <div className="rounded-lg overflow-hidden w-full">
           <p onClick={() => downloadFile(`${phpurl}/files/${data.pdf}`, data.pdf)} className="text-white bg-teal-600 hover:bg-teal-700 font-bold py-2 text-xs px-4 w-full text-center cursor-pointer"><i className="fa fa-download mr-1"></i>  {data.size.length > 3 && data.size.length < 7 ? data.size.slice(0, -3) + 'KB' : data.size.length > 6 ? data.size.slice(0, -6) + 'MB' : data.size} Unduh</p>
         </div>
         {

@@ -15,7 +15,7 @@ function Thesis() {
         <div className="p-2 bg-white shadow rounded-lg absolute right-0 top-16 scale-0 transition duration-500 dark:bg-[#222222]">
           <input type="text" placeholder="Cari Tesis..." className="bg-transparent py-1 pl-2 rounded-full text-sm  border outline-none border-teal-600 w-[100%]" onChange={(e) => navigate(`/organizations/thesis/${e.target.value}`)} />
         </div></h3>
-      <h1 className="md:text-3xl text-2xl font-bold my-3">Tahukah Kamu, <br />Kamu bisa bacanya di sini?</h1>
+      <h1 className="md:text-3xl text-2xl font-bold my-3">Sekarang, <br />Kamu dapat akses di sini</h1>
       <Outlet />
     </div>
 

@@ -21,50 +21,50 @@ function About() {
           <div className="flex flex-col py-20 mt-20 border-y">
             <h3 className="text-teal-600">PPI SUDAN</h3>
             <h1 className="md:text-3xl text-2xl font-bold my-3">Sejarah PPI Sudan</h1>
-            <p className="mb-8 first-letter:ml-5 text-justify mt-12">Sejarah rantai peradaban sangat ditentukan dengan peralihan generasi. Tentunya generasi-generasi
+            <p className="mb-8 first-letter:ml-5 mt-12">Sejarah rantai peradaban sangat ditentukan dengan peralihan generasi. Tentunya generasi-generasi
               pilihan yang akan sanggup mengusung dan meneruskan peradaban para pendahulunya. Mereka
               yang secara intelektual, stamina dan psikologis seiring sejalan. Inilah tujuan agung dari proses
               pendidikan yang paripurna.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Pendidikan yang menghasilkan generasi cerdas, kuat dan stabil. Keberadaan <i>Youth Generation</i>
+            <p className="mb-8 first-letter:ml-5 ">Pendidikan yang menghasilkan generasi cerdas, kuat dan stabil. Keberadaan <i>Youth Generation</i>
               menjadi penentu baik dan buruknya sebuah peradaban. Ditambah tugas para generasi muda kita
               sebagai <i>Agent of Change</i> bukanlah tugas yang mudah.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Keberadaan PPI Sudan sebagai wadah mahasiswa Indonesia di Sudan sangat penting adanya.
+            <p className="mb-8 first-letter:ml-5">Keberadaan PPI Sudan sebagai wadah mahasiswa Indonesia di Sudan sangat penting adanya.
               Keberadaanya menjadi sarana untuk meningkatkan intelektual, membangun dan mengembangkan
               sumber daya manusia unggul, bertakwa dan berbudi pekerti luhur.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Atas dasar itulah pada tanggal 15 Februari 1982 M bertepatan dengan tanggal 21 Rabi'ul Akhir 1402
+            <p className="mb-8 first-letter:ml-5 ">Atas dasar itulah pada tanggal 15 Februari 1982 M bertepatan dengan tanggal 21 Rabi'ul Akhir 1402
               H di Khartoum, Perhimpunan Pelajar Indonesia dibentuk, yang diinisiasi oleh sekelompok mahasiswa
               Indonesia di Sudan.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Tujuannya tak lebih adalah sebagai wadah komunikasi, silaturahim, dan pengembangan diri selama
+            <p className="mb-8 first-letter:ml-5 ">Tujuannya tak lebih adalah sebagai wadah komunikasi, silaturahim, dan pengembangan diri selama
               menempuh studi di Sudan dalam berbagai jenjang. Terlebih pada tahun yang sama, perwakilan RI
               masih belum ada di Sudan, sehingga wadah ini sangat diperlukan untuk mewadahi para mahasiswa
               di Sudan.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Pada tahun 1994, Sudan semakin memikat para pelajar Indonesia untuk melanjutkan studi sarjana
+            <p className="mb-8 first-letter:ml-5">Pada tahun 1994, Sudan semakin memikat para pelajar Indonesia untuk melanjutkan studi sarjana
               dan pasca sarjananya. Jumlah mahasiswa Indonesia yang datang, baik itu dari Mesir maupun dari
               Indonesia secara langsung meningkat secara drastis.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Akhirnya pada bulan Februari tahun 1995, di kota Omdurman, Persatuan Pelajar Indonesia Sudan
+            <p className="mb-8 first-letter:ml-5 ">Akhirnya pada bulan Februari tahun 1995, di kota Omdurman, Persatuan Pelajar Indonesia Sudan
               atau disingkat PPI Sudan berdiri secara resmi dengan para inisiator diantaranya Bapak Dr. M.
               Khaeruddin Hamsin, M.A. (Ketua pertama), Bapak Dr. Lalu Ahmad Busyairi, M.A. (Ketua kedua),
               Bapak Dr. Subhan Amier Chaf, M.A., dan Bapak Ujang Tatang Wahyudin.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Pada Musyawarah Tahunan Anggota tahun 2011 nama Persatuan Pelajar Indonesia Sudan
+            <p className="mb-8 first-letter:ml-5">Pada Musyawarah Tahunan Anggota tahun 2011 nama Persatuan Pelajar Indonesia Sudan
               mengalami perubahan nama yaitu menjadi Persatuan Pelajar Mahasiswa Indonesia Sudan atau
               disingkat PPMI Sudan. Hal ini seiring dengan terjadinya amandemen AD/ART dalam musyawarah
               tersebut.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Di tahun 2014, nama PPMI Sudan kembali mengalami perubahan dan kembali ke nama sebelumnya
+            <p className="mb-8 first-letter:ml-5 ">Di tahun 2014, nama PPMI Sudan kembali mengalami perubahan dan kembali ke nama sebelumnya
               yaitu Persatuan Pelajar Indonesia Sudan (PPI Sudan) dengan harapan bahwa organisasi ini tidakhanya menghimpun para mahasiswa, tetapi lebih menjadi sarana persatuan para mahasiswa yang
               berasal dari hampir seluruh provinsi Indonesia.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Organisasi mahasiswa yang sudah berumur 39 tahun ini, kian hari kian dirasakan manfaatnya
+            <p className="mb-8 first-letter:ml-5">Organisasi mahasiswa yang sudah berumur 39 tahun ini, kian hari kian dirasakan manfaatnya
               terutama yang berhubungan dengan kelancaran akademis mahasiswa Indonesia di Sudan. Selain itu
               PPI Sudan semoga terusbmenjadi jembatan birokrasi antara mahasiswa Indonesia dengan berbagai
               instansi, baik swasta atau pemerintahan setempat.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify ">Kedutaan Besar Republik Indonesia (KBRI) Khartoum dan PPI Sudan saling bahu membahu untuk
+            <p className="mb-8 first-letter:ml-5 ">Kedutaan Besar Republik Indonesia (KBRI) Khartoum dan PPI Sudan saling bahu membahu untuk
               mempromosikan dan memperjuangkan nama baik Indonesia dengan menjadi wadah pengembangan
               ilmu dan potensi mereka.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Kini PPI Sudan mulai dirasakan lewat peran para alumni-alumninya. Dahulu, ketika mendengar nama
+            <p className="mb-8 first-letter:ml-5">Kini PPI Sudan mulai dirasakan lewat peran para alumni-alumninya. Dahulu, ketika mendengar nama
               Sudan, yang ada di benak banyak orang adalah negara yang tertinggal dan menyeramkan. Saat ini
               justru sudah lebih dari 1200 orang mahasiswa Indonesia sedang menempuh studi di Negara bagian
               utara Afrika yang juga masih masuk wilayah Negara Arab. Saat ini ada sekitar 2000 orang lebih
               penduduk Indonesia yang berdomisili di sini.</p>
-            <p className="mb-8 first-letter:ml-5 text-justify">Semoga sebagai organisasi persatuan mahasiswa, PPI Sudan selalu menjadi poros pergerakan yang
+            <p className="mb-8 first-letter:ml-5">Semoga sebagai organisasi persatuan mahasiswa, PPI Sudan selalu menjadi poros pergerakan yang
               baik untuk semua orang yang bernaung dibawahnya.</p>
           </div>
           <div className="flex flex-col pt-28">

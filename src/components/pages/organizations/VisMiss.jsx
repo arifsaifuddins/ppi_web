@@ -21,7 +21,7 @@ function VisMiss() {
       <div className="my-10">
         <h1 className="font-bold text-2xl">Visi</h1>
         {
-          (Vis != null) && (<p className="mb-8 first-letter:ml-5 text-justify mt-10">{Vis}</p>)
+          (Vis != null) && (<p className="mb-8 first-letter:ml-5 mt-10">{Vis}</p>)
         }
       </div>
       <hr />

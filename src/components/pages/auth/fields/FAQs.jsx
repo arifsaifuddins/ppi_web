@@ -66,7 +66,7 @@ function FAQsField() {
           </div>
         }
         <input required type="text" name="question" onChange={(e) => setQuestion(e.target.value)} placeholder="Ketik Pertanyaan..." className="que my-4 bg-transparent py-2 pl-3 rounded-full text-lg  border outline-none border-teal-600 w-[100%]" />
-        <textarea required name="answer" onChange={(e) => setAnswer(e.target.value)} onKeyUp={(e) => e.which === 13 && submitFAQs()} placeholder="Ketik Jawaban..." className="ans bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
+        <textarea required name="answer" onChange={(e) => setAnswer(e.target.value)} placeholder="Ketik Jawaban..." className="ans bg-transparent py-2 pl-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" />
         {
           (Commited == false) ? <p className="bfaqs cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah FAQs</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitFAQs()}>Tambah FAQs</p>
         }

@@ -66,7 +66,7 @@ function Home() {
             <p className="text-md md:text-lg text-center lg:text-left font-thin lg:ml-1">Indonesian Students Association in Sudan</p>
             <p className="md:text-xl text-md mb-5 mt-3 text-center lg:text-left lg:ml-1">PPI Sudan adalah Organisasi yang Menaungi Seluruh Pelajar Indonesia yang sedang Menempuh Pendidikan di Sudan</p>
             <div className="flex lg:ml-1 gap-x-4 mt-4">
-              <Link to="/blogs/category/PPPI"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> Artikel PPPI</p></Link>
+              <Link to="/organizations/vision"><p className="py-2 px-3 hover:bg-teal-700 bg-teal-600 text-white rounded-lg"><i className="fa fa-link mr-1"></i> Organisasi Kami</p></Link>
               <Link to="/contact"><p className="py-2 px-3 hover:border-teal-600 border border-teal-700 rounded-lg"><i className="fa fa-mobile-screen-button mr-1"></i> Kontak</p></Link>
             </div>
           </div>
@@ -80,7 +80,7 @@ function Home() {
         <div className="px-4 md:px-0">
           <h3 className="text-teal-600">ARTIKEL TERBARU</h3>
           <h1 className="md:text-3xl text-2xl font-bold my-3">Apa yang baru di PPI Sudan?</h1>
-          <p className="text-md">Berikut enam artikel terbaru kami, baca dan ikuti kami.</p>
+          <p className="text-md">Berikut artikel-artikel terbaru kami, baca dan ikuti kami.</p>
         </div>
         {
           Blogs == null ? (

@@ -35,9 +35,8 @@ function All() {
                   <div className="flex flex-col md:rounded-xl shadow-lg hover:shadow-xl overflow-hidden bg-white dark:shadow-black dark:shadow-lg dark:bg-transparent dark:hover:bg-[#333333]">
                     <Link to={`/blog/${Blogs.data[0].slug}`} className="relative">
                       <img src={phpurl + '/files/' + Blogs.data[0].blog_poster} alt="poster" className="w-full h-[450px] object-cover hover:object-right-bottom transition-all duration-500" />
-                      <div className="flex justify-end bg-cover text-slate-100 flex-col absolute right-0 top-0 left-0">
-                        <h1 className="lg:text-4xl text-2xl font-bold p-4 bg-opacity-50 bg-slate-900 hover:underline hover:text-teal-600">{Blogs.data[0].title.length < 40 ? Blogs.data[0].title : Blogs.data[0].title.slice(0, 40) + '...'}</h1>
-                        <p className="font-light lg:text-xl text-md pb-4 px-4 bg-slate-900 bg-opacity-50">{Blogs.data[0].body.replace(/<[^>]+>/g, '').replaceAll('&nbsp;', '').trim().slice(0, 100)}...</p>
+                      <div className="flex justify-end bg-cover text-slate-100 flex-col absolute right-0 bottom-0 left-0">
+                        <h1 className="lg:text-4xl text-2xl font-bold p-4 bg-opacity-50 bg-slate-900 hover:underline hover:text-teal-600">{Blogs.data[0].title}</h1>
                       </div>
                     </Link>
                   </div>

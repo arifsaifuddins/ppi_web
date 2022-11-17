@@ -27,9 +27,11 @@ function FAQs() {
           <div className="flex flex-col mt-8">
             <h1 className="lg:text-3xl text-teal-600 text-2xl mb-6">Who is made this site, and how?</h1>
             <div>
-              <p className="first-letter:ml-5">Hello World!. I am <a href="https://github.com/saifuddien" className="text-teal-600 hover:underline">Arief Saifuddien</a>, i'm from Jepara, Central Java, Indonesia and i'm currently studying in International University of Africa for Islamic Studies Major.</p>
+              <img src="https://avatars.githubusercontent.com/u/87503629?v=4" className="mb-6 w-52 rounded-xl" alt="Arief Photo" />
 
-              <h1 className="font-bold mt-6">Technologies :</h1>
+              <p className="first-letter:ml-5">Folks!. I am <a href="https://github.com/ariefsaifuddien" className="text-teal-600 underline">Arief Saifuddien</a>, i'm from Jepara, Central Java, Indonesia and i'm currently studying at International University of Africa for Islamic Studies Major in Kartoum, Sudan.</p>
+
+              <h1 className="font-bold mt-6">Technologies made with:</h1>
               <div className="ml-4 mt-4">
                 <p className="mb-2">- Tailwind CSS</p>
                 <p className="mb-2">- React JS</p>
@@ -39,24 +41,20 @@ function FAQs() {
                 <p className="mb-2">- MySQL</p>
               </div>
 
-              <h1 className="font-bold mt-6">Tools :</h1>
+              <h1 className="font-bold mt-6">Tools:</h1>
               <div className="ml-4 mt-4">
-                <p className="mb-2">- VS Code</p>
-                <p className="mb-2">- FireFox</p>
+                <p className="mb-2">- Visual Studio Code</p>
+                <p className="mb-2">- Mozila FireFox</p>
+                <p className="mb-2">- Linux - Fedora36</p>
               </div>
 
-              <h1 className="font-bold mt-6">Operating System :</h1>
-              <div className="mt-4">
-                <p className="text-xl font-bold text-center">Linux - Fedora36</p>
-                <img src="/assets/img/fedora.png" alt="fedora" />
-              </div>
-
-              <h1 className="font-bold mt-4">Socmeds :</h1>
+              <h1 className="font-bold mt-6">Social medias:</h1>
               <div className="ml-4 mt-4 flex-col flex">
-                <a className="hover:text-teal-600 mb-2" href="https://facebook.com/saifuddien01" target="_blank"><i className="fab mr-1 fa-facebook text-blue-800"></i> Arief Saifuddien</a>
-                <a className="hover:text-teal-600 mb-2" href="https://instagram.com/saifuddien_" target="_blank"><i className="fab mr-1 fa-instagram text-pink-500"></i> saifuddien_</a>
-                <a className="hover:text-teal-600 mb-2" href="https://twitter.com/saifuddien_" target="_blank"><i className="fab mr-1 fa-twitter text-blue-400"></i> saifuddien_</a>
-                <a className="hover:text-teal-600 mb-2" href="http://wa.me/+249121208279" target="_blank"><i className="fab mr-1 fa-whatsapp text-green-500"></i> +249 12 12 082 79</a>
+                <a className="hover:text-teal-600 mb-2" href="https://facebook.com/ariefsaifuddien01" target="_blank"><i className="fab mr-1 fa-facebook text-blue-800"></i> Arief Saifuddien</a>
+                <a className="hover:text-teal-600 mb-2" href="https://instagram.com/ariefsaifuddien" target="_blank"><i className="fab mr-1 fa-instagram text-pink-500"></i> ariefsaifuddien</a>
+                <a className="hover:text-teal-600 mb-2" href="https://twitter.com/ariefsaifuddien" target="_blank"><i className="fab mr-1 fa-twitter text-blue-400"></i> ariefsaifuddien</a>
+                <a className="hover:text-teal-600 mb-2" href="https://linkedin.com/in/ariefsaifudien" target="_blank"><i className="fab mr-1 fa-linkedin text-blue-500"></i> ariefsaifuddien</a>
+                <a className="hover:text-teal-600 mb-2" href="http://wa.me/+249121208279" target="_blank"><i className="fab mr-1 fa-whatsapp text-green-500"></i> +249-12-12-082-79</a>
                 <a className="hover:text-teal-600 mb-2" href="mailto:ariefsaifuddien01@gmail.com" target="_blank"><i className="fa mr-1 fa-at text-gray-300"></i> ariefsaifuddien01@gmail.com</a>
               </div>
             </div>
@@ -64,16 +62,16 @@ function FAQs() {
           {
             (FAQs != null) && FAQs.map((a, i) => {
               return (
-                <div key={i} className="flex flex-col mt-4 pt-4 border-t">
+                <div key={i} className="flex flex-col mt-6 pt-4 border-t">
                   <h1 className="lg:text-3xl text-teal-600 text-2xl flex justify-between">
                     <p>{a.question}</p>
                     {
                       Cookies.get(adm) && Cookies.get(idadm) && (
-                        <i className="fa fa-trash text-red-500 text-xl hover:text-red-700 cursor-pointer ml-4" onClick={() => ConfirmAlert(a._id, 'faqs')}></i>
+                        <i className="fa fa-trash text-red-500 text-xl py-2 px-3 hover:bg-gray-700 rounded-lg cursor-pointer ml-4" onClick={() => ConfirmAlert(a._id, 'faqs')}></i>
                       )
                     }
                   </h1>
-                  <p className="text-xl mt-6">{a.answer}</p>
+                  <p className="mt-6">{a.answer}</p>
                 </div>
               )
             })

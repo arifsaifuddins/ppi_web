@@ -45,7 +45,7 @@ function Options() {
   const thesises = useRef()
 
   const structure = () => {
-    structures.current.classList.toggle("-rotate-180");
+    structures.current.classList.toggle("rotate-180");
     structures.current.parentElement.nextElementSibling.classList.toggle("flex");
     structures.current.parentElement.nextElementSibling.classList.toggle("hidden");
   }
@@ -88,9 +88,9 @@ function Options() {
     <>
       <div onClick={() => structure()} className="p-4 cursor-pointer gap-4 border-t hover:bg-slate-50 dark:hover:bg-[#333333] flex justify-between items-center text-xl font-bold text-teal-600 ">
         <h1>Struktur</h1>
-        <i ref={structures} className="fa fa-angle-down"></i>
+        <i ref={structures} className="fa fa-angle-up"></i>
       </div>
-      <div className="hidden flex-col p-4 gap-4 border-t">
+      <div className="flex flex-col p-4 gap-4 border-t">
         <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Presiden</Link>
         <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/vision" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Visi & Misi</Link>
         <Link onClick={(e) => { titleChanges(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/bases" className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 hover:bg-teal-600 hover:text-white">Landasan</Link>

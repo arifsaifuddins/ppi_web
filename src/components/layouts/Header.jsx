@@ -22,6 +22,13 @@ function Header() {
     }
   }
 
+  const botAct = ({ isActive }) => {
+    return {
+      color: isActive && 'white',
+      fontWeight: isActive && 'bold'
+    }
+  }
+
   return (
     <>
       <div className="text-sm bg-[#222222]">
@@ -38,23 +45,35 @@ function Header() {
           <div className="md:flex gap-x-1 items-center hidden">
             <NavLink style={active} to="/" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-house-chimney"></i> Beranda</NavLink>
             <NavLink style={active} to="/blogs" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-book-open"></i> Artikel</NavLink>
-            <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-swatchbook"></i> Organisasi</NavLink>
+            <NavLink style={active} to="/organizations" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-swatchbook"></i> Struktur</NavLink>
             <NavLink style={active} to="/about" className="py-2 px-3 hover:bg-teal-700 rounded-lg"><i className="fa mr-1 fa-briefcase"></i> Tentang</NavLink>
           </div>
           <div className="flex gap-x-1 items-center">
             <i className="fa text-xl fa-comment-dots hover:text-teal-700 cursor-pointer" onClick={() => document.querySelector('.mail').classList.toggle('scale-0')}></i>
             <i className="mode fa md:ml-3 ml-4 lg:mx-6 text-2xl text-teal-800 fa-moon cursor-pointer lg:hover:text-slate-100" onClick={() => darkMode()}></i>
-            <a target="_blank" href="https://github.com/saifuddien/ppi_web" className="hidden lg:block  py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fab mr-1 fa-github"></i> <span className="git">Github</span></a>
+            <a target="_blank" href="https://github.com/ariefsaifuddien/ppi_web" className="hidden lg:block  py-2 px-3 hover:bg-teal-700 dark:hover:bg-teal-700 bg-teal-500 dark:bg-teal-600 rounded-lg"><i className="fab mr-1 fa-github"></i> <span className="git">Github</span></a>
           </div>
           <div className="absolute right-0 top-16 scale-0 transition duration-500 md:w-96 w-[85%] md:mx-0 mx-4 mail text-[#111111] rounded-xl border dark:text-slate-100">
             <Mailing />
           </div>
         </div>
-        <div className="md:hidden gap-x-1 items-center flex fixed bottom-0 left-0 right-0 justify-around text-xl py-2 bg-teal-600  dark:bg-teal-800">
-          <NavLink style={active} to="/" className="py-2 px-3 rounded-lg"><i className="fa fa-house-chimney"></i></NavLink>
-          <NavLink style={active} to="/blogs" className="py-2 px-3 rounded-lg"><i className="fa fa-book-open"></i></NavLink>
-          <NavLink style={active} to="/organizations" className="py-2 px-3 rounded-lg"><i className="fa fa-swatchbook"></i></NavLink>
-          <NavLink style={active} to="/about" className="py-2 px-3 rounded-lg"><i className="fa fa-briefcase"></i></NavLink>
+        <div className="md:hidden gap-x-1 items-center flex fixed bottom-0 left-0 right-0 justify-around py-2 bg-teal-600  dark:bg-teal-800">
+          <NavLink style={botAct} to="/" className="flex flex-col items-center gap-1 p-1 text-slate-300">
+            <i className="fa fa-house-chimney"></i>
+            <p className="text-[10px]">Beranda</p>
+          </NavLink>
+          <NavLink style={botAct} to="/blogs" className="flex flex-col items-center gap-1 p-1 text-slate-300">
+            <i className="fa fa-book-open"></i>
+            <p className="text-[10px]">Artikel</p>
+          </NavLink>
+          <NavLink style={botAct} to="/organizations" className="flex flex-col items-center gap-1 p-1 text-slate-300">
+            <i className="fa fa-swatchbook"></i>
+            <p className="text-[10px]">Struktur</p>
+          </NavLink>
+          <NavLink style={botAct} to="/about" className="flex flex-col items-center gap-1 p-1 text-slate-300">
+            <i className="fa fa-briefcase"></i>
+            <p className="text-[10px]">Tentang</p>
+          </NavLink>
         </div>
       </div>
     </>
