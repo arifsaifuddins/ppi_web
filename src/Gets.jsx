@@ -128,12 +128,6 @@ export const delFaqs = async (id) => {
   })
 }
 
-export const delYear = async (id) => {
-  await fetch(`${nodeurl}/year/delete/${id}`, {
-    method: 'DELETE'
-  })
-}
-
 export const getPdfs = async (page) => {
   return await fetch(`${phpurl}/pdfs.php/?page=${page}`)
     .then(k => k.json())
@@ -149,13 +143,18 @@ export const searchPdfsBase = async (s, page) => {
     .then(k => k.json())
 }
 
-export const getYearPdfs = async (year, page) => {
-  return await fetch(`${phpurl}/pdfs.php/?year=${year}&page=${page}`)
+export const getProgramPdfs = async (program, page) => {
+  return await fetch(`${phpurl}/pdfs.php/?program=${program}&page=${page}`)
     .then(k => k.json())
 }
 
 export const getFacultyPdfs = async (faculty, page) => {
   return await fetch(`${phpurl}/pdfs.php/?faculty=${faculty}&page=${page}`)
+    .then(k => k.json())
+}
+
+export const getCampusPdfs = async (campus, page) => {
+  return await fetch(`${phpurl}/pdfs.php/?campus=${campus}&page=${page}`)
     .then(k => k.json())
 }
 

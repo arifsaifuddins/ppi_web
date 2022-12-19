@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { searchPdfs } from "../../../Gets";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import Pdfs from "../../templates/Pdf";
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import Pdfs from "../../../templates/Pdf"
+import { getCampusPdfs } from "../../../../Gets"
 
-function Thesis() {
+function Campus() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
-  const { s } = useParams()
+  const { campus } = useParams()
 
   useEffect(() => {
-    searchPdfs(s, PageAll).then(a => setPdf(a))
-  }, [s, PageAll])
+    getCampusPdfs(campus, PageAll).then(a => setPdf(a))
+  }, [campus, PageAll])
 
   return (
     <>
@@ -26,6 +26,7 @@ function Thesis() {
             {
               (Pdf.data != null) ? (
                 <>
+                  <Link to={`/organizations/thesis/c/${Pdf.data[0].campus}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].campus}</p></Link>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
                       Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
@@ -63,7 +64,7 @@ function Thesis() {
         )
       }
     </>
-  );
+  )
 }
 
-export default Thesis;
+export default Campus

@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <script type="text/javascript" src="/js/trix.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
@@ -45,15 +47,10 @@
 </head>
 
 <body class="bg-slate-100 dark:bg-[#111111] text-slate-900 dark:text-slate-200">
-  <div id="root">
-    <div class="flex h-[100vh] w-full">
-      <div class="animate-spin duration-700 w-12 h-12 p-2 rounded-full m-auto" id="spin-loader"></div>
-    </div>
-  </div>
+  <div id="root"></div>
 
   <script type="module" src="./src/main.jsx"></script>
   <script>
-
     document.addEventListener('trix-file-accept', (e) => {
       e.preventDefault()
     })
@@ -69,7 +66,6 @@
         toTop.classList.add('hidden')
       }
     })
-
   </script>
 </body>
 

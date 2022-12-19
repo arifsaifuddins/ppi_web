@@ -33,25 +33,25 @@ function BasesField() {
     forms.append('thumb', Thumb)
     forms.append('pdf', Pdf)
 
-    let ajax = new XMLHttpRequest();
-    ajax.upload.addEventListener("progress", progressHandler, false);
-    ajax.addEventListener("load", completeHandler, false);
-    ajax.addEventListener("error", errorHandler, false);
-    ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", `${phpurl}/bases.php`);
-    ajax.send(forms);
+    let ajax = new XMLHttpRequest()
+    ajax.upload.addEventListener("progress2", progressHandler, false)
+    ajax.addEventListener("load", completeHandler, false)
+    ajax.addEventListener("error", errorHandler, false)
+    ajax.addEventListener("abort", abortHandler, false)
+    ajax.open("POST", `${phpurl}/bases.php`)
+    ajax.send(forms)
   }
 
   function progressHandler(event) {
-    const percent = (event.loaded / event.total) * 100;
-    document.getElementById("progressBar").value = Math.round(percent);
-    document.getElementById("progress").innerHTML = Math.round(percent) + "%";
+    const percent = (event.loaded / event.total) * 100
+    document.getElementById("progressBar2").value = Math.round(percent)
+    document.getElementById("progress2").innerHTML = Math.round(percent) + "%"
   }
 
   function completeHandler(event) {
 
-    document.getElementById("progressBar").value = 0;
-    document.getElementById("progress").innerHTML = '0%';
+    document.getElementById("progressBar2").value = 0
+    document.getElementById("progress2").innerHTML = '0%'
     const res = JSON.parse(event.target.responseText)
     setError(res.msg)
     setCommited(true)
@@ -101,15 +101,15 @@ function BasesField() {
           </div>
         </div>
         <div className="flex gap-2 items-center justify-between ml-2">
-          <label id="progress">0%</label>
-          <progress id="progressBar" value="0" max="100" className="w-full bg-teal-600 ml-2 rounded-lg"></progress>
+          <label id="progress2">0%</label>
+          <progress id="progressBar2" value="0" max="100" className="w-full bg-teal-600 ml-2 rounded-lg overflow-hidden"></progress>
         </div>
         {
           (Commited == false) ? <p className="bthesis cursor-not-allowed text-center mt-4 bg-teal-800 text-slate-400 py-2 pl-3 rounded-full text-lg font-bold w-[100%]">Tambah Landasan</p> : <p className="cursor-pointer text-center mt-4 bg-teal-600 text-white py-2 pl-3 rounded-full text-lg hover:bg-teal-700 font-bold w-[100%]" onClick={() => submitBases()}>Tambah Landasan</p>
         }
       </div>
     </div>
-  );
+  )
 }
 
-export default BasesField;
+export default BasesField

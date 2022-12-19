@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getBlog } from "../../../../Gets"
 import Empty from "../../../layouts/Empty"
 import Loader from "../../../Loader"
-import parse from 'html-react-parser';
+import parse from 'html-react-parser'
 
 function PsEdit({ category }) {
 
@@ -115,7 +115,7 @@ function PsEdit({ category }) {
                     </div>
                     <div className="w-full">
                       <label htmlFor="authorpost" className="my-2 block font-bold text-lg text-teal-600">Kategori :</label>
-                      <select required type="text" id="authorpost" onChange={(e) => setCategory(e.target.value)} className="cat bg-transparent p-3 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" >
+                      <select required type="text" id="authorpost" onChange={(e) => setCategory(e.target.value)} className="cat bg-transparent px-3 py-2 rounded-xl text-lg  border outline-none border-teal-600 w-[100%]" >
                         <option value={Blogs.data[0].category}>{Blogs.data[0].category}</option>
                         {
                           category != null && category.map(s => <option key={s._id} value={s.name}>{s.name}</option>)
@@ -145,7 +145,7 @@ function PsEdit({ category }) {
         )
       }
     </div>
-  );
+  )
 }
 
-export default PsEdit;
+export default PsEdit

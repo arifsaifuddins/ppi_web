@@ -1,5 +1,5 @@
-import { confirmAlert } from "react-confirm-alert";
-import { delAdmins, delBase, delBlogs, delCategories, delFaqs, delPdf, delYear } from "../../Gets";
+import { confirmAlert } from "react-confirm-alert"
+import { delAdmins, delBase, delBlogs, delCategories, delFaqs, delPdf } from "../../Gets"
 
 export const ConfirmAlert = (id, each) => {
 
@@ -25,11 +25,6 @@ export const ConfirmAlert = (id, each) => {
             delAdmins(id)
           }
 
-          if (each == 'angkatan') {
-            window.history.back()
-            delYear(id)
-          }
-
           if (each == 'artikel') {
             window.history.back()
             delBlogs(id)
@@ -51,5 +46,5 @@ export const ConfirmAlert = (id, each) => {
         onClick: () => null
       }
     ]
-  });
-};
+  })
+}

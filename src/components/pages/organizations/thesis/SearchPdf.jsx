@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import { getPdfs } from "../../../Gets";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import Pdfs from "../../templates/Pdf";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { searchPdfs } from "../../../../Gets"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import Pdfs from "../../../templates/Pdf"
 
-function AllPdf() {
+function Thesis() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
+  const { s } = useParams()
+
   useEffect(() => {
-    getPdfs(PageAll).then(a => setPdf(a))
-  }, [PageAll])
+    searchPdfs(s, PageAll).then(a => setPdf(a))
+  }, [s, PageAll])
 
   return (
     <>
@@ -60,7 +63,7 @@ function AllPdf() {
         )
       }
     </>
-  );
+  )
 }
 
-export default AllPdf;
+export default Thesis

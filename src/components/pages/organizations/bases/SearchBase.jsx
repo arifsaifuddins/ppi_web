@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import Pdfs from "../../templates/Pdf";
-import { getFacultyPdfs } from "../../../Gets";
+import { useEffect, useState } from "react"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import PdfsBase from "../../../templates/PdfBase"
+import { useParams } from "react-router-dom"
+import { searchPdfsBase } from "../../../../Gets"
 
-function Faculty() {
+function SearchBases() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
-  const { faculty } = useParams()
+  const { s } = useParams()
 
   useEffect(() => {
-    getFacultyPdfs(faculty, PageAll).then(a => setPdf(a))
-  }, [faculty, PageAll])
+    searchPdfsBase(s, PageAll).then(a => setPdf(a))
+  }, [s, PageAll])
 
   return (
     <>
@@ -26,10 +26,9 @@ function Faculty() {
             {
               (Pdf.data != null) ? (
                 <>
-                  <Link to={`/organizations/thesis/${Pdf.data[0].faculty}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].faculty}</p></Link>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
-                      Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
+                      Pdf.data.map(data => (<PdfsBase key={data.id} data={data} />))
                     }
                   </div>
                   <div className="flex items-center gap-4 mx-auto">
@@ -64,7 +63,7 @@ function Faculty() {
         )
       }
     </>
-  );
+  )
 }
 
-export default Faculty;
+export default SearchBases

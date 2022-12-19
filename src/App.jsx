@@ -1,39 +1,46 @@
-import Cookies from "js-cookie";
-import React, { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import Cookies from "js-cookie"
+import React, { useState, useEffect } from "react"
+import { Routes, Route, useLocation } from "react-router-dom"
 import TopBarProgress from "react-topbar-progress-indicator"
 
-import Page404 from "./components/layouts/404";
-import Footer from "./components/layouts/Footer";
-import Header from "./components/layouts/Header";
-import About from "./components/pages/About";
-import Admin from "./components/pages/auth/Admin";
-import PostEdit from "./components/pages/auth/fields/PostEdit";
-import SecEdit from "./components/pages/auth/fields/SecEdit";
-import Login from "./components/pages/auth/Login";
-import All from "./components/pages/blogs/All";
-import AutBlog from "./components/pages/blogs/AuthorBlog";
-import Blog from "./components/pages/blogs/Blog";
-import Blogs from "./components/pages/blogs/Blogs";
-import CateBlog from "./components/pages/blogs/CategoriesBlog";
-import SearchBlog from "./components/pages/blogs/SearchBlog";
-import Contact from "./components/pages/Contact";
-import FAQs from "./components/pages/FAQs";
-import Home from "./components/pages/Home";
-import AllBases from "./components/pages/organizations/AllBases";
-import AllPdf from "./components/pages/organizations/AllPdf";
-import Base from "./components/pages/organizations/Base";
-import Faculty from "./components/pages/organizations/Faculty";
-import Organize from "./components/pages/organizations/Organize";
-import Presidents from "./components/pages/organizations/Presidents";
-import SearchBases from "./components/pages/organizations/SearchBase";
-import SearchPdf from "./components/pages/organizations/SearchPdf";
-import Section from "./components/pages/organizations/Section";
-import Thesis from "./components/pages/organizations/Thesises";
-import VisMiss from "./components/pages/organizations/VisMiss";
-import Years from "./components/pages/organizations/Years";
-import ToTop from "./components/templates/ToTop";
-import { getVisitor } from "./Gets";
+import Page404 from "./components/layouts/404"
+import Footer from "./components/layouts/Footer"
+import Header from "./components/layouts/Header"
+
+import Contact from "./components/pages/Contact"
+import FAQs from "./components/pages/FAQs"
+import Home from "./components/pages/Home"
+import About from "./components/pages/About"
+
+import Admin from "./components/pages/auth/Admin"
+import PostEdit from "./components/pages/auth/fields/PostEdit"
+import SecEdit from "./components/pages/auth/fields/SecEdit"
+import Login from "./components/pages/auth/Login"
+
+import All from "./components/pages/blogs/All"
+import AutBlog from "./components/pages/blogs/AuthorBlog"
+import Blog from "./components/pages/blogs/Blog"
+import Blogs from "./components/pages/blogs/Blogs"
+import CateBlog from "./components/pages/blogs/CategoriesBlog"
+import SearchBlog from "./components/pages/blogs/SearchBlog"
+
+import Base from "./components/pages/organizations/Base"
+import Organize from "./components/pages/organizations/Organize"
+import Presidents from "./components/pages/organizations/Presidents"
+import Section from "./components/pages/organizations/Section"
+import Thesis from "./components/pages/organizations/Thesises"
+import VisMiss from "./components/pages/organizations/VisMiss"
+import SearchBases from "./components/pages/organizations/bases/SearchBase"
+import AllBases from "./components/pages/organizations/bases/AllBases"
+import SearchPdf from "./components/pages/organizations/thesis/SearchPdf"
+import Faculty from "./components/pages/organizations/thesis/Faculty"
+import AllPdf from "./components/pages/organizations/thesis/AllPdf"
+import Programs from "./components/pages/organizations/thesis/Programs"
+import Campus from "./components/pages/organizations/thesis/Campus"
+
+import ToTop from "./components/templates/ToTop"
+import { getVisitor } from "./Gets"
+import ReadThesis from "./components/pages/organizations/thesis/ReadThesis"
 
 function App() {
   const [admin, setAdmin] = useState(false)
@@ -70,9 +77,9 @@ function App() {
   useEffect(() => {
 
     if (localStorage.getItem("mode")) {
-      document.querySelector("html").classList.add("dark");
-      document.querySelector(".mode").classList.remove("text-teal-800");
-      document.querySelector(".mode").classList.add("text-yellow-200");
+      document.querySelector("html").classList.add("dark")
+      document.querySelector(".mode").classList.remove("text-teal-800")
+      document.querySelector(".mode").classList.add("text-yellow-200")
     }
 
     getVisitor().then(a => setVisitor(a.data))
@@ -106,7 +113,9 @@ function App() {
           <Route path="section/:slug" element={<Section />} />
           <Route path="thesis/" element={<Thesis />} >
             <Route index element={<AllPdf />} />
-            <Route path="y/:year" element={<Years />} />
+            <Route path="p/:program" element={<Programs />} />
+            <Route path="d/:detail" element={<ReadThesis />} />
+            <Route path="c/:campus" element={<Campus />} />
             <Route path="f/:faculty" element={<Faculty />} />
             <Route path=":s" element={<SearchPdf />} />
           </Route>
@@ -122,7 +131,7 @@ function App() {
 
       <Footer visit={visitor} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

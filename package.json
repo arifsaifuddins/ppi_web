@@ -16,6 +16,7 @@
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.0.0",
     "react-head": "^3.4.0",
+    "react-pdf": "^6.2.0",
     "react-router-dom": "^6.3.0",
     "react-topbar-progress-indicator": "^4.1.1",
     "react-type-animation": "^1.1.3"

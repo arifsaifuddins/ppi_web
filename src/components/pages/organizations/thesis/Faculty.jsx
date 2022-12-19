@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import { getBasePdfs } from "../../../Gets";
-import PdfsBase from "../../templates/PdfBase";
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import Pdfs from "../../../templates/Pdf"
+import { getFacultyPdfs } from "../../../../Gets"
 
-function AllBases() {
+function Faculty() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
+  const { faculty } = useParams()
+
   useEffect(() => {
-    getBasePdfs(PageAll).then(a => setPdf(a))
-  }, [PageAll])
+    getFacultyPdfs(faculty, PageAll).then(a => setPdf(a))
+  }, [faculty, PageAll])
 
   return (
     <>
@@ -23,9 +26,10 @@ function AllBases() {
             {
               (Pdf.data != null) ? (
                 <>
+                  <Link to={`/organizations/thesis/f/${Pdf.data[0].faculty}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].faculty}</p></Link>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
-                      Pdf.data.map(data => (<PdfsBase key={data.id} data={data} />))
+                      Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
                     }
                   </div>
                   <div className="flex items-center gap-4 mx-auto">
@@ -60,7 +64,7 @@ function AllBases() {
         )
       }
     </>
-  );
+  )
 }
 
-export default AllBases;
+export default Faculty

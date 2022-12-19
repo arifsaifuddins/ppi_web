@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import PdfsBase from "../../templates/PdfBase";
-import { useParams } from "react-router-dom";
-import { searchPdfsBase } from "../../../Gets";
+import { useEffect, useState } from "react"
+import { getPdfs } from "../../../../Gets"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import Pdfs from "../../../templates/Pdf"
 
-function SearchBases() {
+function AllPdf() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
-  const { s } = useParams()
-
   useEffect(() => {
-    searchPdfsBase(s, PageAll).then(a => setPdf(a))
-  }, [s, PageAll])
+    getPdfs(PageAll).then(a => setPdf(a))
+  }, [PageAll])
 
   return (
     <>
@@ -28,7 +25,7 @@ function SearchBases() {
                 <>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
-                      Pdf.data.map(data => (<PdfsBase key={data.id} data={data} />))
+                      Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
                     }
                   </div>
                   <div className="flex items-center gap-4 mx-auto">
@@ -63,7 +60,7 @@ function SearchBases() {
         )
       }
     </>
-  );
+  )
 }
 
-export default SearchBases;
+export default AllPdf

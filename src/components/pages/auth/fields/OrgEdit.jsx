@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getSection } from "../../../../Gets"
 import Empty from "../../../layouts/Empty"
 import Loader from "../../../Loader"
-import parse from 'html-react-parser';
+import parse from 'html-react-parser'
 
 function OrgEdit() {
 
@@ -109,7 +109,7 @@ function OrgEdit() {
                     </div>
                     <div className="w-full">
                       <label htmlFor="titlesec" className="my-2 block font-bold text-lg text-teal-600">Seksi :</label>
-                      <select required type="text" id="authorpost" onChange={(e) => setCategory(e.target.value)} className="dua bg-transparent border-teal-600 border rounded-xl p-3 text-lg outline-none w-[100%]" >
+                      <select required type="text" id="authorpost" onChange={(e) => setCategory(e.target.value)} className="dua bg-transparent border-teal-600 border rounded-xl px-3 py-2 text-lg outline-none w-[100%]" >
                         <option value={Sections.data[0].category}>{Sections.data[0].category}</option>
                         <option value="Struktur">Struktur</option>
                         <option value="Otonom">Otonom</option>
@@ -138,7 +138,7 @@ function OrgEdit() {
         )
       }
     </div>
-  );
+  )
 }
 
-export default OrgEdit;
+export default OrgEdit

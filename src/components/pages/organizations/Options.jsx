@@ -1,8 +1,8 @@
-import Cookies from "js-cookie";
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { getSections } from "../../../Gets";
-import { ConfirmAlert } from "../../templates/Confirm";
+import Cookies from "js-cookie"
+import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom"
+import { getSections } from "../../../Gets"
+import { ConfirmAlert } from "../../templates/Confirm"
 
 function Options() {
 
@@ -45,33 +45,33 @@ function Options() {
   const thesises = useRef()
 
   const structure = () => {
-    structures.current.classList.toggle("rotate-180");
-    structures.current.parentElement.nextElementSibling.classList.toggle("flex");
-    structures.current.parentElement.nextElementSibling.classList.toggle("hidden");
+    structures.current.classList.toggle("rotate-180")
+    structures.current.parentElement.nextElementSibling.classList.toggle("flex")
+    structures.current.parentElement.nextElementSibling.classList.toggle("hidden")
   }
 
   const autonomou = () => {
-    autonomous.current.classList.toggle("-rotate-180");
-    autonomous.current.parentElement.nextElementSibling.classList.toggle("flex");
-    autonomous.current.parentElement.nextElementSibling.classList.toggle("hidden");
+    autonomous.current.classList.toggle("-rotate-180")
+    autonomous.current.parentElement.nextElementSibling.classList.toggle("flex")
+    autonomous.current.parentElement.nextElementSibling.classList.toggle("hidden")
   }
 
   const institute = () => {
-    institutes.current.classList.toggle("-rotate-180");
-    institutes.current.parentElement.nextElementSibling.classList.toggle("flex");
-    institutes.current.parentElement.nextElementSibling.classList.toggle("hidden");
+    institutes.current.classList.toggle("-rotate-180")
+    institutes.current.parentElement.nextElementSibling.classList.toggle("flex")
+    institutes.current.parentElement.nextElementSibling.classList.toggle("hidden")
   }
 
   const universitie = () => {
-    universities.current.classList.toggle("-rotate-180");
-    universities.current.parentElement.nextElementSibling.classList.toggle("flex");
-    universities.current.parentElement.nextElementSibling.classList.toggle("hidden");
+    universities.current.classList.toggle("-rotate-180")
+    universities.current.parentElement.nextElementSibling.classList.toggle("flex")
+    universities.current.parentElement.nextElementSibling.classList.toggle("hidden")
   }
 
   const thesis = () => {
-    thesises.current.classList.toggle("-rotate-180");
-    thesises.current.parentElement.nextElementSibling.classList.toggle("flex");
-    thesises.current.parentElement.nextElementSibling.classList.toggle("hidden");
+    thesises.current.classList.toggle("-rotate-180")
+    thesises.current.parentElement.nextElementSibling.classList.toggle("flex")
+    thesises.current.parentElement.nextElementSibling.classList.toggle("hidden")
   }
 
   const titleChange = (e) => {
@@ -194,18 +194,18 @@ function Options() {
         <Link onClick={(e) => { titleChange(e); document.querySelector('.side').classList.toggle('-translate-x-[100%]') }} to="/organizations/thesis" className="flex justify-between items-center gap-4">
           <p className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">Semua Pdf</p>
         </Link>
-        {
-          (Year != null) && Year.map(c => {
-            return (
-              <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} key={c._id} className="flex justify-between items-center gap-4">
-                <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/y/${c.year}`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">{c.year}</Link>
-              </p>
-            )
-          })
-        }
+        <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="flex justify-between items-center gap-4">
+          <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/p/bachelor`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">Bachelor</Link>
+        </p>
+        <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="flex justify-between items-center gap-4">
+          <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/p/master`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">Master</Link>
+        </p>
+        <p onClick={() => document.querySelector('.side').classList.toggle('-translate-x-[100%]')} className="flex justify-between items-center gap-4">
+          <Link onClick={(e) => titleChange(e)} to={`/organizations/thesis/p/phd`} className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-black dark:hover:bg-teal-600 w-full hover:bg-teal-600 hover:text-white">PhD</Link>
+        </p>
       </div>
     </>
-  );
+  )
 }
 
-export default Options;
+export default Options

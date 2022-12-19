@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getYearPdfs } from "../../../Gets";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import Pdfs from "../../templates/Pdf";
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import { getProgramPdfs } from "../../../../Gets"
+import Loader from "../../../Loader"
+import Empty from "../../../layouts/Empty"
+import Pdfs from "../../../templates/Pdf"
 
-function Years() {
+function Programs() {
 
   const [Pdf, setPdf] = useState(null)
   const [PageAll, setPageAll] = useState(0)
 
-  const { year } = useParams()
+  const { program } = useParams()
 
   useEffect(() => {
-    getYearPdfs(year, PageAll).then(a => setPdf(a))
-  }, [year, PageAll])
+    getProgramPdfs(program, PageAll).then(a => setPdf(a))
+  }, [program, PageAll])
 
   return (
     <>
@@ -26,7 +26,7 @@ function Years() {
             {
               (Pdf.data != null) ? (
                 <>
-                  <Link to={`/organizations/thesis/${Pdf.data[0].year}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].year}</p></Link>
+                  <Link to={`/organizations/thesis/p/${Pdf.data[0].program}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].program}</p></Link>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
                       Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
@@ -64,7 +64,7 @@ function Years() {
         )
       }
     </>
-  );
+  )
 }
 
-export default Years;
+export default Programs

@@ -20,9 +20,7 @@ function Admin() {
   const [Email, setEmail] = useState(null)
   const [Categories, setCategories] = useState(null)
   const [Admins, setAdmins] = useState(null)
-  const [Year, setYear] = useState(null)
 
-  const nodeurl = import.meta.env.VITE_NODEURL
   const adm = import.meta.env.VITE_ADMIN
   const idadm = import.meta.env.VITE_ID
 
@@ -39,8 +37,6 @@ function Admin() {
 
     getCategories().then(a => setCategories(a.data))
     getAdmins().then(a => setAdmins(a.data))
-    fetch(`${nodeurl}/year/get`)
-      .then(k => k.json()).then(a => setYear(a.data))
 
   }, [])
 
@@ -135,32 +131,10 @@ function Admin() {
 
           <CategoryField />
 
-          <div className="bg-white shadow rounded-xl lg:block hidden overflow-hidden dark:bg-[#222222]">
-            <h1 className="text-2xl p-4 font-bold">Angkatan Terdaftar</h1>
-            <div className="h-52 overflow-auto border-t">
-              {
-                Year == null ? (
-                  <div className="flex h-52 w-full">
-                    <div className="m-auto animate-spin duration-700 w-8 h-8 rounded-full p-1 spin-loader">
-                      <span className="w-full h-full bg-white dark:bg-[#222222] inline-block rounded-full"></span>
-                    </div>
-                  </div>
-                ) : (Year.map(c => {
-                  return (
-                    <div key={c._id} className="flex text-md p-4 gap-4 justify-between items-center border-b hover:bg-slate-50 dark:hover:bg-[#333333]">
-                      <h1 className=" font-bold text-teal-600">{c.year}</h1>
-                      <i className="fa fa-trash text-red-500 hover:text-red-700 cursor-pointer" onClick={() => ConfirmAlert(c._id, 'angkatan')}></i>
-                    </div>
-                  )
-                })
-                )
-              }
-            </div>
-          </div>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Admin;
+export default Admin
