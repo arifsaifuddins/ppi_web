@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getBlogsCat, getBlogv } from "../../../Gets";
-import BlogSide from "../../templates/BlogSide";
-import parse from 'html-react-parser';
-import SendPost from "../../templates/SendPost";
-import Loader from "../../Loader";
-import Empty from "../../layouts/Empty";
-import Cookies from "js-cookie";
-import { Title } from "react-head";
-import { confirmAlert } from "react-confirm-alert";
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import { getBlogsCat, getBlogv } from "../../../Gets"
+import BlogSide from "../../templates/BlogSide"
+import parse from 'html-react-parser'
+import SendPost from "../../templates/SendPost"
+import Loader from "../../Loader"
+import Empty from "../../layouts/Empty"
+import Cookies from "js-cookie"
+import { Title } from "react-head"
+import Copy from "../../templates/Copy"
 
 function Blog() {
 
@@ -27,37 +27,6 @@ function Blog() {
   useEffect(() => {
     getBlogv(slug).then(a => setBlogs(a))
   }, [slug])
-
-  const Info = (msgs) => {
-    confirmAlert({
-      message: msgs,
-      buttons: [
-        {
-          label: 'Oke',
-          onClick: () => {
-            null
-          }
-        }
-      ]
-    })
-  }
-
-  const Copy = () => {
-
-    try {
-      const dummy = document.createElement('input')
-
-      document.body.appendChild(dummy);
-      dummy.value = window.location.href;
-      dummy.select()
-      const successful = document.execCommand('copy');
-      const msg = successful ? 'URL berhasil disalin' : 'URL gagal disalin';
-      document.body.removeChild(dummy);
-      Info(msg)
-    } catch (err) {
-      Info('Oops, URL ada error')
-    }
-  }
 
   const month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 
@@ -81,10 +50,10 @@ function Blog() {
                           Cookies.get('admin') && Cookies.get('id_admin') && (
                             <div className="w-max">
                               <Link to={`/blog/edit/${Blogs.data[0].slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer mx-4"></Link>
-                              <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer ml-4" onClick={() => Copy()}></i>
                             </div>
                           )
                         }
+                        <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer ml-4" onClick={() => Copy()}></i>
                       </div>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
@@ -134,7 +103,7 @@ function Blog() {
         <SendPost />
       </div>
     </div >
-  );
+  )
 }
 
-export default Blog;
+export default Blog

@@ -36,9 +36,9 @@ function ThesisesField() {
     forms.append('title', Title)
     forms.append('author', Author || document.querySelector('.au').value)
     forms.append('year', new Date().getFullYear())
-    forms.append('program', Program)
-    forms.append('faculty', Faculty)
-    forms.append('campus', Campus)
+    forms.append('program', Program || document.querySelector('.pr').value)
+    forms.append('faculty', Faculty || document.querySelector('.fak').value)
+    forms.append('campus', Campus || document.querySelector('.ca').value)
     forms.append('pdf', Pdf)
 
     let ajax = new XMLHttpRequest()

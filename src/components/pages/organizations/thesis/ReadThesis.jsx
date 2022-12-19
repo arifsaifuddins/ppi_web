@@ -7,6 +7,7 @@ import { downloadFile } from 'fs-browsers'
 import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import 'react-pdf/dist/esm/Page/TextLayer.css'
+import Copy from "../../../templates/Copy"
 
 function ReadThesis() {
 
@@ -41,7 +42,10 @@ function ReadThesis() {
                   <div className="my-10 w-full">
                     <div className="w-full mb-6">
                       <h1 className="text-center font-[alexandria] text-xl text-teal-600 leading-9">{Pdf.data[0].title}</h1>
-                      <p onClick={() => downloadFile(`${phpurl}/files/${Pdf.data[0].pdf}`, Pdf.data[0].title + '.pdf')} className="text-white rounded-lg my-8 bg-teal-600 hover:bg-teal-700 font-bold py-2 text-xs px-4 w-full text-center cursor-pointer"><i className="fa fa-download mr-1"></i>  {Pdf.data[0].size.length > 3 && Pdf.data[0].size.length < 7 ? Pdf.data[0].size.slice(0, -3) + 'KB' : Pdf.data[0].size.length > 6 ? Pdf.data[0].size.slice(0, -6) + 'MB' : Pdf.data[0].size} Unduh</p>
+                      <div className="flex lg:gap-4 gap-2 items-center">
+                        <p onClick={() => downloadFile(`${phpurl}/files/${Pdf.data[0].pdf}`, Pdf.data[0].title + '.pdf')} className="text-white rounded-lg my-8 bg-teal-600 hover:bg-teal-700 font-bold py-2 text-xs px-4 w-full text-center cursor-pointer"><i className="fa fa-download mr-1"></i>  {Pdf.data[0].size.length > 3 && Pdf.data[0].size.length < 7 ? Pdf.data[0].size.slice(0, -3) + 'KB' : Pdf.data[0].size.length > 6 ? Pdf.data[0].size.slice(0, -6) + 'MB' : Pdf.data[0].size} Unduh</p>
+                        <i className="fa fa-share bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-lg px-4 py-2" onClick={() => Copy()}></i>
+                      </div>
 
                       <p className='mt-1 font-bold'><i className="fa mr-1 fa-user"></i> <span>{Pdf.data[0].author}</span></p>
                       <Link to={`/organizations/thesis/c/${Pdf.data[0].campus}`} className='mt-1 block'><i className="fa mr-1 fa-building"></i> <span className='hover:underline text-teal-600'>{Pdf.data[0].campus}</span></Link>

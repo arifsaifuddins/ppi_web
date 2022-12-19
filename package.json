@@ -3,8 +3,9 @@
   "private": true,
   "homepage": "https://ppisudan.com/",
   "version": "1.0.0",
+  "author": "Arief Saifuddien | https://github.com/ariefsaifuddien",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },

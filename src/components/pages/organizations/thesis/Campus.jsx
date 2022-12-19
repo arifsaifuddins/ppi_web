@@ -26,7 +26,7 @@ function Campus() {
             {
               (Pdf.data != null) ? (
                 <>
-                  <Link to={`/organizations/thesis/c/${Pdf.data[0].campus}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].campus}</p></Link>
+                  <Link to={`/organizations/thesis/c/${Pdf.data[0].campus}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max mt-6 text-sm lg:text-lg dark:bg-[#333]"># {Pdf.data[0].campus.length < 35 ? Pdf.data[0].campus : Pdf.data[0].campus.slice(0, 35) + '...'}</p></Link>
                   <div className="my-10 grid lg:grid-cols-2 grid-cols-1 gap-4">
                     {
                       Pdf.data.map(data => (<Pdfs key={data.id} data={data} />))
