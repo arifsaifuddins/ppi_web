@@ -46,14 +46,14 @@ function Blog() {
                     <div className="px-4 md:px-0">
                       <div className="flex items-center mt-6 justify-between">
                         <Link to={`/blogs/category/${Blogs.data[0].category}`}><p className=" font-bold hover:text-teal-700 py-1 px-2 rounded-lg bg-slate-100 w-max text-sm lg:text-lg dark:bg-[#333]">{Blogs.data[0].category}</p></Link>
-                        {
-                          Cookies.get('admin') && Cookies.get('id_admin') && (
-                            <div className="w-max">
+                        <div className="w-max">
+                          {
+                            Cookies.get('admin') && Cookies.get('id_admin') && (
                               <Link to={`/blog/edit/${Blogs.data[0].slug}`} className="fa fa-edit text-teal-600 hover:text-teal-700 cursor-pointer mx-4"></Link>
-                            </div>
-                          )
-                        }
-                        <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer ml-4" onClick={() => Copy()}></i>
+                            )
+                          }
+                          <i className="fa fa-share text-blue-500 hover:text-blue-700 cursor-pointer ml-4" onClick={() => Copy()}></i>
+                        </div>
                       </div>
                       <h1 className="md:text-4xl text-3xl font-bold mt-5 text-teal-600">{Blogs.data[0].title}</h1>
                       <div className="flex md:gap-4 gap-2 text-slate-500 py-5 mb-8 items-center">
